@@ -19,293 +19,342 @@
       --accent: #1a3a5c;
     }
 
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html { font-size: 15px; }
 
     body {
       background: var(--bg);
       color: var(--ink);
       font-family: 'Inter', sans-serif;
       font-weight: 400;
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Page shell ─────────────────────────────── */
     .page {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 0 1.75rem;
+      padding: 0 1.75rem 3rem;
     }
 
-    /* ── Back link ──────────────────────────────── */
+    /* ── Back link ───────────────────────────────── */
     .back {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      margin-top: 2rem;
-      font-size: 0.8rem;
+      gap: 0.35rem;
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
       color: var(--muted);
       text-decoration: none;
-      letter-spacing: 0.03em;
       transition: color 0.15s;
     }
-
     .back:hover { color: var(--accent); }
-
     .back svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
     }
 
-    /* ── Page header ────────────────────────────── */
-    .cv-header {
-      padding: 3rem 0 2.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .cv-name {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2rem, 4vw, 2.6rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      line-height: 1.15;
-    }
-
-    .cv-title {
-      margin-top: 0.45rem;
-      font-size: 0.82rem;
-      font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* ── Section ────────────────────────────────── */
-    section {
-      padding: 2.8rem 0 0;
-    }
+    /* ── Section ─────────────────────────────────── */
+    section { padding-top: 2rem; }
 
     .section-label {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.6rem;
-    }
-
-    /* ── CV entry (LinkedIn-style) ──────────────── */
-    .cv-entry {
-      display: flex;
-      gap: 1.1rem;
-      padding: 1.2rem 0;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--rule);
     }
 
-    .cv-entry:last-child {
-      border-bottom: none;
+    /* ── CV entry ────────────────────────────────── */
+    .cv-entry {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
     }
+    .cv-entry:last-child { border-bottom: none; }
 
-    /* Logo column */
     .cv-logo {
       flex-shrink: 0;
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
+      width: 48px; height: 48px;
+      border-radius: 7px;
       overflow: hidden;
       border: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #f0f0ee;
+    }
+    .cv-logo img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+      padding: 3px;
     }
 
-    .cv-logo svg { display: block; }
-
-    /* Text column */
     .cv-body { flex: 1; min-width: 0; }
 
     .cv-org {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--ink);
       line-height: 1.3;
     }
-
     .cv-role {
-      font-size: 0.93rem;
-      font-weight: 400;
+      font-size: 0.88rem;
       color: var(--mid);
       margin-top: 0.1rem;
-      line-height: 1.3;
     }
-
     .cv-meta {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 0.25rem;
-      letter-spacing: 0.01em;
+      margin-top: 0.2rem;
     }
 
-    .cv-desc {
-      font-size: 0.86rem;
-      color: var(--mid);
-      margin-top: 0.6rem;
-      line-height: 1.65;
-    }
-
-    .cv-tag {
+    /* Grade badge */
+    .cv-grade {
       display: inline-block;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 500;
       color: var(--accent);
       background: #e8eef4;
       border-radius: 3px;
-      padding: 0.15rem 0.45rem;
-      margin-top: 0.55rem;
-      letter-spacing: 0.03em;
+      padding: 0.12rem 0.4rem;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
     }
 
-    /* ── Footer ─────────────────────────────────── */
+    /* Dissertation + supervisors block */
+    .cv-thesis {
+      margin-top: 0.65rem;
+      padding: 0.6rem 0.75rem;
+      background: #f4f4f1;
+      border-left: 2px solid var(--rule);
+      border-radius: 0 4px 4px 0;
+    }
+    .cv-thesis-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .cv-thesis-title {
+      font-size: 0.84rem;
+      color: var(--mid);
+      font-style: italic;
+    }
+    .cv-supervisors {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .cv-supervisors a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .cv-supervisors a:hover { border-color: var(--accent); }
+
+    /* Expandable presentations */
+    details.presentations {
+      margin-top: 0.7rem;
+    }
+    details.presentations summary {
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--accent);
+      cursor: pointer;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      user-select: none;
+    }
+    details.presentations summary::-webkit-details-marker { display: none; }
+    details.presentations summary::before {
+      content: '›';
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.18s;
+      display: inline-block;
+    }
+    details[open].presentations summary::before {
+      transform: rotate(90deg);
+    }
+
+    .pres-timeline {
+      margin-top: 0.65rem;
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .pres-entry {
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    .pres-date {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 5.5rem;
+    }
+    .pres-event {
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+
+    /* Small tag (bridging) */
+    .cv-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: #e8eef4;
+      border-radius: 3px;
+      padding: 0.12rem 0.4rem;
+      margin-top: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Desc */
+    .cv-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      margin-top: 0.45rem;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ──────────────────────────────────── */
     footer {
       border-top: 1px solid var(--rule);
-      margin-top: 4rem;
-      padding: 1.8rem 0 2.5rem;
-    }
-
-    .footer-inner {
+      margin-top: 2.5rem;
+      padding: 1.4rem 0;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
-
-    .footer-inner a,
-    .footer-inner span {
-      font-size: 0.78rem;
+    footer a, footer span {
+      font-size: 0.75rem;
       color: var(--muted);
       text-decoration: none;
     }
+    footer a:hover { color: var(--accent); }
 
-    .footer-inner a:hover { color: var(--accent); }
-
-    /* ── Responsive ─────────────────────────────── */
-    @media (max-width: 500px) {
-      .cv-entry { gap: 0.85rem; }
-      .cv-logo  { width: 44px; height: 44px; }
-      .cv-logo svg { width: 44px !important; height: 44px !important; }
+    @media (max-width: 480px) {
+      .cv-entry { gap: 0.75rem; }
+      .cv-logo { width: 40px; height: 40px; }
+      .pres-date { min-width: 4rem; }
     }
   </style>
 </head>
 <body>
+<div class="page">
 
-  <div class="page">
+  <!-- Back -->
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Matin Shams
+  </a>
 
-    <!-- Back -->
-    <a class="back" href="index.html">
-      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      Matin Shams
-    </a>
+  <!-- ── Education ─────────────────────────────── -->
+  <section>
+    <p class="section-label">Education</p>
 
-    <!-- Header -->
-    <div class="cv-header">
-      <h1 class="cv-name">Matin Shams</h1>
-      <p class="cv-title">Mathematical Modelling &amp; Scientific Computing</p>
+    <!-- Oxford -->
+    <div class="cv-entry">
+      <div class="cv-logo">
+        <img src="assets/logos/oxforduni_logo.jpeg" alt="University of Oxford" />
+      </div>
+      <div class="cv-body">
+        <div class="cv-org">
+          University of Oxford
+          <span class="cv-grade">Merit</span>
+        </div>
+        <div class="cv-role">MSc Mathematical Modelling &amp; Scientific Computing</div>
+        <div class="cv-meta">2024 – 2025 &nbsp;·&nbsp; Oxford, United Kingdom</div>
+
+        <div class="cv-thesis">
+          <div class="cv-thesis-label">Dissertation</div>
+          <div class="cv-thesis-title">[Dissertation title]</div>
+          <div class="cv-supervisors">
+            Supervised by
+            <a href="https://pefarrell.org/" target="_blank" rel="noopener">Patrick Farrell</a>
+            and
+            <a href="https://borisandrews.github.io/" target="_blank" rel="noopener">Boris Andrews</a>
+          </div>
+        </div>
+
+        <details class="presentations">
+          <summary>Presentations</summary>
+          <div class="pres-timeline">
+            <div class="pres-entry">
+              <span class="pres-date">[Month Year]</span>
+              <span class="pres-event">[Conference / seminar name]</span>
+            </div>
+          </div>
+        </details>
+
+      </div>
     </div>
 
-    <!-- ── Education ──────────────────────────── -->
-    <section>
-      <p class="section-label">Education</p>
-
-      <!-- Oxford -->
-      <div class="cv-entry">
-        <div class="cv-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-            <rect width="52" height="52" fill="#002147"/>
-            <text x="26" y="22" font-family="Georgia,serif" font-weight="700" font-size="9.5" fill="#c8a951" text-anchor="middle" letter-spacing="0.5">UNIVERSITY</text>
-            <text x="26" y="32" font-family="Georgia,serif" font-weight="700" font-size="9.5" fill="#c8a951" text-anchor="middle" letter-spacing="0.5">OF OXFORD</text>
-            <text x="26" y="43" font-family="Georgia,serif" font-weight="400" font-size="7.5" fill="rgba(200,169,81,0.6)" text-anchor="middle">Est. 1096</text>
-          </svg>
-        </div>
-        <div class="cv-body">
-          <div class="cv-org">University of Oxford</div>
-          <div class="cv-role">MSc Mathematical Modelling &amp; Scientific Computing</div>
-          <div class="cv-meta">2024 – 2025 &nbsp;·&nbsp; Oxford, United Kingdom</div>
-        </div>
+    <!-- UBC -->
+    <div class="cv-entry">
+      <div class="cv-logo">
+        <img src="assets/logos/ubc_logo.jpeg" alt="University of British Columbia" />
       </div>
-
-      <!-- TU Delft -->
-      <div class="cv-entry">
-        <div class="cv-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-            <rect width="52" height="52" fill="#00A6D6"/>
-            <text x="26" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="white" text-anchor="middle">TU</text>
-            <text x="26" y="38" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="rgba(255,255,255,0.85)" text-anchor="middle" letter-spacing="0.3">DELFT</text>
-          </svg>
-        </div>
-        <div class="cv-body">
-          <div class="cv-org">Delft University of Technology</div>
-          <div class="cv-role">BSc Aerospace Engineering</div>
-          <div class="cv-meta">2021 – 2024 &nbsp;·&nbsp; Delft, Netherlands</div>
-          <span class="cv-tag">Bridging Program in Applied Mathematics</span>
-        </div>
+      <div class="cv-body">
+        <div class="cv-org">University of British Columbia</div>
+        <div class="cv-role">Minor in Astrophysics &amp; Astronomy</div>
+        <div class="cv-meta">Vancouver, Canada</div>
       </div>
+    </div>
 
-      <!-- UBC -->
-      <div class="cv-entry">
-        <div class="cv-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-            <rect width="52" height="52" fill="#002145"/>
-            <text x="26" y="28" font-family="Arial,sans-serif" font-weight="700" font-size="15" fill="white" text-anchor="middle">UBC</text>
-            <text x="26" y="40" font-family="Arial,sans-serif" font-weight="400" font-size="6.5" fill="rgba(255,255,255,0.55)" text-anchor="middle" letter-spacing="0.3">VANCOUVER</text>
-          </svg>
-        </div>
-        <div class="cv-body">
-          <div class="cv-org">University of British Columbia</div>
-          <div class="cv-role">Minor in Astrophysics &amp; Astronomy</div>
-          <div class="cv-meta">Vancouver, Canada</div>
-        </div>
+    <!-- TU Delft -->
+    <div class="cv-entry">
+      <div class="cv-logo">
+        <img src="assets/logos/delft_logo.jpeg" alt="Delft University of Technology" />
       </div>
-
-    </section>
-
-    <!-- ── Experience ─────────────────────────── -->
-    <section>
-      <p class="section-label">Experience</p>
-
-      <!-- TU Delft TA -->
-      <div class="cv-entry">
-        <div class="cv-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-            <rect width="52" height="52" fill="#00A6D6"/>
-            <text x="26" y="24" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="white" text-anchor="middle">TU</text>
-            <text x="26" y="38" font-family="Arial,sans-serif" font-weight="700" font-size="8" fill="rgba(255,255,255,0.85)" text-anchor="middle" letter-spacing="0.3">DELFT</text>
-          </svg>
-        </div>
-        <div class="cv-body">
-          <div class="cv-org">Delft University of Technology</div>
-          <div class="cv-role">Teaching Assistant</div>
-          <div class="cv-meta">Sep 2023 – Jun 2024 &nbsp;·&nbsp; Part-time</div>
-          <div class="cv-desc">Part-time teaching assistant for multiple first-year BSc Aerospace Engineering courses, supporting tutorials, grading, and student problem-solving.</div>
-        </div>
+      <div class="cv-body">
+        <div class="cv-org">Delft University of Technology</div>
+        <div class="cv-role">BSc Aerospace Engineering</div>
+        <div class="cv-meta">2021 – 2024 &nbsp;·&nbsp; Delft, Netherlands</div>
+        <span class="cv-tag">Bridging Program in Applied Mathematics</span>
       </div>
+    </div>
 
-    </section>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-inner">
-        <span>Matin Shams</span>
-        <a href="mailto:matinshams81@gmail.com">matinshams81@gmail.com</a>
+  <!-- ── Experience ────────────────────────────── -->
+  <section>
+    <p class="section-label">Experience</p>
+
+    <div class="cv-entry">
+      <div class="cv-logo">
+        <img src="assets/logos/delft_logo.jpeg" alt="Delft University of Technology" />
       </div>
-    </footer>
+      <div class="cv-body">
+        <div class="cv-org">Delft University of Technology</div>
+        <div class="cv-role">Teaching Assistant</div>
+        <div class="cv-meta">Sep 2023 – Jun 2024 &nbsp;·&nbsp; Part-time</div>
+        <div class="cv-desc">Part-time teaching assistant for multiple first-year BSc Aerospace Engineering courses, supporting tutorials, grading, and student problem-solving.</div>
+      </div>
+    </div>
 
-  </div>
+  </section>
 
+  <footer>
+    <span>Matin Shams</span>
+    <a href="mailto:matinshams81@gmail.com">matinshams81@gmail.com</a>
+  </footer>
+
+</div>
 </body>
 </html>
