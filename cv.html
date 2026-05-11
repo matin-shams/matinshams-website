@@ -144,10 +144,12 @@
       margin-bottom: 0.25rem;
     }
     .cv-thesis-title {
-      font-size: 0.84rem;
+      font-size: 0.72rem;
       color: var(--mid);
       font-style: italic;
-      line-height: 1.45;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .cv-supervisors {
       font-size: 0.76rem;
@@ -285,7 +287,7 @@
       <div class="cv-body">
         <div class="cv-org">
           University of Oxford
-          <span class="cv-grade">Merit</span>
+          <span class="cv-grade">Merit · Grade: 69.2%</span>
         </div>
         <div class="cv-role">MSc Mathematical Modelling &amp; Scientific Computing</div>
         <div class="cv-meta">2024 – 2025 &nbsp;·&nbsp; Oxford, United Kingdom</div>
@@ -357,14 +359,25 @@
         <img src="assets/logos/ubc_logo.jpeg" alt="University of British Columbia" />
       </div>
       <div class="cv-body">
-        <div class="cv-org">University of British Columbia</div>
+        <div class="cv-org">
+          University of British Columbia
+          <span class="cv-grade">Grade: 85.7%</span>
+        </div>
         <div class="cv-role">Minor in Astrophysics &amp; Astronomy</div>
         <div class="cv-meta">Vancouver, Canada</div>
 
         <details class="expandable">
           <summary>Courses</summary>
           <div class="course-list">
-            <!-- Course titles to be added -->
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/frontiers-astrophysics" target="_blank" rel="noopener">ASTR 200</a></div>
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/galaxies/galaxies-2025-sec-101" target="_blank" rel="noopener">ASTR 300</a></div>
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/exoplanets-and-astrobiology/exoplanets-and-astrobiology-2025-sec-201" target="_blank" rel="noopener">ASTR 333</a></div>
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/engineering-and-sustainable-development/engineering-and-sustainable-development-2025-sec-0" target="_blank" rel="noopener">CIVL 250</a></div>
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/economic-analysis-engineering-projects/economic-analysis-engineering-projects-2025-sec-101" target="_blank" rel="noopener">ELEC 481</a></div>
+            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/engineering-economics/engineering-economics-2025-sec-101-1" target="_blank" rel="noopener">MINE 396</a></div>
+            <div class="course-averages">
+              <span class="course-avg-label">Overall average: <span>85.7%</span></span>
+            </div>
           </div>
         </details>
 
@@ -379,7 +392,7 @@
       <div class="cv-body">
         <div class="cv-org">
           Delft University of Technology
-          <span class="cv-grade">First Class Honours, 83.4%</span>
+          <span class="cv-grade">First Class Honours · Grade: 83.4%</span>
         </div>
         <div class="cv-role">BSc Aerospace Engineering</div>
         <div class="cv-meta">2021 – 2024 &nbsp;·&nbsp; Delft, Netherlands</div>
@@ -387,12 +400,13 @@
         <details class="expandable">
           <summary>Bridging Program in Applied Mathematics</summary>
           <div class="course-list">
-            <div class="course-item"><a href="#">Mathematical Structures</a></div>
-            <div class="course-item"><a href="#">Real Analysis</a></div>
-            <div class="course-item"><a href="#">Optimization</a></div>
-            <div class="course-item"><a href="#">Partial Differential Equations</a></div>
-            <div class="course-item"><a href="#">Differential Geometry</a></div>
-            <div class="course-item"><a href="#">Topology</a></div>
+            <div class="course-item"><a href="https://rl.talis.com/3/tudelft/lists/C42D6147-5907-1BAC-4397-56E113CB882A.html?lang=en-GB" target="_blank" rel="noopener">AM1010</a> — Mathematical Structures</div>
+            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22383" target="_blank" rel="noopener">AM2090</a> — Real Analysis</div>
+            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22378" target="_blank" rel="noopener">AM2080</a> — Introduction to Statistics</div>
+            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22381" target="_blank" rel="noopener">AM2020</a> — Optimization</div>
+            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22380" target="_blank" rel="noopener">AM2070</a> — Partial Differential Equations</div>
+            <div class="course-item"><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a> — Differential Geometry</div>
+            <div class="course-item"><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a> — Topology</div>
           </div>
         </details>
 
