@@ -16,7 +16,7 @@
       --muted:  #999;
       --rule:   #e4e4e0;
       --bg:     #fafaf8;
-      --accent: #1a3a5c;
+      --link:   #191970;
     }
 
     html { font-size: 15px; }
@@ -29,6 +29,12 @@
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 700px;
@@ -43,11 +49,7 @@
       gap: 0.35rem;
       margin-top: 1.6rem;
       font-size: 0.78rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.15s;
     }
-    .back:hover { color: var(--accent); }
     .back svg {
       width: 13px; height: 13px;
       stroke: currentColor; fill: none;
@@ -114,10 +116,10 @@
     /* Grade badge */
     .cv-grade {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 500;
-      color: var(--accent);
-      background: #e8eef4;
+      color: var(--link);
+      background: #eceef8;
       border-radius: 3px;
       padding: 0.12rem 0.4rem;
       margin-left: 0.4rem;
@@ -125,7 +127,7 @@
       letter-spacing: 0.02em;
     }
 
-    /* Dissertation + supervisors block */
+    /* Dissertation block */
     .cv-thesis {
       margin-top: 0.65rem;
       padding: 0.6rem 0.75rem;
@@ -145,28 +147,22 @@
       font-size: 0.84rem;
       color: var(--mid);
       font-style: italic;
+      line-height: 1.45;
     }
     .cv-supervisors {
       font-size: 0.76rem;
       color: var(--muted);
       margin-top: 0.35rem;
     }
-    .cv-supervisors a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s;
-    }
-    .cv-supervisors a:hover { border-color: var(--accent); }
 
-    /* Expandable presentations */
-    details.presentations {
+    /* ── Expandable (shared) ─────────────────────── */
+    details.expandable {
       margin-top: 0.7rem;
     }
-    details.presentations summary {
+    details.expandable summary {
       font-size: 0.76rem;
       font-weight: 500;
-      color: var(--accent);
+      color: var(--link);
       cursor: pointer;
       list-style: none;
       display: inline-flex;
@@ -174,53 +170,68 @@
       gap: 0.3rem;
       user-select: none;
     }
-    details.presentations summary::-webkit-details-marker { display: none; }
-    details.presentations summary::before {
+    details.expandable summary::-webkit-details-marker { display: none; }
+    details.expandable summary::before {
       content: '›';
       font-size: 1rem;
       line-height: 1;
       transition: transform 0.18s;
       display: inline-block;
     }
-    details[open].presentations summary::before {
+    details[open].expandable summary::before {
       transform: rotate(90deg);
     }
 
+    /* ── Seminar / conference timeline ───────────── */
     .pres-timeline {
       margin-top: 0.65rem;
       padding-left: 0.75rem;
       border-left: 1px solid var(--rule);
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 0.7rem;
     }
-    .pres-entry {
-      display: flex;
-      gap: 0.75rem;
-      align-items: baseline;
-    }
+    .pres-entry { display: flex; gap: 0.8rem; align-items: baseline; }
     .pres-date {
-      font-size: 0.72rem;
+      font-size: 0.71rem;
       color: var(--muted);
       white-space: nowrap;
-      min-width: 5.5rem;
+      min-width: 5rem;
     }
-    .pres-event {
-      font-size: 0.8rem;
-      color: var(--mid);
+    .pres-body { display: flex; flex-direction: column; gap: 0.1rem; }
+    .pres-event { font-size: 0.8rem; }
+    .pres-presenter {
+      font-size: 0.71rem;
+      color: var(--muted);
     }
 
-    /* Small tag (bridging) */
-    .cv-tag {
-      display: inline-block;
-      font-size: 0.68rem;
+    /* ── Course list (UBC & bridging) ────────────── */
+    .course-list {
+      margin-top: 0.65rem;
+      padding-left: 0.75rem;
+      border-left: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .course-item {
+      font-size: 0.8rem;
+    }
+    .course-averages {
+      margin-top: 0.55rem;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.4rem;
+    }
+    .course-avg-label {
+      font-size: 0.71rem;
+      color: var(--muted);
+    }
+    .course-avg-label span {
+      color: var(--mid);
       font-weight: 500;
-      color: var(--accent);
-      background: #e8eef4;
-      border-radius: 3px;
-      padding: 0.12rem 0.4rem;
-      margin-top: 0.4rem;
-      letter-spacing: 0.02em;
     }
 
     /* Desc */
@@ -244,9 +255,7 @@
     footer a, footer span {
       font-size: 0.75rem;
       color: var(--muted);
-      text-decoration: none;
     }
-    footer a:hover { color: var(--accent); }
 
     @media (max-width: 480px) {
       .cv-entry { gap: 0.75rem; }
@@ -283,7 +292,7 @@
 
         <div class="cv-thesis">
           <div class="cv-thesis-label">Dissertation</div>
-          <div class="cv-thesis-title">[Dissertation title]</div>
+          <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
           <div class="cv-supervisors">
             Supervised by
             <a href="https://pefarrell.org/" target="_blank" rel="noopener">Patrick Farrell</a>
@@ -292,13 +301,50 @@
           </div>
         </div>
 
-        <details class="presentations">
-          <summary>Presentations</summary>
+        <details class="expandable">
+          <summary>Seminars and Conferences</summary>
           <div class="pres-timeline">
+
             <div class="pres-entry">
-              <span class="pres-date">[Month Year]</span>
-              <span class="pres-event">[Conference / seminar name]</span>
+              <span class="pres-date">Aug 2025</span>
+              <div class="pres-body">
+                <span class="pres-event"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025, Aachen</a></span>
+                <span class="pres-presenter">Presented by Boris Andrews</span>
+              </div>
             </div>
+
+            <div class="pres-entry">
+              <span class="pres-date">Sep 2025</span>
+              <div class="pres-body">
+                <span class="pres-event"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025, Ghent University</a></span>
+                <span class="pres-presenter">Presented by Boris Andrews</span>
+              </div>
+            </div>
+
+            <div class="pres-entry">
+              <span class="pres-date">Sep 2025</span>
+              <div class="pres-body">
+                <span class="pres-event"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25, University of Leeds</a></span>
+                <span class="pres-presenter">Presented by Matin Shams</span>
+              </div>
+            </div>
+
+            <div class="pres-entry">
+              <span class="pres-date">Oct 2025</span>
+              <div class="pres-body">
+                <span class="pres-event"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar, University of Oxford</a></span>
+                <span class="pres-presenter">Presented by Boris Andrews</span>
+              </div>
+            </div>
+
+            <div class="pres-entry">
+              <span class="pres-date">May 2026</span>
+              <div class="pres-body">
+                <span class="pres-event"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes, University of Vienna</a></span>
+                <span class="pres-presenter">Presented by Boris Andrews</span>
+              </div>
+            </div>
+
           </div>
         </details>
 
@@ -314,6 +360,14 @@
         <div class="cv-org">University of British Columbia</div>
         <div class="cv-role">Minor in Astrophysics &amp; Astronomy</div>
         <div class="cv-meta">Vancouver, Canada</div>
+
+        <details class="expandable">
+          <summary>Courses</summary>
+          <div class="course-list">
+            <!-- Course titles to be added -->
+          </div>
+        </details>
+
       </div>
     </div>
 
@@ -323,10 +377,25 @@
         <img src="assets/logos/delft_logo.jpeg" alt="Delft University of Technology" />
       </div>
       <div class="cv-body">
-        <div class="cv-org">Delft University of Technology</div>
+        <div class="cv-org">
+          Delft University of Technology
+          <span class="cv-grade">First Class Honours, 83.4%</span>
+        </div>
         <div class="cv-role">BSc Aerospace Engineering</div>
         <div class="cv-meta">2021 – 2024 &nbsp;·&nbsp; Delft, Netherlands</div>
-        <span class="cv-tag">Bridging Program in Applied Mathematics</span>
+
+        <details class="expandable">
+          <summary>Bridging Program in Applied Mathematics</summary>
+          <div class="course-list">
+            <div class="course-item"><a href="#">Mathematical Structures</a></div>
+            <div class="course-item"><a href="#">Real Analysis</a></div>
+            <div class="course-item"><a href="#">Optimization</a></div>
+            <div class="course-item"><a href="#">Partial Differential Equations</a></div>
+            <div class="course-item"><a href="#">Differential Geometry</a></div>
+            <div class="course-item"><a href="#">Topology</a></div>
+          </div>
+        </details>
+
       </div>
     </div>
 
