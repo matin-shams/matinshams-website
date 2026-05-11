@@ -188,9 +188,9 @@
     .sem-list { list-style: none; margin-top: 0.6rem; }
     .sem-item {
       display: grid;
-      grid-template-columns: 4.2rem 1fr;
-      gap: 0 0.7rem;
-      padding: 0.45rem 0;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 0 0.75rem;
+      padding: 0.5rem 0;
       border-bottom: 1px solid var(--rule);
       align-items: start;
     }
@@ -204,43 +204,45 @@
     .sem-name {
       font-size: 0.84rem;
       font-weight: 500;
-      line-height: 1.3;
+      color: var(--link);
+      line-height: 1.35;
     }
-    .sem-name a { color: var(--link); }
-    .sem-presenter {
-      font-size: 0.72rem;
+    .sem-name a { color: inherit; text-decoration: none; }
+    .sem-name a:hover { text-decoration: underline; }
+    .sem-by {
+      font-size: 0.71rem;
       color: var(--muted);
       margin-top: 0.18rem;
     }
-    .sem-upcoming-tag {
+    .sem-upcoming {
       font-size: 0.6rem;
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: #c0392b;
-      margin-left: 0.2rem;
+      margin-left: 0.3rem;
     }
 
-    /* View-on-globe chip */
-    .globe-open-btn {
-      margin-top: 0.75rem;
+    /* Globe chip — lives inside <summary> */
+    .globe-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.7rem;
+      gap: 0.28rem;
+      margin-left: 0.6rem;
+      font-size: 0.62rem;
       font-family: 'Inter', sans-serif;
+      font-weight: 400;
       color: var(--muted);
       background: none;
       border: 1px solid var(--rule);
-      border-radius: 20px;
-      padding: 0.28rem 0.75rem;
+      border-radius: 10px;
+      padding: 0.16rem 0.52rem;
       cursor: pointer;
+      vertical-align: middle;
+      pointer-events: auto;
       transition: color .15s, border-color .15s;
     }
-    .globe-open-btn:hover {
-      color: var(--link);
-      border-color: rgba(25,25,112,.3);
-    }
+    .globe-chip:hover { color: var(--link); border-color: rgba(25,25,112,.3); }
 
     /* ── Globe overlay ───────────────────────────── */
     .globe-overlay {
@@ -458,55 +460,56 @@
         </div>
 
         <details class="expandable">
-          <summary>Seminars and Conferences</summary>
+          <summary>Seminars and Conferences
+            <button class="globe-chip" id="globe-chip" type="button" aria-haspopup="dialog">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              View on globe
+            </button>
+          </summary>
           <ul class="sem-list">
             <li class="sem-item">
               <span class="sem-date">Aug 2025</span>
               <div>
-                <div class="sem-name"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS / MFET 2025, Aachen</a></div>
-                <div class="sem-presenter">Presented by Boris Andrews</div>
+                <div class="sem-name"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS / MFET 2025</a>, Aachen</div>
+                <div class="sem-by">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Sep 2025</span>
               <div>
-                <div class="sem-name"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025, Ghent University</a></div>
-                <div class="sem-presenter">Presented by Boris Andrews</div>
+                <div class="sem-name"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a>, Ghent University</div>
+                <div class="sem-by">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Sep 2025</span>
               <div>
-                <div class="sem-name"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25, University of Leeds</a></div>
-                <div class="sem-presenter">Presented by Matin Shams</div>
+                <div class="sem-name"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a>, University of Leeds</div>
+                <div class="sem-by">Presented by Matin Shams</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Oct 2025</span>
               <div>
-                <div class="sem-name"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar, Oxford</a></div>
-                <div class="sem-presenter">Presented by Boris Andrews</div>
+                <div class="sem-name"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a>, University of Oxford</div>
+                <div class="sem-by">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">May 2026</span>
               <div>
-                <div class="sem-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes, Vienna</a></div>
-                <div class="sem-presenter">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
+                <div class="sem-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a>, University of Vienna</div>
+                <div class="sem-by">Presented by Boris Andrews<span class="sem-upcoming">Upcoming</span></div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Jun 2026</span>
               <div>
-                <div class="sem-name"><a href="https://scicade.org/" target="_blank" rel="noopener">SciCADE 2026, Edinburgh</a></div>
-                <div class="sem-presenter">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
+                <div class="sem-name"><a href="https://scicade.org/" target="_blank" rel="noopener">SciCADE 2026</a>, Edinburgh</div>
+                <div class="sem-by">Presented by Boris Andrews<span class="sem-upcoming">Upcoming</span></div>
               </div>
             </li>
           </ul>
-          <button class="globe-open-btn" id="globe-open-btn" aria-haspopup="dialog">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            View on globe
-          </button>
         </details>
 
       </div>
@@ -629,7 +632,7 @@
   ];
 
   var overlayEl = document.getElementById(‘globe-overlay’);
-  var openBtn   = document.getElementById(‘globe-open-btn’);
+  var openBtn   = document.getElementById(‘globe-chip’);
   var closeBtn  = document.getElementById(‘globe-close’);
   var wrapEl    = document.getElementById(‘globe-wrap’);
   var cardEl    = document.getElementById(‘globe-card’);
@@ -798,12 +801,6 @@
   }
 
   /* ── Open / close handlers ───────────────────── */
-  openBtn.addEventListener(‘click’, function () {
-    overlayEl.classList.add(‘open’);
-    document.body.style.overflow = ‘hidden’;
-    setTimeout(initGlobe, 80);
-  });
-
   function closeGlobe() {
     overlayEl.classList.remove(‘open’);
     document.body.style.overflow = ‘’;
@@ -811,8 +808,17 @@
     hintEl.style.display = ‘’;
   }
 
-  closeBtn.addEventListener(‘click’, closeGlobe);
-  overlayEl.addEventListener(‘click’, function (e) { if (e.target === overlayEl) closeGlobe(); });
+  if (openBtn) {
+    openBtn.addEventListener(‘click’, function (e) {
+      e.stopPropagation();
+      overlayEl.classList.add(‘open’);
+      document.body.style.overflow = ‘hidden’;
+      setTimeout(initGlobe, 80);
+    });
+  }
+
+  if (closeBtn) closeBtn.addEventListener(‘click’, closeGlobe);
+  if (overlayEl) overlayEl.addEventListener(‘click’, function (e) { if (e.target === overlayEl) closeGlobe(); });
   document.addEventListener(‘keydown’, function (e) { if (e.key === ‘Escape’) closeGlobe(); });
 
 }());
