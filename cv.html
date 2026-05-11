@@ -184,98 +184,171 @@
       transform: rotate(90deg);
     }
 
-    /* ── Conference cards ────────────────────────── */
-    .conf-list {
-      margin-top: 0.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.42rem;
-    }
-
-    .conf-card {
-      display: flex;
-      align-items: stretch;
-      border-radius: 5px;
-      border: 1px solid var(--rule);
-      background: #fff;
-      overflow: hidden;
-      transition: box-shadow 0.18s ease, transform 0.18s ease;
-    }
-    .conf-card:hover {
-      box-shadow: 0 3px 14px rgba(25, 25, 112, 0.08);
-      transform: translateY(-1px);
-    }
-
-    .conf-date-col {
-      flex-shrink: 0;
-      width: 46px;
+    /* ── Horizontal timeline (seminars) ─────────── */
+    .tl-wrap {
+      margin-top: 0.7rem;
+      padding: 0.7rem 0.5rem 0.75rem;
       background: #eceef8;
-      border-right: 1px solid rgba(25, 25, 112, 0.1);
+      border-left: 2px solid rgba(25,25,112,.22);
+      border-radius: 0 5px 5px 0;
+    }
+
+    .tl-track {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .tl-track::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px; right: 5px;
+      height: 1px;
+      background: rgba(25,25,112,.18);
+      pointer-events: none;
+    }
+
+    .tl-node {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 0.5rem 0;
-      gap: 0.06rem;
-    }
-    .conf-month {
-      font-size: 0.6rem;
-      font-weight: 600;
-      color: var(--link);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-    .conf-year {
-      font-size: 0.61rem;
-      color: var(--mid);
-      letter-spacing: 0.02em;
+      flex: 1;
+      cursor: default;
+      outline: none;
     }
 
-    .conf-body {
-      flex: 1;
-      padding: 0.42rem 0.65rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.07rem;
-      justify-content: center;
+    .tl-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(25,25,112,.35);
+      background: #fff;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      transition: background .15s, border-color .15s, box-shadow .15s;
     }
-    a.conf-name {
-      font-size: 0.82rem;
+    .tl-dot-self { border-color: rgba(20,105,75,.45); }
+
+    .tl-node:hover .tl-dot,
+    .tl-node:focus .tl-dot {
+      background: var(--link);
+      border-color: var(--link);
+      box-shadow: 0 0 0 3px rgba(25,25,112,.12);
+    }
+    .tl-node:hover .tl-dot-self,
+    .tl-node:focus .tl-dot-self {
+      background: #14694b;
+      border-color: #14694b;
+      box-shadow: 0 0 0 3px rgba(20,105,75,.12);
+    }
+
+    .tl-label {
+      margin-top: 0.28rem;
+      font-size: 0.58rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 60px;
+      line-height: 1.3;
+      transition: color .15s;
+    }
+    .tl-node:hover .tl-label,
+    .tl-node:focus .tl-label { color: var(--link); }
+
+    /* Floating detail card */
+    .tl-card {
+      position: absolute;
+      top: calc(100% + 0.55rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      width: 162px;
+      background: #fff;
+      border: 1px solid rgba(25,25,112,.17);
+      border-radius: 5px;
+      padding: 0.44rem 0.55rem;
+      box-shadow: 0 4px 16px rgba(25,25,112,.09);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .15s ease, transform .15s ease;
+      z-index: 30;
+      text-align: left;
+    }
+    /* upward caret */
+    .tl-card::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%; transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-bottom-color: rgba(25,25,112,.17);
+    }
+    .tl-card::after {
+      content: '';
+      position: absolute;
+      bottom: calc(100% - 1px);
+      left: 50%; transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-bottom-color: #fff;
+      z-index: 1;
+    }
+
+    .tl-node:hover .tl-card,
+    .tl-node:focus .tl-card {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* First node: card anchors left */
+    .tl-node:first-child .tl-card {
+      left: -3px; transform: translateY(-4px);
+    }
+    .tl-node:first-child:hover .tl-card,
+    .tl-node:first-child:focus .tl-card { transform: translateY(0); }
+    .tl-node:first-child .tl-card::before,
+    .tl-node:first-child .tl-card::after { left: 10px; transform: none; }
+
+    /* Last node: card anchors right */
+    .tl-node:last-child .tl-card {
+      left: auto; right: -3px; transform: translateY(-4px);
+    }
+    .tl-node:last-child:hover .tl-card,
+    .tl-node:last-child:focus .tl-card { transform: translateY(0); }
+    .tl-node:last-child .tl-card::before,
+    .tl-node:last-child .tl-card::after { left: auto; right: 10px; transform: none; }
+
+    .tl-card-name {
+      font-size: 0.77rem;
       font-weight: 500;
-      color: var(--link);
+      color: var(--ink);
       line-height: 1.3;
     }
-    a.conf-name:hover { text-decoration: underline; }
+    .tl-card-name a { color: var(--link); }
+    .tl-card-name a:hover { text-decoration: underline; }
 
-    .conf-venue {
-      font-size: 0.77rem;
+    .tl-card-venue {
+      font-size: 0.72rem;
       color: var(--mid);
+      margin-top: 0.1rem;
     }
 
-    .conf-presenter {
+    .tl-card-meta {
       margin-top: 0.22rem;
-      display: flex;
-      align-items: center;
-      gap: 0.32rem;
-      font-size: 0.66rem;
+      padding-top: 0.2rem;
+      border-top: 1px solid rgba(25,25,112,.1);
+      font-size: 0.64rem;
       color: var(--muted);
     }
-    .conf-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      font-size: 0.52rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      background: rgba(25, 25, 112, 0.11);
-      color: var(--link);
-    }
-    .conf-badge.self {
-      background: rgba(20, 105, 75, 0.12);
-      color: #14694b;
+    .tl-card-meta.tl-self { color: #14694b; }
+
+    /* Mobile: horizontal scroll */
+    @media (max-width: 520px) {
+      .tl-wrap { overflow-x: auto; padding-bottom: 0.75rem; }
+      .tl-track { min-width: 360px; }
     }
 
     /* ── Course box wrapper ──────────────────────── */
@@ -351,7 +424,6 @@
     @media (max-width: 480px) {
       .cv-entry { gap: 0.75rem; }
       .cv-logo { width: 40px; height: 40px; }
-      .pres-date { min-width: 4rem; }
     }
   </style>
 </head>
@@ -394,68 +466,60 @@
 
         <details class="expandable">
           <summary>Seminars and Conferences</summary>
-          <div class="conf-list">
+          <div class="tl-wrap">
+            <div class="tl-track">
 
-            <div class="conf-card">
-              <div class="conf-date-col">
-                <span class="conf-month">Aug</span>
-                <span class="conf-year">2025</span>
+              <div class="tl-node" tabindex="0">
+                <div class="tl-dot"></div>
+                <span class="tl-label">MFET 2025</span>
+                <div class="tl-card">
+                  <div class="tl-card-name"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a></div>
+                  <div class="tl-card-venue">Aachen</div>
+                  <div class="tl-card-meta">Aug 2025 &nbsp;·&nbsp; Boris Andrews</div>
+                </div>
               </div>
-              <div class="conf-body">
-                <a class="conf-name" href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a>
-                <span class="conf-venue">Aachen</span>
-                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
+
+              <div class="tl-node" tabindex="0">
+                <div class="tl-dot"></div>
+                <span class="tl-label">ACOMEN 2025</span>
+                <div class="tl-card">
+                  <div class="tl-card-name"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a></div>
+                  <div class="tl-card-venue">Ghent University</div>
+                  <div class="tl-card-meta">Sep 2025 &nbsp;·&nbsp; Boris Andrews</div>
+                </div>
               </div>
+
+              <div class="tl-node" tabindex="0">
+                <div class="tl-dot tl-dot-self"></div>
+                <span class="tl-label">Firedrake'25</span>
+                <div class="tl-card">
+                  <div class="tl-card-name"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a></div>
+                  <div class="tl-card-venue">University of Leeds</div>
+                  <div class="tl-card-meta tl-self">Sep 2025 &nbsp;·&nbsp; Matin Shams</div>
+                </div>
+              </div>
+
+              <div class="tl-node" tabindex="0">
+                <div class="tl-dot"></div>
+                <span class="tl-label">NA Seminar</span>
+                <div class="tl-card">
+                  <div class="tl-card-name"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a></div>
+                  <div class="tl-card-venue">University of Oxford</div>
+                  <div class="tl-card-meta">Oct 2025 &nbsp;·&nbsp; Boris Andrews</div>
+                </div>
+              </div>
+
+              <div class="tl-node" tabindex="0">
+                <div class="tl-dot"></div>
+                <span class="tl-label">ESI Vienna</span>
+                <div class="tl-card">
+                  <div class="tl-card-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a></div>
+                  <div class="tl-card-venue">University of Vienna</div>
+                  <div class="tl-card-meta">May 2026 &nbsp;·&nbsp; Boris Andrews</div>
+                </div>
+              </div>
+
             </div>
-
-            <div class="conf-card">
-              <div class="conf-date-col">
-                <span class="conf-month">Sep</span>
-                <span class="conf-year">2025</span>
-              </div>
-              <div class="conf-body">
-                <a class="conf-name" href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a>
-                <span class="conf-venue">Ghent University</span>
-                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
-              </div>
-            </div>
-
-            <div class="conf-card">
-              <div class="conf-date-col">
-                <span class="conf-month">Sep</span>
-                <span class="conf-year">2025</span>
-              </div>
-              <div class="conf-body">
-                <a class="conf-name" href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a>
-                <span class="conf-venue">University of Leeds</span>
-                <div class="conf-presenter"><span class="conf-badge self">MS</span>Matin Shams</div>
-              </div>
-            </div>
-
-            <div class="conf-card">
-              <div class="conf-date-col">
-                <span class="conf-month">Oct</span>
-                <span class="conf-year">2025</span>
-              </div>
-              <div class="conf-body">
-                <a class="conf-name" href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a>
-                <span class="conf-venue">University of Oxford</span>
-                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
-              </div>
-            </div>
-
-            <div class="conf-card">
-              <div class="conf-date-col">
-                <span class="conf-month">May</span>
-                <span class="conf-year">2026</span>
-              </div>
-              <div class="conf-body">
-                <a class="conf-name" href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a>
-                <span class="conf-venue">University of Vienna</span>
-                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
-              </div>
-            </div>
-
           </div>
         </details>
 
