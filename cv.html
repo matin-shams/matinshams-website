@@ -216,20 +216,30 @@
       margin-top: 0.05rem;
     }
 
+    /* ── Course box wrapper ──────────────────────── */
+    .course-box {
+      display: inline-block;
+      margin-top: 0.55rem;
+      margin-left: 0.6rem;
+      padding: 0.45rem 0.7rem;
+      background: #eceef8;
+      border-left: 2px solid rgba(25, 25, 112, 0.22);
+      border-radius: 0 4px 4px 0;
+    }
+
     /* ── Course table (UBC & bridging) ───────────── */
     .course-table {
-      margin-top: 0.6rem;
       border-collapse: collapse;
       font-size: 0.79rem;
       width: auto;
     }
     .course-table td {
-      padding: 0.25rem 0.6rem;
-      border-bottom: 1px solid var(--rule);
+      padding: 0.22rem 0.55rem;
+      border-bottom: 1px solid rgba(25, 25, 112, 0.12);
       vertical-align: middle;
     }
     .course-table td:first-child {
-      border-right: 1px solid var(--rule);
+      border-right: 1px solid rgba(25, 25, 112, 0.12);
       padding-left: 0.1rem;
       white-space: nowrap;
       text-align: center;
@@ -237,9 +247,9 @@
     .course-table td:last-child { color: var(--mid); }
     .course-table tr:last-child td { border-bottom: none; }
     .course-averages {
-      margin-top: 0.55rem;
-      padding-top: 0.45rem;
-      border-top: 1px solid var(--rule);
+      margin-top: 0.45rem;
+      padding-top: 0.35rem;
+      border-top: 1px solid rgba(25, 25, 112, 0.12);
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem 1.4rem;
@@ -390,16 +400,18 @@
 
         <details class="expandable">
           <summary>Courses</summary>
-          <table class="course-table">
-            <tr><td><a href="https://courses.students.ubc.ca/courses/frontiers-astrophysics" target="_blank" rel="noopener">ASTR 200</a></td><td>Frontiers of Astrophysics</td></tr>
-            <tr><td><a href="https://courses.students.ubc.ca/courses/galaxies/galaxies-2025-sec-101" target="_blank" rel="noopener">ASTR 300</a></td><td>Galaxies</td></tr>
-            <tr><td><a href="https://courses.students.ubc.ca/courses/exoplanets-and-astrobiology/exoplanets-and-astrobiology-2025-sec-201" target="_blank" rel="noopener">ASTR 333</a></td><td>Exoplanets and Astrobiology</td></tr>
-            <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-and-sustainable-development/engineering-and-sustainable-development-2025-sec-0" target="_blank" rel="noopener">CIVL 250</a></td><td>Engineering and Sustainable Development</td></tr>
-            <tr><td><a href="https://courses.students.ubc.ca/courses/economic-analysis-engineering-projects/economic-analysis-engineering-projects-2025-sec-101" target="_blank" rel="noopener">ELEC 481</a></td><td>Economic Analysis of Engineering Projects</td></tr>
-            <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-economics/engineering-economics-2025-sec-101-1" target="_blank" rel="noopener">MINE 396</a></td><td>Engineering Economics</td></tr>
-          </table>
-          <div class="course-averages">
-            <span class="course-avg-label">Overall average: <span>85.7%</span></span>
+          <div class="course-box">
+            <table class="course-table">
+              <tr><td><a href="https://courses.students.ubc.ca/courses/frontiers-astrophysics" target="_blank" rel="noopener">ASTR 200</a></td><td>Frontiers of Astrophysics</td></tr>
+              <tr><td><a href="https://courses.students.ubc.ca/courses/galaxies/galaxies-2025-sec-101" target="_blank" rel="noopener">ASTR 300</a></td><td>Galaxies</td></tr>
+              <tr><td><a href="https://courses.students.ubc.ca/courses/exoplanets-and-astrobiology/exoplanets-and-astrobiology-2025-sec-201" target="_blank" rel="noopener">ASTR 333</a></td><td>Exoplanets and Astrobiology</td></tr>
+              <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-and-sustainable-development/engineering-and-sustainable-development-2025-sec-0" target="_blank" rel="noopener">CIVL 250</a></td><td>Engineering and Sustainable Development</td></tr>
+              <tr><td><a href="https://courses.students.ubc.ca/courses/economic-analysis-engineering-projects/economic-analysis-engineering-projects-2025-sec-101" target="_blank" rel="noopener">ELEC 481</a></td><td>Economic Analysis of Engineering Projects</td></tr>
+              <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-economics/engineering-economics-2025-sec-101-1" target="_blank" rel="noopener">MINE 396</a></td><td>Engineering Economics</td></tr>
+            </table>
+            <div class="course-averages">
+              <span class="course-avg-label">Overall average: <span>85.7%</span></span>
+            </div>
           </div>
         </details>
 
@@ -421,15 +433,17 @@
 
         <details class="expandable">
           <summary>Bridging Program in Applied Mathematics</summary>
-          <table class="course-table">
-            <tr><td><a href="https://rl.talis.com/3/tudelft/lists/C42D6147-5907-1BAC-4397-56E113CB882A.html?lang=en-GB" target="_blank" rel="noopener">AM1010</a></td><td>Mathematical Structures</td></tr>
-            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22383" target="_blank" rel="noopener">AM2090</a></td><td>Real Analysis</td></tr>
-            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22378" target="_blank" rel="noopener">AM2080</a></td><td>Introduction to Statistics</td></tr>
-            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22381" target="_blank" rel="noopener">AM2020</a></td><td>Optimization</td></tr>
-            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22380" target="_blank" rel="noopener">AM2070</a></td><td>Partial Differential Equations</td></tr>
-            <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a></td><td>Differential Geometry</td></tr>
-            <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a></td><td>Topology</td></tr>
-          </table>
+          <div class="course-box">
+            <table class="course-table">
+              <tr><td><a href="https://rl.talis.com/3/tudelft/lists/C42D6147-5907-1BAC-4397-56E113CB882A.html?lang=en-GB" target="_blank" rel="noopener">AM1010</a></td><td>Mathematical Structures</td></tr>
+              <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22383" target="_blank" rel="noopener">AM2090</a></td><td>Real Analysis</td></tr>
+              <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22378" target="_blank" rel="noopener">AM2080</a></td><td>Introduction to Statistics</td></tr>
+              <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22381" target="_blank" rel="noopener">AM2020</a></td><td>Optimization</td></tr>
+              <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22380" target="_blank" rel="noopener">AM2070</a></td><td>Partial Differential Equations</td></tr>
+              <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a></td><td>Differential Geometry</td></tr>
+              <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a></td><td>Topology</td></tr>
+            </table>
+          </div>
         </details>
 
       </div>
