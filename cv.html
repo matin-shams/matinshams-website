@@ -200,14 +200,20 @@
       white-space: nowrap;
       min-width: 5rem;
     }
-    .pres-body { display: flex; flex-direction: column; gap: 0.15rem; }
-    .pres-event { font-size: 0.8rem; color: var(--ink); }
-    .pres-url {
-      font-size: 0.7rem;
+    .pres-body { display: flex; flex-direction: column; gap: 0.1rem; }
+    .pres-event {
+      font-size: 0.8rem;
+      color: var(--mid);
+    }
+    .pres-venue {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
     }
     .pres-presenter {
       font-size: 0.71rem;
       color: var(--muted);
+      margin-top: 0.05rem;
     }
 
     /* ── Course table (UBC & bridging) ───────────── */
@@ -215,17 +221,18 @@
       margin-top: 0.6rem;
       border-collapse: collapse;
       font-size: 0.79rem;
-      width: 100%;
+      width: auto;
     }
     .course-table td {
-      padding: 0.28rem 0.55rem;
+      padding: 0.25rem 0.6rem;
       border-bottom: 1px solid var(--rule);
       vertical-align: middle;
     }
     .course-table td:first-child {
       border-right: 1px solid var(--rule);
-      padding-left: 0;
+      padding-left: 0.1rem;
       white-space: nowrap;
+      text-align: center;
     }
     .course-table td:last-child { color: var(--mid); }
     .course-table tr:last-child td { border-bottom: none; }
@@ -320,8 +327,8 @@
             <div class="pres-entry">
               <span class="pres-date">Aug 2025</span>
               <div class="pres-body">
-                <span class="pres-event">ECCOMAS MFET 2025, <strong>Aachen</strong></span>
-                <a class="pres-url" href="https://mfet2025.de/" target="_blank" rel="noopener">mfet2025.de</a>
+                <span class="pres-event"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a></span>
+                <span class="pres-venue">Aachen</span>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -329,8 +336,8 @@
             <div class="pres-entry">
               <span class="pres-date">Sep 2025</span>
               <div class="pres-body">
-                <span class="pres-event">ACOMEN 2025, <strong>Ghent University</strong></span>
-                <a class="pres-url" href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">cage.ugent.be/acomen2025</a>
+                <span class="pres-event"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a></span>
+                <span class="pres-venue">Ghent University</span>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -338,8 +345,8 @@
             <div class="pres-entry">
               <span class="pres-date">Sep 2025</span>
               <div class="pres-body">
-                <span class="pres-event">Firedrake'25, <strong>University of Leeds</strong></span>
-                <a class="pres-url" href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">firedrakeproject.org</a>
+                <span class="pres-event"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a></span>
+                <span class="pres-venue">University of Leeds</span>
                 <span class="pres-presenter">Presented by Matin Shams</span>
               </div>
             </div>
@@ -347,8 +354,8 @@
             <div class="pres-entry">
               <span class="pres-date">Oct 2025</span>
               <div class="pres-body">
-                <span class="pres-event">Numerical Analysis Group Internal Seminar, <strong>University of Oxford</strong></span>
-                <a class="pres-url" href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">maths.ox.ac.uk</a>
+                <span class="pres-event"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a></span>
+                <span class="pres-venue">University of Oxford</span>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -356,8 +363,8 @@
             <div class="pres-entry">
               <span class="pres-date">May 2026</span>
               <div class="pres-body">
-                <span class="pres-event">ESI Programme on Differential Complexes, <strong>University of Vienna</strong></span>
-                <a class="pres-url" href="https://www.esi.ac.at/" target="_blank" rel="noopener">esi.ac.at</a>
+                <span class="pres-event"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a></span>
+                <span class="pres-venue">University of Vienna</span>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
