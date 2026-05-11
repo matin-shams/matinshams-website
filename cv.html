@@ -208,19 +208,9 @@
     }
     .sem-name a { color: var(--link); }
     .sem-presenter {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
       font-size: 0.72rem;
       color: var(--muted);
       margin-top: 0.18rem;
-    }
-    .sem-pav {
-      width: 16px; height: 16px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--rule);
-      flex-shrink: 0;
     }
     .sem-upcoming-tag {
       font-size: 0.6rem;
@@ -474,42 +464,42 @@
               <span class="sem-date">Aug 2025</span>
               <div>
                 <div class="sem-name"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS / MFET 2025, Aachen</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/boris.png" alt="">Presented by Boris Andrews</div>
+                <div class="sem-presenter">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Sep 2025</span>
               <div>
                 <div class="sem-name"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025, Ghent University</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/boris.png" alt="">Presented by Boris Andrews</div>
+                <div class="sem-presenter">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Sep 2025</span>
               <div>
                 <div class="sem-name"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25, University of Leeds</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/matin.png" alt="">Presented by Matin Shams</div>
+                <div class="sem-presenter">Presented by Matin Shams</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Oct 2025</span>
               <div>
                 <div class="sem-name"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar, Oxford</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/boris.png" alt="">Presented by Boris Andrews</div>
+                <div class="sem-presenter">Presented by Boris Andrews</div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">May 2026</span>
               <div>
                 <div class="sem-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes, Vienna</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/boris.png" alt="">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
+                <div class="sem-presenter">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
               </div>
             </li>
             <li class="sem-item">
               <span class="sem-date">Jun 2026</span>
               <div>
                 <div class="sem-name"><a href="https://scicade.org/" target="_blank" rel="noopener">SciCADE 2026, Edinburgh</a></div>
-                <div class="sem-presenter"><img class="sem-pav" src="assets/logos/boris.png" alt="">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
+                <div class="sem-presenter">Presented by Boris Andrews<span class="sem-upcoming-tag">Upcoming</span></div>
               </div>
             </li>
           </ul>
@@ -624,18 +614,18 @@
   </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2/dist/globe.gl.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
   <script>
 (function () {
   ‘use strict’;
 
   var EVENTS = [
-    { name: ‘ECCOMAS / MFET 2025’,                      url: ‘https://mfet2025.de/’,                                       city: ‘Aachen, Germany’,            date: ‘August 2025’,           presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 50.7753, lng:  6.0839 },
-    { name: ‘ACOMEN 2025’,                               url: ‘https://cage.ugent.be/acomen2025/’,                          city: ‘Ghent University, Belgium’,  date: ‘September 2025’,        presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.0543, lng:  3.7174 },
-    { name: "Firedrake’25",                              url: ‘https://www.firedrakeproject.org/firedrake_25.html’,         city: ‘University of Leeds’,        date: ‘September 2025’,        presenter: ‘Matin Shams’,   img: ‘assets/logos/matin.png’, status: ‘past’,     lat: 53.8008, lng: -1.5491 },
-    { name: ‘Numerical Analysis Group Internal Seminar’, url: ‘https://www.maths.ox.ac.uk/node/74237’,                     city: ‘University of Oxford’,       date: ‘October 2025’,          presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.7520, lng: -1.2577 },
-    { name: ‘ESI Programme on Differential Complexes’,  url: ‘https://www.esi.ac.at/’,                                    city: ‘University of Vienna’,       date: ‘May 2026’,              presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 48.2082, lng: 16.3738 },
-    { name: ‘SciCADE 2026’,                             url: ‘https://scicade.org/’,                                       city: ‘Edinburgh, United Kingdom’,  date: ‘29 June – 3 July 2026’, presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 55.9533, lng: -3.1883 }
+    { name: ‘ECCOMAS / MFET 2025’,                      url: ‘https://mfet2025.de/’,                                       city: ‘Aachen, Germany’,           date: ‘August 2025’,           presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 50.7753, lng:  6.0839 },
+    { name: ‘ACOMEN 2025’,                               url: ‘https://cage.ugent.be/acomen2025/’,                          city: ‘Ghent University, Belgium’, date: ‘September 2025’,        presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.0543, lng:  3.7174 },
+    { name: "Firedrake’25",                              url: ‘https://www.firedrakeproject.org/firedrake_25.html’,         city: ‘University of Leeds’,       date: ‘September 2025’,        presenter: ‘Matin Shams’,   img: ‘assets/logos/matin.png’, status: ‘past’,     lat: 53.8008, lng: -1.5491 },
+    { name: ‘Numerical Analysis Group Internal Seminar’, url: ‘https://www.maths.ox.ac.uk/node/74237’,                     city: ‘University of Oxford’,      date: ‘October 2025’,          presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.7520, lng: -1.2577 },
+    { name: ‘ESI Programme on Differential Complexes’,  url: ‘https://www.esi.ac.at/’,                                     city: ‘University of Vienna’,      date: ‘May 2026’,              presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 48.2082, lng: 16.3738 },
+    { name: ‘SciCADE 2026’,                             url: ‘https://scicade.org/’,                                        city: ‘Edinburgh, United Kingdom’, date: ‘29 June – 3 July 2026’, presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 55.9533, lng: -3.1883 }
   ];
 
   var overlayEl = document.getElementById(‘globe-overlay’);
@@ -646,84 +636,147 @@
   var hintEl    = document.getElementById(‘globe-hint’);
   var globeInst = null;
 
-  /* ── Build pin HTML element ───────────────────── */
-  function makePinEl(ev) {
-    /* outer: CSS3DRenderer writes its matrix here — we don’t touch it      */
-    /* inner: our transform is safe here, shifts pin up so tip = anchor pt  */
-    var outer = document.createElement(‘div’);
-    outer.style.cssText = ‘pointer-events:auto;’;
-    var inner = document.createElement(‘div’);
-    inner.style.cssText = ‘transform:translateY(-100%);cursor:pointer;line-height:0;’;
-
-    if (ev.status === ‘past’) {
-      inner.innerHTML =
-        ‘<svg width="22" height="28" viewBox="0 0 22 28" xmlns="http://www.w3.org/2000/svg">’ +
-        ‘<ellipse cx="11" cy="27" rx="3" ry="1" fill="rgba(0,0,0,.28)"/>’ +
-        ‘<rect x="9.75" y="18" width="2.5" height="8" rx="1.25" fill="#7a1010"/>’ +
-        ‘<circle cx="11" cy="10" r="9.5" fill="#7a1010"/>’ +
-        ‘<circle cx="11" cy="10" r="8.5" fill="#c0392b"/>’ +
-        ‘<circle cx="8.5" cy="7.5" r="5" fill="rgba(210,70,70,.6)"/>’ +
-        ‘<ellipse cx="8" cy="6.5" rx="2.8" ry="2.1" fill="rgba(255,255,255,.34)" transform="rotate(-15 8 6.5)"/>’ +
-        ‘</svg>’;
-    } else {
-      inner.innerHTML =
-        ‘<svg width="22" height="28" viewBox="0 0 22 28" xmlns="http://www.w3.org/2000/svg">’ +
-        ‘<ellipse cx="11" cy="27" rx="3" ry="1" fill="rgba(0,0,0,.16)"/>’ +
-        ‘<rect x="9.75" y="18" width="2.5" height="8" rx="1.25" fill="rgba(192,57,43,.5)"/>’ +
-        ‘<circle cx="11" cy="10" r="9.5" fill="rgba(192,57,43,.15)"/>’ +
-        ‘<circle cx="11" cy="10" r="8.5" fill="rgba(192,57,43,.12)" stroke="#c0392b" stroke-width="1.5"/>’ +
-        ‘<circle cx="11" cy="10" r="3.5" fill="rgba(192,57,43,.78)"/>’ +
-        ‘<ellipse cx="8" cy="6.5" rx="2" ry="1.5" fill="rgba(255,255,255,.24)" transform="rotate(-15 8 6.5)"/>’ +
-        ‘</svg>’;
-    }
-
-    inner.addEventListener(‘mouseenter’, function () {
-      inner.style.filter = ‘drop-shadow(0 0 6px rgba(255,80,80,.85))’;
-    });
-    inner.addEventListener(‘mouseleave’, function () {
-      inner.style.filter = ‘’;
-    });
-    inner.addEventListener(‘click’, function (e) {
-      e.stopPropagation();
-      showCard(ev);
-    });
-
-    outer.appendChild(inner);
-    return outer;
+  /* ── Lat/lng → 3-D position on unit sphere ────── */
+  function ll2v(lat, lng, r) {
+    var phi   = (90 - lat) * Math.PI / 180;
+    var theta = (lng + 180) * Math.PI / 180;
+    return new THREE.Vector3(
+      -Math.sin(phi) * Math.cos(theta) * r,
+       Math.cos(phi) * r,
+       Math.sin(phi) * Math.sin(theta) * r
+    );
   }
 
-  /* ── Init globe (lazy — needs container dimensions) ── */
+  /* ── Build Three.js globe ─────────────────────── */
   function initGlobe() {
     if (globeInst) return;
-    if (typeof Globe === 'undefined') { console.warn('globe.gl not loaded'); return; }
+    if (typeof THREE === ‘undefined’) { console.warn(‘Three.js not loaded’); return; }
 
     var W = wrapEl.clientWidth  || 520;
     var H = wrapEl.clientHeight || 360;
 
-    globeInst = Globe({ rendererConfig: { antialias: true, alpha: true } })
-      .width(W)
-      .height(H)
-      .globeImageUrl(‘https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg’)
-      .atmosphereColor(‘rgba(120,165,255,.35)’)
-      .atmosphereAltitude(0.20)
-      .htmlElementsData(EVENTS)
-      .htmlLat(function (d) { return d.lat; })
-      .htmlLng(function (d) { return d.lng; })
-      .htmlAltitude(0.04)
-      .htmlElement(makePinEl)
-      (wrapEl);
+    /* Scene */
+    var scene    = new THREE.Scene();
+    var camera   = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
+    camera.position.z = 2.6;
 
-    globeInst.renderer().setClearColor(0x000000, 0);
-    globeInst.pointOfView({ lat: 52, lng: 6, altitude: 1.9 }, 0);
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+    renderer.setClearColor(0x000000, 0);
+    wrapEl.appendChild(renderer.domElement);
 
-    var ctrl = globeInst.controls();
-    ctrl.autoRotate      = true;
-    ctrl.autoRotateSpeed = 0.35;
-    ctrl.enableZoom      = false;
-    ctrl.enablePan       = false;
+    /* Lights */
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+    var sun = new THREE.DirectionalLight(0xffffff, 1.3);
+    sun.position.set(5, 3, 5);
+    scene.add(sun);
 
-    wrapEl.addEventListener(‘pointerdown’, function () { ctrl.autoRotate = false; });
-    wrapEl.addEventListener(‘pointerup’,   function () { ctrl.autoRotate = true;  });
+    /* Globe group — everything rotates together */
+    var globeGroup = new THREE.Group();
+    scene.add(globeGroup);
+
+    /* Earth sphere */
+    var earthMat = new THREE.MeshPhongMaterial({ shininess: 12, color: 0xffffff });
+    var earth    = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), earthMat);
+    globeGroup.add(earth);
+    new THREE.TextureLoader().load(
+      ‘https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg’,
+      function (t) { earthMat.map = t; earthMat.needsUpdate = true; }
+    );
+
+    /* Atmosphere glow */
+    var atmMat = new THREE.MeshPhongMaterial({
+      color: 0x4488ff, side: THREE.BackSide, transparent: true, opacity: 0.13
+    });
+    globeGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.09, 64, 64), atmMat));
+
+    /* Pins */
+    var pinMeshes = [];
+    EVENTS.forEach(function (ev) {
+      var isPast = ev.status === ‘past’;
+      var group  = new THREE.Group();
+
+      /* Head */
+      var headMat = new THREE.MeshPhongMaterial({
+        color:     isPast ? 0xc0392b : 0xffffff,
+        emissive:  isPast ? 0x1a0000 : 0x000000,
+        shininess: 120,
+        transparent: !isPast, opacity: isPast ? 1 : 0.75
+      });
+      var head = new THREE.Mesh(new THREE.SphereGeometry(0.038, 20, 20), headMat);
+      head.position.y = 0.062;
+      head.userData.event = ev;
+      group.add(head);
+      pinMeshes.push(head);
+
+      /* Needle */
+      var needleMat = new THREE.MeshPhongMaterial({ color: isPast ? 0x7a0000 : 0x999999 });
+      var needle    = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.002, 0.09, 8), needleMat);
+      needle.position.y = 0.008;
+      group.add(needle);
+
+      /* Position + orient outward from globe centre */
+      var pos = ll2v(ev.lat, ev.lng, 1.02);
+      group.position.copy(pos);
+      group.quaternion.setFromUnitVectors(
+        new THREE.Vector3(0, 1, 0),
+        pos.clone().normalize()
+      );
+
+      globeGroup.add(group);
+    });
+
+    /* Rotate globe so Europe faces the camera initially
+       (Blue Marble: 0° lon → front; Europe ≈ 10°E → small offset)       */
+    globeGroup.rotation.y = -0.18;
+
+    /* ── Drag-to-rotate ──────────────────────────── */
+    var isDragging = false, autoRotate = true;
+    var prevX = 0, prevY = 0, clickX = 0, clickY = 0;
+    var canvas = renderer.domElement;
+    canvas.style.cursor = ‘grab’;
+
+    canvas.addEventListener(‘pointerdown’, function (e) {
+      isDragging = true; autoRotate = false;
+      prevX = clickX = e.clientX; prevY = clickY = e.clientY;
+      canvas.style.cursor = ‘grabbing’;
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener(‘pointermove’, function (e) {
+      if (!isDragging) return;
+      globeGroup.rotation.y += (e.clientX - prevX) * 0.006;
+      globeGroup.rotation.x += (e.clientY - prevY) * 0.004;
+      globeGroup.rotation.x = Math.max(-1.1, Math.min(1.1, globeGroup.rotation.x));
+      prevX = e.clientX; prevY = e.clientY;
+    });
+    canvas.addEventListener(‘pointerup’, function () {
+      isDragging = false; autoRotate = true;
+      canvas.style.cursor = ‘grab’;
+    });
+
+    /* ── Click → show card ───────────────────────── */
+    var raycaster = new THREE.Raycaster();
+    var mouse     = new THREE.Vector2();
+    canvas.addEventListener(‘click’, function (e) {
+      if (Math.abs(e.clientX - clickX) > 4 || Math.abs(e.clientY - clickY) > 4) return;
+      var rect = canvas.getBoundingClientRect();
+      mouse.x =  (e.clientX - rect.left) / rect.width  * 2 - 1;
+      mouse.y = -((e.clientY - rect.top)  / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      var hits = raycaster.intersectObjects(pinMeshes);
+      if (hits.length) showCard(hits[0].object.userData.event);
+    });
+
+    /* ── Animation loop ──────────────────────────── */
+    var rafId;
+    (function animate() {
+      rafId = requestAnimationFrame(animate);
+      if (autoRotate && !isDragging) globeGroup.rotation.y += 0.0025;
+      renderer.render(scene, camera);
+    }());
+
+    globeInst = { stop: function () { cancelAnimationFrame(rafId); } };
   }
 
   /* ── Detail card ─────────────────────────────── */
@@ -740,7 +793,7 @@
         ‘</span>’ +
         (ev.status === ‘upcoming’ ? ‘<span class="globe-upcoming-badge">Upcoming</span>’ : ‘’) +
       ‘</div>’;
-    cardEl.className    = ‘globe-card-inner show’;
+    cardEl.className     = ‘globe-card-inner show’;
     hintEl.style.display = ‘none’;
   }
 
@@ -748,7 +801,7 @@
   openBtn.addEventListener(‘click’, function () {
     overlayEl.classList.add(‘open’);
     document.body.style.overflow = ‘hidden’;
-    setTimeout(initGlobe, 60);
+    setTimeout(initGlobe, 80);
   });
 
   function closeGlobe() {
