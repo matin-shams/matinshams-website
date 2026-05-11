@@ -184,171 +184,159 @@
       transform: rotate(90deg);
     }
 
-    /* ── Horizontal timeline (seminars) ─────────── */
-    .tl-wrap {
+    /* ── Europe map (seminars) ─────────────────── */
+    .sem-wrap {
       margin-top: 0.7rem;
-      padding: 0.7rem 0.5rem 0.75rem;
+      position: relative;
       background: #eceef8;
       border-left: 2px solid rgba(25,25,112,.22);
       border-radius: 0 5px 5px 0;
+      overflow: visible;
     }
 
-    .tl-track {
+    .sem-map-container {
       position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      font-size: 0;
     }
 
-    .tl-track::before {
-      content: '';
+    .sem-map-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .sem-country {
+      fill: #f2f3fa;
+      stroke: rgba(25,25,112,.15);
+      stroke-width: 0.5;
+    }
+
+    .sem-pin { cursor: pointer; outline: none; }
+
+    .sem-dot-past { fill: #c0392b; }
+
+    .sem-ring-past {
+      fill: none;
+      stroke: #c0392b;
+      stroke-width: 1;
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    .sem-pin:hover .sem-ring-past,
+    .sem-pin:focus .sem-ring-past { opacity: 0.35; }
+
+    @keyframes sem-pulse {
+      0%   { transform: scale(1);   opacity: 0.45; }
+      100% { transform: scale(2.4); opacity: 0;    }
+    }
+    .sem-ring-pulse {
+      fill: rgba(192,57,43,.22);
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: sem-pulse 2.2s ease-out infinite;
+    }
+
+    .sem-dot-upcoming-outer {
+      fill: #eceef8;
+      stroke: #c0392b;
+      stroke-width: 1.5;
+    }
+    .sem-dot-upcoming-inner { fill: #c0392b; }
+
+    /* Detail card */
+    .sem-card {
       position: absolute;
-      top: 5px;
-      left: 5px; right: 5px;
-      height: 1px;
-      background: rgba(25,25,112,.18);
-      pointer-events: none;
-    }
-
-    .tl-node {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-      cursor: default;
-      outline: none;
-    }
-
-    .tl-dot {
-      width: 11px; height: 11px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(25,25,112,.35);
-      background: #fff;
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-      transition: background .15s, border-color .15s, box-shadow .15s;
-    }
-    .tl-dot-self { border-color: rgba(20,105,75,.45); }
-
-    .tl-node:hover .tl-dot,
-    .tl-node:focus .tl-dot {
-      background: var(--link);
-      border-color: var(--link);
-      box-shadow: 0 0 0 3px rgba(25,25,112,.12);
-    }
-    .tl-node:hover .tl-dot-self,
-    .tl-node:focus .tl-dot-self {
-      background: #14694b;
-      border-color: #14694b;
-      box-shadow: 0 0 0 3px rgba(20,105,75,.12);
-    }
-
-    .tl-label {
-      margin-top: 0.28rem;
-      font-size: 0.58rem;
-      color: var(--muted);
-      text-align: center;
-      max-width: 60px;
-      line-height: 1.3;
-      transition: color .15s;
-    }
-    .tl-node:hover .tl-label,
-    .tl-node:focus .tl-label { color: var(--link); }
-
-    /* Floating detail card */
-    .tl-card {
-      position: absolute;
-      top: calc(100% + 0.55rem);
-      left: 50%;
-      transform: translateX(-50%) translateY(-4px);
-      width: 162px;
+      width: 192px;
       background: #fff;
       border: 1px solid rgba(25,25,112,.17);
       border-radius: 5px;
-      padding: 0.44rem 0.55rem;
-      box-shadow: 0 4px 16px rgba(25,25,112,.09);
-      opacity: 0;
-      visibility: hidden;
+      padding: 0.5rem 0.6rem;
+      box-shadow: 0 4px 20px rgba(25,25,112,.11);
+      z-index: 50;
       pointer-events: none;
-      transition: opacity .15s ease, transform .15s ease;
-      z-index: 30;
+      opacity: 0;
+      transform: translateY(-3px);
+      transition: opacity .13s ease, transform .13s ease;
       text-align: left;
     }
-    /* upward caret */
-    .tl-card::before {
-      content: '';
-      position: absolute;
-      bottom: 100%;
-      left: 50%; transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-bottom-color: rgba(25,25,112,.17);
-    }
-    .tl-card::after {
-      content: '';
-      position: absolute;
-      bottom: calc(100% - 1px);
-      left: 50%; transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-bottom-color: #fff;
-      z-index: 1;
-    }
-
-    .tl-node:hover .tl-card,
-    .tl-node:focus .tl-card {
+    .sem-card.visible {
       opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
 
-    /* First node: card anchors left */
-    .tl-node:first-child .tl-card {
-      left: -3px; transform: translateY(-4px);
-    }
-    .tl-node:first-child:hover .tl-card,
-    .tl-node:first-child:focus .tl-card { transform: translateY(0); }
-    .tl-node:first-child .tl-card::before,
-    .tl-node:first-child .tl-card::after { left: 10px; transform: none; }
-
-    /* Last node: card anchors right */
-    .tl-node:last-child .tl-card {
-      left: auto; right: -3px; transform: translateY(-4px);
-    }
-    .tl-node:last-child:hover .tl-card,
-    .tl-node:last-child:focus .tl-card { transform: translateY(0); }
-    .tl-node:last-child .tl-card::before,
-    .tl-node:last-child .tl-card::after { left: auto; right: 10px; transform: none; }
-
-    .tl-card-name {
-      font-size: 0.77rem;
+    .sem-card-name {
+      font-size: 0.78rem;
       font-weight: 500;
       color: var(--ink);
       line-height: 1.3;
     }
-    .tl-card-name a { color: var(--link); }
-    .tl-card-name a:hover { text-decoration: underline; }
-
-    .tl-card-venue {
+    .sem-card-name a { color: var(--link); }
+    .sem-card-city {
       font-size: 0.72rem;
       color: var(--mid);
-      margin-top: 0.1rem;
+      margin-top: 0.08rem;
     }
-
-    .tl-card-meta {
-      margin-top: 0.22rem;
-      padding-top: 0.2rem;
+    .sem-card-rule {
+      border: none;
       border-top: 1px solid rgba(25,25,112,.1);
+      margin: 0.25rem 0 0.2rem;
+    }
+    .sem-card-date {
+      font-size: 0.64rem;
+      color: var(--muted);
+      margin-bottom: 0.14rem;
+    }
+    .sem-card-presenter {
+      display: flex;
+      align-items: center;
+      gap: 0.32rem;
+    }
+    .sem-avatar {
+      width: 17px; height: 17px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(25,25,112,.15);
+      flex-shrink: 0;
+      display: block;
+    }
+    .sem-presenter-name {
       font-size: 0.64rem;
       color: var(--muted);
     }
-    .tl-card-meta.tl-self { color: #14694b; }
+    .sem-presenter-self { color: #14694b; }
+    .sem-card-upcoming {
+      margin-top: 0.18rem;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #c0392b;
+    }
 
-    /* Mobile: horizontal scroll */
+    /* Mobile fallback list */
+    .sem-fallback {
+      display: none;
+      list-style: none;
+      padding: 0.45rem 0.65rem;
+    }
+    .sem-fallback li {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(25,25,112,.1);
+      font-size: 0.79rem;
+    }
+    .sem-fallback li:last-child { border-bottom: none; }
+    .sem-fallback-name a { color: var(--link); font-weight: 500; }
+    .sem-fallback-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.08rem;
+    }
+    .sem-fallback-upcoming { color: #c0392b; }
+
     @media (max-width: 520px) {
-      .tl-wrap { overflow-x: auto; padding-bottom: 0.75rem; }
-      .tl-track { min-width: 360px; }
+      .sem-map-container { display: none; }
+      .sem-fallback { display: block; }
     }
 
     /* ── Course box wrapper ──────────────────────── */
@@ -406,21 +394,6 @@
       line-height: 1.6;
     }
 
-    /* ── Footer ──────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--rule);
-      margin-top: 2.5rem;
-      padding: 1.4rem 0;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    footer a, footer span {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
     @media (max-width: 480px) {
       .cv-entry { gap: 0.75rem; }
       .cv-logo { width: 40px; height: 40px; }
@@ -466,60 +439,12 @@
 
         <details class="expandable">
           <summary>Seminars and Conferences</summary>
-          <div class="tl-wrap">
-            <div class="tl-track">
-
-              <div class="tl-node" tabindex="0">
-                <div class="tl-dot"></div>
-                <span class="tl-label">MFET 2025</span>
-                <div class="tl-card">
-                  <div class="tl-card-name"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a></div>
-                  <div class="tl-card-venue">Aachen</div>
-                  <div class="tl-card-meta">Aug 2025 &nbsp;·&nbsp; Boris Andrews</div>
-                </div>
-              </div>
-
-              <div class="tl-node" tabindex="0">
-                <div class="tl-dot"></div>
-                <span class="tl-label">ACOMEN 2025</span>
-                <div class="tl-card">
-                  <div class="tl-card-name"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a></div>
-                  <div class="tl-card-venue">Ghent University</div>
-                  <div class="tl-card-meta">Sep 2025 &nbsp;·&nbsp; Boris Andrews</div>
-                </div>
-              </div>
-
-              <div class="tl-node" tabindex="0">
-                <div class="tl-dot tl-dot-self"></div>
-                <span class="tl-label">Firedrake'25</span>
-                <div class="tl-card">
-                  <div class="tl-card-name"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a></div>
-                  <div class="tl-card-venue">University of Leeds</div>
-                  <div class="tl-card-meta tl-self">Sep 2025 &nbsp;·&nbsp; Matin Shams</div>
-                </div>
-              </div>
-
-              <div class="tl-node" tabindex="0">
-                <div class="tl-dot"></div>
-                <span class="tl-label">NA Seminar</span>
-                <div class="tl-card">
-                  <div class="tl-card-name"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a></div>
-                  <div class="tl-card-venue">University of Oxford</div>
-                  <div class="tl-card-meta">Oct 2025 &nbsp;·&nbsp; Boris Andrews</div>
-                </div>
-              </div>
-
-              <div class="tl-node" tabindex="0">
-                <div class="tl-dot"></div>
-                <span class="tl-label">ESI Vienna</span>
-                <div class="tl-card">
-                  <div class="tl-card-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a></div>
-                  <div class="tl-card-venue">University of Vienna</div>
-                  <div class="tl-card-meta">May 2026 &nbsp;·&nbsp; Boris Andrews</div>
-                </div>
-              </div>
-
+          <div class="sem-wrap">
+            <div class="sem-map-container" id="sem-map-container">
+              <svg class="sem-map-svg" id="europe-map" viewBox="0 0 560 280"></svg>
+              <div class="sem-card" id="sem-card"></div>
             </div>
+            <ul class="sem-fallback" id="sem-fallback"></ul>
           </div>
         </details>
 
@@ -612,5 +537,167 @@
 
 
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script>
+(function () {
+  'use strict';
+
+  var SVG_W = 560, SVG_H = 280;
+
+  var EVENTS = [
+    { name: 'ECCOMAS / MFET 2025',
+      url:  'https://mfet2025.de/',
+      city: 'Aachen, Germany',
+      date: 'August 2025',
+      presenter: 'Boris Andrews', img: 'assets/boris.png',
+      status: 'past', ll: [6.0839, 50.7753] },
+    { name: 'ACOMEN 2025',
+      url:  'https://cage.ugent.be/acomen2025/',
+      city: 'Ghent, Belgium',
+      date: 'September 2025',
+      presenter: 'Boris Andrews', img: 'assets/boris.png',
+      status: 'past', ll: [3.7174, 51.0543] },
+    { name: "Firedrake’25",
+      url:  'https://www.firedrakeproject.org/firedrake_25.html',
+      city: 'University of Leeds',
+      date: 'September 2025',
+      presenter: 'Matin Shams', img: 'assets/matin.png',
+      status: 'past', ll: [-1.5491, 53.8008] },
+    { name: 'Numerical Analysis Group Internal Seminar',
+      url:  'https://www.maths.ox.ac.uk/node/74237',
+      city: 'University of Oxford',
+      date: 'October 2025',
+      presenter: 'Boris Andrews', img: 'assets/boris.png',
+      status: 'past', ll: [-1.2577, 51.7520] },
+    { name: 'ESI Programme on Differential Complexes',
+      url:  'https://www.esi.ac.at/',
+      city: 'University of Vienna',
+      date: 'May 2026',
+      presenter: 'Boris Andrews', img: 'assets/boris.png',
+      status: 'upcoming', ll: [16.3738, 48.2082] },
+    { name: 'SciCADE 2026',
+      url:  'https://scicade.org/',
+      city: 'Edinburgh, United Kingdom',
+      date: '29 June – 3 July 2026',
+      presenter: 'Boris Andrews', img: 'assets/boris.png',
+      status: 'upcoming', ll: [-3.1883, 55.9533] }
+  ];
+
+  /* ── Mobile fallback list ──────────────────── */
+  var fallbackEl = document.getElementById('sem-fallback');
+  if (fallbackEl) {
+    EVENTS.forEach(function (ev) {
+      var li = document.createElement('li');
+      li.innerHTML =
+        '<div class="sem-fallback-name"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.name + '</a></div>' +
+        '<div class="sem-fallback-meta">' + ev.city + ' &nbsp;&middot;&nbsp; ' + ev.date +
+        ' &nbsp;&middot;&nbsp; ' + ev.presenter +
+        (ev.status === 'upcoming' ? ' &nbsp;&middot;&nbsp; <span class="sem-fallback-upcoming">Upcoming</span>' : '') +
+        '</div>';
+      fallbackEl.appendChild(li);
+    });
+  }
+
+  /* ── Interactive map ───────────────────────── */
+  function initMap() {
+    var svgEl      = document.getElementById('europe-map');
+    var cardEl     = document.getElementById('sem-card');
+    var containerEl = document.getElementById('sem-map-container');
+    if (!svgEl || !cardEl || !containerEl) return;
+    if (typeof d3 === 'undefined' || typeof topojson === 'undefined') return;
+
+    var proj = d3.geoMercator()
+      .center([5, 52])
+      .scale(900)
+      .translate([SVG_W / 2, SVG_H / 2]);
+
+    var pathFn = d3.geoPath().projection(proj);
+    var svg    = d3.select('#europe-map');
+
+    svg.append('rect')
+      .attr('width', SVG_W).attr('height', SVG_H)
+      .attr('fill', '#e8eaf5');
+
+    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+      .then(function (world) {
+        svg.selectAll('.sem-country')
+          .data(topojson.feature(world, world.objects.countries).features)
+          .join('path')
+          .attr('class', 'sem-country')
+          .attr('d', pathFn);
+        drawPins(svg, proj, cardEl, containerEl);
+      })
+      .catch(function () {
+        drawPins(svg, proj, cardEl, containerEl);
+      });
+  }
+
+  function drawPins(svg, proj, cardEl, containerEl) {
+    EVENTS.forEach(function (ev) {
+      var pt = proj(ev.ll);
+      var px = pt[0], py = pt[1];
+
+      var g = svg.append('g')
+        .attr('transform', 'translate(' + px + ',' + py + ')')
+        .attr('class', 'sem-pin')
+        .attr('tabindex', '0')
+        .attr('role', 'button')
+        .attr('aria-label', ev.name);
+
+      if (ev.status === 'past') {
+        g.append('circle').attr('class', 'sem-ring-past').attr('r', 9);
+        g.append('circle').attr('class', 'sem-dot-past').attr('r', 5);
+      } else {
+        g.append('circle').attr('class', 'sem-ring-pulse').attr('r', 9);
+        g.append('circle').attr('class', 'sem-dot-upcoming-outer').attr('r', 5);
+        g.append('circle').attr('class', 'sem-dot-upcoming-inner').attr('r', 2.5);
+      }
+
+      g.on('mouseenter', function () { showCard(ev, px, py, cardEl, containerEl); })
+       .on('mouseleave', function () { hideCard(cardEl); })
+       .on('focus',      function () { showCard(ev, px, py, cardEl, containerEl); })
+       .on('blur',       function () { hideCard(cardEl); });
+    });
+  }
+
+  function showCard(ev, pinX, pinY, cardEl, containerEl) {
+    var isSelf = ev.presenter === 'Matin Shams';
+    cardEl.innerHTML =
+      '<div class="sem-card-name"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.name + '</a></div>' +
+      '<div class="sem-card-city">' + ev.city + '</div>' +
+      '<hr class="sem-card-rule">' +
+      '<div class="sem-card-date">' + ev.date + '</div>' +
+      '<div class="sem-card-presenter">' +
+        '<img class="sem-avatar" src="' + ev.img + '" alt="' + ev.presenter + '" onerror="this.style.display=\'none\'">' +
+        '<span class="sem-presenter-name' + (isSelf ? ' sem-presenter-self' : '') + '">' + ev.presenter + '</span>' +
+      '</div>' +
+      (ev.status === 'upcoming' ? '<div class="sem-card-upcoming">Upcoming</div>' : '');
+
+    var svgEl   = document.getElementById('europe-map');
+    var scale   = svgEl.getBoundingClientRect().width / SVG_W;
+    var cx      = pinX * scale;
+    var cy      = pinY * scale;
+    var cH      = containerEl.getBoundingClientRect().height;
+    var cW      = containerEl.getBoundingClientRect().width;
+
+    var CARD_W  = 192, CARD_H = 122, PIN_R = 7, GAP = 7;
+    var top     = cy + PIN_R + GAP;
+    if (top + CARD_H > cH) { top = cy - PIN_R - GAP - CARD_H; }
+    var left    = Math.max(4, Math.min(cW - CARD_W - 4, cx - CARD_W / 2));
+
+    cardEl.style.top  = top  + 'px';
+    cardEl.style.left = left + 'px';
+    cardEl.className  = 'sem-card visible';
+  }
+
+  function hideCard(cardEl) {
+    cardEl.className = 'sem-card';
+  }
+
+  initMap();
+}());
+  </script>
 </body>
 </html>
