@@ -184,36 +184,98 @@
       transform: rotate(90deg);
     }
 
-    /* ── Seminar / conference timeline ───────────── */
-    .pres-timeline {
-      margin-top: 0.65rem;
-      padding-left: 0.75rem;
-      border-left: 1px solid var(--rule);
+    /* ── Conference cards ────────────────────────── */
+    .conf-list {
+      margin-top: 0.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      gap: 0.42rem;
     }
-    .pres-entry { display: flex; gap: 0.8rem; align-items: baseline; }
-    .pres-date {
-      font-size: 0.71rem;
-      color: var(--muted);
-      white-space: nowrap;
-      min-width: 5rem;
+
+    .conf-card {
+      display: flex;
+      align-items: stretch;
+      border-radius: 5px;
+      border: 1px solid var(--rule);
+      background: #fff;
+      overflow: hidden;
+      transition: box-shadow 0.18s ease, transform 0.18s ease;
     }
-    .pres-body { display: flex; flex-direction: column; gap: 0.1rem; }
-    .pres-event {
-      font-size: 0.8rem;
+    .conf-card:hover {
+      box-shadow: 0 3px 14px rgba(25, 25, 112, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .conf-date-col {
+      flex-shrink: 0;
+      width: 46px;
+      background: #eceef8;
+      border-right: 1px solid rgba(25, 25, 112, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0;
+      gap: 0.06rem;
+    }
+    .conf-month {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: var(--link);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .conf-year {
+      font-size: 0.61rem;
       color: var(--mid);
+      letter-spacing: 0.02em;
     }
-    .pres-venue {
+
+    .conf-body {
+      flex: 1;
+      padding: 0.42rem 0.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.07rem;
+      justify-content: center;
+    }
+    a.conf-name {
       font-size: 0.82rem;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--link);
+      line-height: 1.3;
     }
-    .pres-presenter {
-      font-size: 0.71rem;
+    a.conf-name:hover { text-decoration: underline; }
+
+    .conf-venue {
+      font-size: 0.77rem;
+      color: var(--mid);
+    }
+
+    .conf-presenter {
+      margin-top: 0.22rem;
+      display: flex;
+      align-items: center;
+      gap: 0.32rem;
+      font-size: 0.66rem;
       color: var(--muted);
-      margin-top: 0.05rem;
+    }
+    .conf-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      font-size: 0.52rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: rgba(25, 25, 112, 0.11);
+      color: var(--link);
+    }
+    .conf-badge.self {
+      background: rgba(20, 105, 75, 0.12);
+      color: #14694b;
     }
 
     /* ── Course box wrapper ──────────────────────── */
@@ -332,50 +394,65 @@
 
         <details class="expandable">
           <summary>Seminars and Conferences</summary>
-          <div class="pres-timeline">
+          <div class="conf-list">
 
-            <div class="pres-entry">
-              <span class="pres-date">Aug 2025</span>
-              <div class="pres-body">
-                <span class="pres-event"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a></span>
-                <span class="pres-venue">Aachen</span>
-                <span class="pres-presenter">Presented by Boris Andrews</span>
+            <div class="conf-card">
+              <div class="conf-date-col">
+                <span class="conf-month">Aug</span>
+                <span class="conf-year">2025</span>
+              </div>
+              <div class="conf-body">
+                <a class="conf-name" href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025</a>
+                <span class="conf-venue">Aachen</span>
+                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
               </div>
             </div>
 
-            <div class="pres-entry">
-              <span class="pres-date">Sep 2025</span>
-              <div class="pres-body">
-                <span class="pres-event"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a></span>
-                <span class="pres-venue">Ghent University</span>
-                <span class="pres-presenter">Presented by Boris Andrews</span>
+            <div class="conf-card">
+              <div class="conf-date-col">
+                <span class="conf-month">Sep</span>
+                <span class="conf-year">2025</span>
+              </div>
+              <div class="conf-body">
+                <a class="conf-name" href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025</a>
+                <span class="conf-venue">Ghent University</span>
+                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
               </div>
             </div>
 
-            <div class="pres-entry">
-              <span class="pres-date">Sep 2025</span>
-              <div class="pres-body">
-                <span class="pres-event"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a></span>
-                <span class="pres-venue">University of Leeds</span>
-                <span class="pres-presenter">Presented by Matin Shams</span>
+            <div class="conf-card">
+              <div class="conf-date-col">
+                <span class="conf-month">Sep</span>
+                <span class="conf-year">2025</span>
+              </div>
+              <div class="conf-body">
+                <a class="conf-name" href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25</a>
+                <span class="conf-venue">University of Leeds</span>
+                <div class="conf-presenter"><span class="conf-badge self">MS</span>Matin Shams</div>
               </div>
             </div>
 
-            <div class="pres-entry">
-              <span class="pres-date">Oct 2025</span>
-              <div class="pres-body">
-                <span class="pres-event"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a></span>
-                <span class="pres-venue">University of Oxford</span>
-                <span class="pres-presenter">Presented by Boris Andrews</span>
+            <div class="conf-card">
+              <div class="conf-date-col">
+                <span class="conf-month">Oct</span>
+                <span class="conf-year">2025</span>
+              </div>
+              <div class="conf-body">
+                <a class="conf-name" href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar</a>
+                <span class="conf-venue">University of Oxford</span>
+                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
               </div>
             </div>
 
-            <div class="pres-entry">
-              <span class="pres-date">May 2026</span>
-              <div class="pres-body">
-                <span class="pres-event"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a></span>
-                <span class="pres-venue">University of Vienna</span>
-                <span class="pres-presenter">Presented by Boris Andrews</span>
+            <div class="conf-card">
+              <div class="conf-date-col">
+                <span class="conf-month">May</span>
+                <span class="conf-year">2026</span>
+              </div>
+              <div class="conf-body">
+                <a class="conf-name" href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a>
+                <span class="conf-venue">University of Vienna</span>
+                <div class="conf-presenter"><span class="conf-badge">BA</span>Boris Andrews</div>
               </div>
             </div>
 
