@@ -11,148 +11,189 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #111110;
+      background: #ffffff;
       min-height: 100vh;
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      color: #1a1a1a;
     }
 
-    /* ── Stage ──────────────────────────────────── */
-    .stage {
-      position: relative;
+    .page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      max-width: 780px;
       width: 100%;
-      height: 100vh;
-      min-height: 560px;
     }
 
-    /* ── Identity (name + subtitle, centered) ───── */
+    /* ── Left: photo + identity ── */
+    .left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .photo {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid #e8e8e5;
+    }
+
     .identity {
-      position: absolute;
-      top: 46%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
-      pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
     }
 
-    .identity-name {
+    .name {
       font-family: 'EB Garamond', serif;
-      font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+      font-size: 1.6rem;
       font-weight: 500;
-      color: #e6e1d7;
       letter-spacing: -0.01em;
+      color: #1a1a1a;
     }
 
-    .identity-sub {
-      font-size: 0.7rem;
+    .subtitle {
+      font-size: 0.65rem;
       font-weight: 300;
-      color: rgba(230, 225, 215, 0.3);
+      color: #999;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
     }
 
-    /* ── Scattered nav words ─────────────────────── */
-    .word {
-      position: absolute;
+    /* ── Divider ── */
+    .divider {
+      width: 1px;
+      height: 140px;
+      background: #e4e4e0;
+      flex-shrink: 0;
+    }
+
+    /* ── Right: nav ── */
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      padding: 0.3rem 0;
       font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: #777;
+      letter-spacing: 0.01em;
       text-decoration: none;
-      line-height: 1;
-      transition: color 0.2s ease, opacity 0.2s ease;
+      transition: color 0.15s ease;
     }
 
-    .word:hover {
-      color: #c4a882 !important;
-      opacity: 1 !important;
+    .nav-btn:hover,
+    .nav-btn.active {
+      color: #1a1a1a;
     }
 
-    .w-cv {
-      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-      font-weight: 400;
-      color: rgba(230, 225, 215, 0.88);
-      top: 20%;
-      left: 7%;
+    /* ── Contact card ── */
+    .contact-card {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e4e4e0;
     }
 
-    .w-research {
-      font-size: clamp(0.85rem, 1.3vw, 1.05rem);
-      font-weight: 300;
-      color: rgba(230, 225, 215, 0.5);
-      top: 13%;
-      left: 62%;
+    .contact-card.open { display: block; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.75rem;
+      color: #555;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      transition: color 0.15s;
     }
 
-    .w-writing {
-      font-size: clamp(0.8rem, 1.2vw, 0.98rem);
-      font-weight: 300;
-      color: rgba(230, 225, 215, 0.45);
-      top: 58%;
-      left: 72%;
+    .contact-link:hover { color: #1a1a1a; }
+
+    .contact-link svg {
+      flex-shrink: 0;
+      opacity: 0.55;
     }
 
-    .w-projects {
-      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-      font-weight: 400;
-      color: rgba(230, 225, 215, 0.62);
-      top: 70%;
-      left: 9%;
-    }
-
-    .w-contact {
-      font-size: clamp(0.8rem, 1.1vw, 0.92rem);
-      font-weight: 300;
-      color: rgba(230, 225, 215, 0.42);
-      top: 82%;
-      left: 57%;
-    }
-
-    /* ── Mobile: vertical stack ──────────────────── */
-    @media (max-width: 600px) {
-      .stage {
-        height: auto;
-        min-height: 100vh;
-        display: flex;
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .card {
         flex-direction: column;
+        gap: 2.5rem;
         align-items: center;
-        justify-content: center;
-        padding: 4rem 2rem;
-        gap: 1.8rem;
+        text-align: center;
       }
 
-      .identity {
-        position: static;
-        transform: none;
-        white-space: normal;
-        margin-bottom: 0.5rem;
-      }
+      .divider { width: 60px; height: 1px; }
 
-      .word {
-        position: static;
-        font-size: 1rem !important;
-        font-weight: 400 !important;
-        color: rgba(230, 225, 215, 0.65) !important;
-        opacity: 1 !important;
-      }
+      .right { align-items: center; }
+
+      .contact-card { text-align: left; }
     }
   </style>
 </head>
 <body>
-  <div class="stage">
+  <div class="page">
+    <div class="card">
 
-    <div class="identity">
-      <div class="identity-name">Matin Shams</div>
-      <div class="identity-sub">Mathematical Modelling &amp; Scientific Computing</div>
+      <div class="left">
+        <img class="photo" src="assets/logos/matin.png" alt="Matin Shams" />
+        <div class="identity">
+          <div class="name">Matin Shams</div>
+          <div class="subtitle">Mathematical Modelling &amp; Scientific Computing</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="right">
+        <a class="nav-btn" href="cv.html">CV</a>
+        <button class="nav-btn" id="contact-toggle" type="button">Contact</button>
+
+        <div class="contact-card" id="contact-card">
+          <a class="contact-link" href="mailto:matinshams81@gmail.com">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            matinshams81@gmail.com
+          </a>
+          <a class="contact-link" href="https://github.com/matin-shams" target="_blank" rel="noopener">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/matin-shams
+          </a>
+        </div>
+      </div>
+
     </div>
-
-    <a class="word w-cv"       href="cv.html">Curriculum Vitae</a>
-    <a class="word w-research" href="#">Research</a>
-    <a class="word w-writing"  href="#">Writing</a>
-    <a class="word w-projects" href="#">Projects</a>
-    <a class="word w-contact"  href="#">Contact</a>
-
   </div>
+
+  <script>
+    var toggle = document.getElementById('contact-toggle');
+    var card   = document.getElementById('contact-card');
+    toggle.addEventListener('click', function () {
+      var open = card.classList.toggle('open');
+      toggle.classList.toggle('active', open);
+    });
+  </script>
 </body>
 </html>
