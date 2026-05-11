@@ -189,12 +189,14 @@
     .sem-item {
       display: grid;
       grid-template-columns: 4.5rem 1fr;
-      gap: 0 0.75rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--rule);
+      gap: 0;
+      padding: 0.45rem 0;
       align-items: start;
     }
-    .sem-item:last-child { border-bottom: none; }
+    .sem-item > div {
+      border-left: 1.5px solid var(--rule);
+      padding-left: 0.85rem;
+    }
     .sem-date {
       font-size: 0.7rem;
       color: var(--muted);
@@ -203,11 +205,11 @@
     }
     .sem-name {
       font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--link);
+      font-weight: 400;
+      color: var(--mid);
       line-height: 1.35;
     }
-    .sem-name a { color: inherit; text-decoration: none; }
+    .sem-name a { color: var(--link); text-decoration: none; }
     .sem-name a:hover { text-decoration: underline; }
     .sem-by {
       font-size: 0.71rem;
