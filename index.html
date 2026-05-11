@@ -6,295 +6,153 @@
   <title>Matin Shams</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --ink:       #1a1a1a;
-      --mid:       #4a4a4a;
-      --muted:     #888;
-      --rule:      #ddd;
-      --bg:        #fafaf8;
-      --accent:    #1a3a5c;
-      --accent-lt: #e8eef4;
-      --radius:    4px;
-    }
-
-    html {
-      font-size: 17px;
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
-      color: var(--ink);
+      background: #111110;
+      min-height: 100vh;
       font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* ── Layout shell ─────────────────────────────── */
-    .page {
-      max-width: 740px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ── Header ───────────────────────────────────── */
-    header {
-      padding: 5rem 0 3.5rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .name {
-      font-family: 'EB Garamond', serif;
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      line-height: 1.15;
-    }
-
-    .tagline {
-      margin-top: 0.6rem;
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--mid);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .contact-row {
-      margin-top: 1.4rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 2rem;
-    }
-
-    .contact-row a {
-      font-size: 0.88rem;
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s;
-    }
-
-    .contact-row a:hover {
-      border-color: var(--accent);
-    }
-
-    /* ── Main ─────────────────────────────────────── */
-    main {
-      padding: 4rem 0 6rem;
-    }
-
-    /* ── Section heading ──────────────────────────── */
-    .section-label {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2.4rem;
-    }
-
-    /* ── Timeline ─────────────────────────────────── */
-    .timeline {
+    /* ── Stage ──────────────────────────────────── */
+    .stage {
       position: relative;
-      padding-left: 1.5rem;
+      width: 100%;
+      height: 100vh;
+      min-height: 560px;
     }
 
-    .timeline::before {
-      content: '';
+    /* ── Identity (name + subtitle, centered) ───── */
+    .identity {
       position: absolute;
-      top: 10px;
-      left: 0;
-      bottom: 10px;
-      width: 1px;
-      background: var(--rule);
-    }
-
-    .entry {
-      position: relative;
-      padding-bottom: 2.8rem;
-    }
-
-    .entry:last-child {
-      padding-bottom: 0;
-    }
-
-    /* dot on the line */
-    .entry::before {
-      content: '';
-      position: absolute;
-      left: -1.5rem;
-      top: 10px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      transform: translateX(-3px);
-      box-shadow: 0 0 0 3px var(--bg);
-    }
-
-    .entry-period {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
-    }
-
-    .entry-degree {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.22rem;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.3;
-    }
-
-    .entry-institution {
-      margin-top: 0.2rem;
-      font-size: 0.92rem;
-      color: var(--mid);
-      font-weight: 400;
-    }
-
-    .entry-details {
-      margin-top: 0.85rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: flex-start;
-    }
-
-    .detail-block {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.5rem;
-      background: var(--accent-lt);
-      border-left: 2px solid var(--accent);
-      padding: 0.45rem 0.75rem;
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-
-    .detail-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      user-select: none;
       white-space: nowrap;
     }
 
-    .detail-text {
-      font-size: 0.85rem;
-      color: var(--mid);
+    .identity-name {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+      font-weight: 500;
+      color: #e6e1d7;
+      letter-spacing: -0.01em;
     }
 
-    /* ── Footer ───────────────────────────────────── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 0;
+    .identity-sub {
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: rgba(230, 225, 215, 0.3);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+    /* ── Scattered nav words ─────────────────────── */
+    .word {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      line-height: 1;
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
-    .footer-inner span {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .word:hover {
+      color: #c4a882 !important;
+      opacity: 1 !important;
     }
 
-    /* ── Responsive ───────────────────────────────── */
-    @media (max-width: 540px) {
-      header {
-        padding: 3.5rem 0 2.5rem;
-      }
+    .w-cv {
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+      font-weight: 400;
+      color: rgba(230, 225, 215, 0.88);
+      top: 20%;
+      left: 7%;
+    }
 
-      .timeline {
-        padding-left: 1.2rem;
-      }
+    .w-research {
+      font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+      font-weight: 300;
+      color: rgba(230, 225, 215, 0.5);
+      top: 13%;
+      left: 62%;
+    }
 
-      .entry::before {
-        transform: translateX(-3px);
-      }
+    .w-writing {
+      font-size: clamp(0.8rem, 1.2vw, 0.98rem);
+      font-weight: 300;
+      color: rgba(230, 225, 215, 0.45);
+      top: 58%;
+      left: 72%;
+    }
 
-      .detail-block {
+    .w-projects {
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+      font-weight: 400;
+      color: rgba(230, 225, 215, 0.62);
+      top: 70%;
+      left: 9%;
+    }
+
+    .w-contact {
+      font-size: clamp(0.8rem, 1.1vw, 0.92rem);
+      font-weight: 300;
+      color: rgba(230, 225, 215, 0.42);
+      top: 82%;
+      left: 57%;
+    }
+
+    /* ── Mobile: vertical stack ──────────────────── */
+    @media (max-width: 600px) {
+      .stage {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
         flex-direction: column;
-        gap: 0.15rem;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 2rem;
+        gap: 1.8rem;
+      }
+
+      .identity {
+        position: static;
+        transform: none;
+        white-space: normal;
+        margin-bottom: 0.5rem;
+      }
+
+      .word {
+        position: static;
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        color: rgba(230, 225, 215, 0.65) !important;
+        opacity: 1 !important;
       }
     }
   </style>
 </head>
 <body>
+  <div class="stage">
 
-  <div class="page">
+    <div class="identity">
+      <div class="identity-name">Matin Shams</div>
+      <div class="identity-sub">Mathematical Modelling &amp; Scientific Computing</div>
+    </div>
 
-    <!-- ── Header ──────────────────────────────── -->
-    <header>
-      <h1 class="name">Matin Shams</h1>
-      <p class="tagline">Mathematical Modelling &amp; Scientific Computing</p>
-      <div class="contact-row">
-        <a href="https://matinshams.me">matinshams.me</a>
-        <a href="mailto:matinshams81@gmail.com">matinshams81@gmail.com</a>
-      </div>
-    </header>
-
-    <!-- ── Main ────────────────────────────────── -->
-    <main>
-      <p class="section-label">Education</p>
-
-      <div class="timeline">
-
-        <!-- Oxford -->
-        <div class="entry">
-          <div class="entry-period">2024 – 2025</div>
-          <div class="entry-degree">MSc Mathematical Modelling &amp; Scientific Computing</div>
-          <div class="entry-institution">University of Oxford</div>
-        </div>
-
-        <!-- TU Delft BSc -->
-        <div class="entry">
-          <div class="entry-period">2021 – 2024</div>
-          <div class="entry-degree">BSc Aerospace Engineering</div>
-          <div class="entry-institution">Delft University of Technology</div>
-          <div class="entry-details">
-            <div class="detail-block">
-              <span class="detail-label">Minor</span>
-              <span class="detail-text">Astrophysics &amp; Astronomy &mdash; University of British Columbia</span>
-            </div>
-            <div class="detail-block">
-              <span class="detail-label">Bridging</span>
-              <span class="detail-text">Applied Mathematics &mdash; Delft University of Technology</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </main>
-
-    <!-- ── Footer ──────────────────────────────── -->
-    <footer>
-      <div class="footer-inner">
-        <span>Matin Shams</span>
-        <span>matinshams.me</span>
-      </div>
-    </footer>
+    <a class="word w-cv"       href="cv.html">Curriculum Vitae</a>
+    <a class="word w-research" href="#">Research</a>
+    <a class="word w-writing"  href="#">Writing</a>
+    <a class="word w-projects" href="#">Projects</a>
+    <a class="word w-contact"  href="#">Contact</a>
 
   </div>
-
 </body>
 </html>
