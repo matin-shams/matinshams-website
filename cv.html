@@ -200,25 +200,35 @@
       white-space: nowrap;
       min-width: 5rem;
     }
-    .pres-body { display: flex; flex-direction: column; gap: 0.1rem; }
-    .pres-event { font-size: 0.8rem; }
+    .pres-body { display: flex; flex-direction: column; gap: 0.15rem; }
+    .pres-event { font-size: 0.8rem; color: var(--ink); }
+    .pres-url {
+      font-size: 0.7rem;
+    }
     .pres-presenter {
       font-size: 0.71rem;
       color: var(--muted);
     }
 
-    /* ── Course list (UBC & bridging) ────────────── */
-    .course-list {
-      margin-top: 0.65rem;
-      padding-left: 0.75rem;
-      border-left: 1px solid var(--rule);
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+    /* ── Course table (UBC & bridging) ───────────── */
+    .course-table {
+      margin-top: 0.6rem;
+      border-collapse: collapse;
+      font-size: 0.79rem;
+      width: 100%;
     }
-    .course-item {
-      font-size: 0.8rem;
+    .course-table td {
+      padding: 0.28rem 0.55rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: middle;
     }
+    .course-table td:first-child {
+      border-right: 1px solid var(--rule);
+      padding-left: 0;
+      white-space: nowrap;
+    }
+    .course-table td:last-child { color: var(--mid); }
+    .course-table tr:last-child td { border-bottom: none; }
     .course-averages {
       margin-top: 0.55rem;
       padding-top: 0.45rem;
@@ -310,7 +320,8 @@
             <div class="pres-entry">
               <span class="pres-date">Aug 2025</span>
               <div class="pres-body">
-                <span class="pres-event"><a href="https://mfet2025.de/" target="_blank" rel="noopener">ECCOMAS MFET 2025, Aachen</a></span>
+                <span class="pres-event">ECCOMAS MFET 2025, <strong>Aachen</strong></span>
+                <a class="pres-url" href="https://mfet2025.de/" target="_blank" rel="noopener">mfet2025.de</a>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -318,7 +329,8 @@
             <div class="pres-entry">
               <span class="pres-date">Sep 2025</span>
               <div class="pres-body">
-                <span class="pres-event"><a href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">ACOMEN 2025, Ghent University</a></span>
+                <span class="pres-event">ACOMEN 2025, <strong>Ghent University</strong></span>
+                <a class="pres-url" href="https://cage.ugent.be/acomen2025/" target="_blank" rel="noopener">cage.ugent.be/acomen2025</a>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -326,7 +338,8 @@
             <div class="pres-entry">
               <span class="pres-date">Sep 2025</span>
               <div class="pres-body">
-                <span class="pres-event"><a href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">Firedrake'25, University of Leeds</a></span>
+                <span class="pres-event">Firedrake'25, <strong>University of Leeds</strong></span>
+                <a class="pres-url" href="https://www.firedrakeproject.org/firedrake_25.html" target="_blank" rel="noopener">firedrakeproject.org</a>
                 <span class="pres-presenter">Presented by Matin Shams</span>
               </div>
             </div>
@@ -334,7 +347,8 @@
             <div class="pres-entry">
               <span class="pres-date">Oct 2025</span>
               <div class="pres-body">
-                <span class="pres-event"><a href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">Numerical Analysis Group Internal Seminar, University of Oxford</a></span>
+                <span class="pres-event">Numerical Analysis Group Internal Seminar, <strong>University of Oxford</strong></span>
+                <a class="pres-url" href="https://www.maths.ox.ac.uk/node/74237" target="_blank" rel="noopener">maths.ox.ac.uk</a>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -342,7 +356,8 @@
             <div class="pres-entry">
               <span class="pres-date">May 2026</span>
               <div class="pres-body">
-                <span class="pres-event"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes, University of Vienna</a></span>
+                <span class="pres-event">ESI Programme on Differential Complexes, <strong>University of Vienna</strong></span>
+                <a class="pres-url" href="https://www.esi.ac.at/" target="_blank" rel="noopener">esi.ac.at</a>
                 <span class="pres-presenter">Presented by Boris Andrews</span>
               </div>
             </div>
@@ -368,16 +383,16 @@
 
         <details class="expandable">
           <summary>Courses</summary>
-          <div class="course-list">
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/frontiers-astrophysics" target="_blank" rel="noopener">ASTR 200</a></div>
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/galaxies/galaxies-2025-sec-101" target="_blank" rel="noopener">ASTR 300</a></div>
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/exoplanets-and-astrobiology/exoplanets-and-astrobiology-2025-sec-201" target="_blank" rel="noopener">ASTR 333</a></div>
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/engineering-and-sustainable-development/engineering-and-sustainable-development-2025-sec-0" target="_blank" rel="noopener">CIVL 250</a></div>
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/economic-analysis-engineering-projects/economic-analysis-engineering-projects-2025-sec-101" target="_blank" rel="noopener">ELEC 481</a></div>
-            <div class="course-item"><a href="https://courses.students.ubc.ca/courses/engineering-economics/engineering-economics-2025-sec-101-1" target="_blank" rel="noopener">MINE 396</a></div>
-            <div class="course-averages">
-              <span class="course-avg-label">Overall average: <span>85.7%</span></span>
-            </div>
+          <table class="course-table">
+            <tr><td><a href="https://courses.students.ubc.ca/courses/frontiers-astrophysics" target="_blank" rel="noopener">ASTR 200</a></td><td>Frontiers of Astrophysics</td></tr>
+            <tr><td><a href="https://courses.students.ubc.ca/courses/galaxies/galaxies-2025-sec-101" target="_blank" rel="noopener">ASTR 300</a></td><td>Galaxies</td></tr>
+            <tr><td><a href="https://courses.students.ubc.ca/courses/exoplanets-and-astrobiology/exoplanets-and-astrobiology-2025-sec-201" target="_blank" rel="noopener">ASTR 333</a></td><td>Exoplanets and Astrobiology</td></tr>
+            <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-and-sustainable-development/engineering-and-sustainable-development-2025-sec-0" target="_blank" rel="noopener">CIVL 250</a></td><td>Engineering and Sustainable Development</td></tr>
+            <tr><td><a href="https://courses.students.ubc.ca/courses/economic-analysis-engineering-projects/economic-analysis-engineering-projects-2025-sec-101" target="_blank" rel="noopener">ELEC 481</a></td><td>Economic Analysis of Engineering Projects</td></tr>
+            <tr><td><a href="https://courses.students.ubc.ca/courses/engineering-economics/engineering-economics-2025-sec-101-1" target="_blank" rel="noopener">MINE 396</a></td><td>Engineering Economics</td></tr>
+          </table>
+          <div class="course-averages">
+            <span class="course-avg-label">Overall average: <span>85.7%</span></span>
           </div>
         </details>
 
@@ -399,15 +414,15 @@
 
         <details class="expandable">
           <summary>Bridging Program in Applied Mathematics</summary>
-          <div class="course-list">
-            <div class="course-item"><a href="https://rl.talis.com/3/tudelft/lists/C42D6147-5907-1BAC-4397-56E113CB882A.html?lang=en-GB" target="_blank" rel="noopener">AM1010</a> — Mathematical Structures</div>
-            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22383" target="_blank" rel="noopener">AM2090</a> — Real Analysis</div>
-            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22378" target="_blank" rel="noopener">AM2080</a> — Introduction to Statistics</div>
-            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22381" target="_blank" rel="noopener">AM2020</a> — Optimization</div>
-            <div class="course-item"><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22380" target="_blank" rel="noopener">AM2070</a> — Partial Differential Equations</div>
-            <div class="course-item"><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a> — Differential Geometry</div>
-            <div class="course-item"><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a> — Topology</div>
-          </div>
+          <table class="course-table">
+            <tr><td><a href="https://rl.talis.com/3/tudelft/lists/C42D6147-5907-1BAC-4397-56E113CB882A.html?lang=en-GB" target="_blank" rel="noopener">AM1010</a></td><td>Mathematical Structures</td></tr>
+            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22383" target="_blank" rel="noopener">AM2090</a></td><td>Real Analysis</td></tr>
+            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22378" target="_blank" rel="noopener">AM2080</a></td><td>Introduction to Statistics</td></tr>
+            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22381" target="_blank" rel="noopener">AM2020</a></td><td>Optimization</td></tr>
+            <tr><td><a href="https://studyguide.tudelft.nl/opleidingen/study-guide/educations/22376#/details/22380" target="_blank" rel="noopener">AM2070</a></td><td>Partial Differential Equations</td></tr>
+            <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a></td><td>Differential Geometry</td></tr>
+            <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a></td><td>Topology</td></tr>
+          </table>
         </details>
 
       </div>
