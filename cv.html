@@ -891,5 +891,12 @@
 
 }());
   </script>
+  <script>
+    if (new URLSearchParams(location.search).has('full')) {
+      document.querySelectorAll('[style*="display:none"]').forEach(function(el) {
+        el.style.display = '';
+      });
+    }
+  </script>
 </body>
 </html>
