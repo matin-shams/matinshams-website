@@ -175,18 +175,6 @@
     }
 
     /* ── Expandable (shared) ─────────────────────── */
-    .sem-section {
-      position: relative;
-      margin-top: 0.7rem;
-    }
-    .sem-section > .globe-chip {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-    .sem-section > details.expandable {
-      margin-top: 0;
-    }
     details.expandable {
       margin-top: 0.7rem;
     }
@@ -312,7 +300,7 @@
     .globe-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(4,7,16,.8);
+      background: rgba(0,0,0,.35);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       z-index: 1000;
@@ -327,34 +315,26 @@
 
     .globe-modal {
       position: relative;
-      width: min(560px, 95vw);
-      background: radial-gradient(ellipse at 50% 30%, #0e1529 0%, #07091a 65%, #030609 100%);
+      width: min(520px, 95vw);
+      background: #fff;
       border-radius: 14px;
-      border: 1px solid rgba(80,110,200,.18);
+      border: 1px solid var(--rule);
       overflow: hidden;
-      box-shadow: 0 30px 100px rgba(0,5,25,.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
     }
 
     .globe-modal-hd {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 0.9rem 0.55rem;
-      border-bottom: 1px solid rgba(80,110,200,.12);
-    }
-    .globe-modal-title {
-      font-size: 0.63rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(150,180,240,.45);
+      justify-content: flex-end;
+      padding: 0.5rem 0.6rem;
     }
     .globe-close {
       width: 24px; height: 24px;
       border-radius: 50%;
-      border: 1px solid rgba(80,110,200,.22);
-      background: rgba(80,110,200,.08);
-      color: rgba(150,180,240,.6);
+      border: 1px solid var(--rule);
+      background: none;
+      color: var(--muted);
       font-size: 0.95rem;
       cursor: pointer;
       display: flex;
@@ -363,64 +343,75 @@
       transition: background .15s, color .15s;
       flex-shrink: 0;
     }
-    .globe-close:hover { background: rgba(80,110,200,.2); color: rgba(210,225,255,.9); }
+    .globe-close:hover { background: var(--bg); color: var(--ink); }
 
     .globe-canvas-wrap {
-      width: 100%; height: 360px;
+      width: 100%; height: 300px;
       cursor: grab; overflow: hidden;
+      position: relative;
     }
     .globe-canvas-wrap:active { cursor: grabbing; }
     .globe-canvas-wrap canvas { display: block; }
 
-    .globe-footer {
-      padding: 0.6rem 0.9rem;
-      min-height: 60px;
-      border-top: 1px solid rgba(80,110,200,.11);
+    /* Floating hover tooltip */
+    .globe-tip {
+      position: absolute;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 0.55rem 0.75rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,.09);
+      pointer-events: none;
+      display: none;
+      max-width: 210px;
+      z-index: 10;
     }
-    .globe-hint {
-      font-size: 0.62rem;
-      color: rgba(110,140,200,.35);
-      text-align: center;
-      padding-top: 0.25rem;
-    }
-    .globe-card-inner { display: none; }
-    .globe-card-inner.show { display: block; }
-    .globe-card-name {
-      font-size: 0.79rem;
+    .globe-tip-name {
+      font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(220,232,255,.92);
+      color: var(--ink);
       line-height: 1.3;
     }
-    .globe-card-name a { color: #8ab4ff; text-decoration: none; }
-    .globe-card-name a:hover { text-decoration: underline; }
-    .globe-card-venue {
-      font-size: 0.71rem;
-      color: rgba(155,180,235,.6);
-      margin-top: 0.1rem;
+    .globe-tip-name a { color: var(--link); text-decoration: none; }
+    .globe-tip-name a:hover { text-decoration: underline; }
+    .globe-tip-venue {
+      font-size: 0.67rem;
+      color: var(--mid);
+      margin-top: 0.18rem;
     }
-    .globe-card-meta {
-      margin-top: 0.2rem;
-      font-size: 0.63rem;
-      color: rgba(115,145,205,.5);
+    .globe-tip-meta {
+      margin-top: 0.22rem;
+      font-size: 0.62rem;
+      color: var(--muted);
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       flex-wrap: wrap;
     }
-    .globe-presenter { display: inline-flex; align-items: center; gap: 0.25rem; }
+    .globe-tip-presenter { display: inline-flex; align-items: center; gap: 0.22rem; }
     .globe-avatar {
-      width: 14px; height: 14px;
+      width: 13px; height: 13px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid rgba(80,110,200,.3);
+      border: 1px solid var(--rule);
     }
-    .globe-self { color: rgba(100,200,155,.85); }
+    .globe-tip-self { color: #2a7a50; }
+
+    .globe-footer {
+      padding: 0.45rem 0.9rem 0.6rem;
+      border-top: 1px solid var(--rule);
+    }
+    .globe-hint {
+      font-size: 0.61rem;
+      color: var(--muted);
+      text-align: center;
+    }
     .globe-upcoming-badge {
       font-size: 0.58rem;
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255,130,130,.85);
+      color: #c0392b;
     }
 
     @media (max-width: 480px) { .globe-canvas-wrap { height: 290px; } }
@@ -531,9 +522,13 @@
           </div>
         </div>
 
-        <div class="sem-section">
         <details class="expandable">
-          <summary>Seminars and Conferences</summary>
+          <summary>Seminars and Conferences
+            <button class="globe-chip" id="globe-chip" type="button" aria-haspopup="dialog">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              View on globe
+            </button>
+          </summary>
           <ul class="sem-list">
             <li class="sem-item">
               <span class="sem-date">Aug 2025</span>
@@ -579,11 +574,6 @@
             </li>
           </ul>
         </details>
-        <button class="globe-chip" id="globe-chip" type="button" aria-haspopup="dialog">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          View on globe
-        </button>
-        </div>
 
       </div>
     </div>
@@ -712,13 +702,11 @@
 <div class="globe-overlay" id="globe-overlay" role="dialog" aria-modal="true" aria-label="Seminars and Conferences globe">
   <div class="globe-modal">
     <div class="globe-modal-hd">
-      <span class="globe-modal-title">Seminars &amp; Conferences</span>
       <button class="globe-close" id="globe-close" aria-label="Close">&#x2715;</button>
     </div>
     <div class="globe-canvas-wrap" id="globe-wrap"></div>
     <div class="globe-footer">
-      <div class="globe-card-inner" id="globe-card"></div>
-      <p class="globe-hint" id="globe-hint">Drag to rotate &nbsp;&middot;&nbsp; Click a pin to explore</p>
+      <p class="globe-hint" id="globe-hint">Drag to rotate &nbsp;&middot;&nbsp; Scroll to zoom &nbsp;&middot;&nbsp; Hover a pin</p>
     </div>
   </div>
 </div>
@@ -741,11 +729,9 @@
   var openBtn   = document.getElementById('globe-chip');
   var closeBtn  = document.getElementById('globe-close');
   var wrapEl    = document.getElementById('globe-wrap');
-  var cardEl    = document.getElementById('globe-card');
   var hintEl    = document.getElementById('globe-hint');
   var globeInst = null;
 
-  /* ── Lat/lng → 3-D position on unit sphere ────── */
   function ll2v(lat, lng, r) {
     var phi   = (90 - lat) * Math.PI / 180;
     var theta = (lng + 180) * Math.PI / 180;
@@ -756,15 +742,13 @@
     );
   }
 
-  /* ── Build Three.js globe ─────────────────────── */
   function initGlobe() {
     if (globeInst) return;
     if (typeof THREE === 'undefined') { console.warn('Three.js not loaded'); return; }
 
     var W = wrapEl.clientWidth  || 520;
-    var H = wrapEl.clientHeight || 360;
+    var H = wrapEl.clientHeight || 300;
 
-    /* Scene */
     var scene    = new THREE.Scene();
     var camera   = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
     camera.position.z = 2.6;
@@ -775,17 +759,14 @@
     renderer.setClearColor(0x000000, 0);
     wrapEl.appendChild(renderer.domElement);
 
-    /* Lights */
-    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-    var sun = new THREE.DirectionalLight(0xffffff, 1.3);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    var sun = new THREE.DirectionalLight(0xffffff, 1.2);
     sun.position.set(5, 3, 5);
     scene.add(sun);
 
-    /* Globe group — everything rotates together */
     var globeGroup = new THREE.Group();
     scene.add(globeGroup);
 
-    /* Earth sphere */
     var earthMat = new THREE.MeshPhongMaterial({ shininess: 12, color: 0xffffff });
     var earth    = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), earthMat);
     globeGroup.add(earth);
@@ -794,124 +775,138 @@
       function (t) { earthMat.map = t; earthMat.needsUpdate = true; }
     );
 
-    /* Atmosphere glow */
     var atmMat = new THREE.MeshPhongMaterial({
-      color: 0x4488ff, side: THREE.BackSide, transparent: true, opacity: 0.13
+      color: 0x4488ff, side: THREE.BackSide, transparent: true, opacity: 0.1
     });
-    globeGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.09, 64, 64), atmMat));
+    globeGroup.add(new THREE.Mesh(new THREE.SphereGeometry(1.07, 64, 64), atmMat));
 
-    /* Pins */
+    /* Pins — 3x smaller than original */
     var pinMeshes = [];
     EVENTS.forEach(function (ev) {
       var isPast = ev.status === 'past';
       var group  = new THREE.Group();
 
-      /* Head */
       var headMat = new THREE.MeshPhongMaterial({
-        color:     isPast ? 0xc0392b : 0xffffff,
-        emissive:  isPast ? 0x1a0000 : 0x000000,
-        shininess: 120,
-        transparent: !isPast, opacity: isPast ? 1 : 0.75
+        color:       isPast ? 0xc0392b : 0xdddddd,
+        emissive:    isPast ? 0x200000 : 0x000000,
+        shininess:   140,
+        transparent: !isPast, opacity: isPast ? 1 : 0.8
       });
-      var head = new THREE.Mesh(new THREE.SphereGeometry(0.038, 20, 20), headMat);
-      head.position.y = 0.062;
+      var head = new THREE.Mesh(new THREE.SphereGeometry(0.013, 16, 16), headMat);
+      head.position.y = 0.021;
       head.userData.event = ev;
       group.add(head);
       pinMeshes.push(head);
 
-      /* Needle */
-      var needleMat = new THREE.MeshPhongMaterial({ color: isPast ? 0x7a0000 : 0x999999 });
-      var needle    = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.002, 0.09, 8), needleMat);
-      needle.position.y = 0.008;
+      var needleMat = new THREE.MeshPhongMaterial({ color: isPast ? 0x8b0000 : 0xaaaaaa });
+      var needle    = new THREE.Mesh(new THREE.CylinderGeometry(0.0023, 0.0007, 0.03, 8), needleMat);
+      needle.position.y = 0.003;
       group.add(needle);
 
-      /* Position + orient outward from globe centre */
-      var pos = ll2v(ev.lat, ev.lng, 1.02);
+      var pos = ll2v(ev.lat, ev.lng, 1.007);
       group.position.copy(pos);
       group.quaternion.setFromUnitVectors(
         new THREE.Vector3(0, 1, 0),
         pos.clone().normalize()
       );
-
       globeGroup.add(group);
     });
 
-    /* Rotate globe so Europe faces the camera initially
-       (Blue Marble: 0° lon → front; Europe ≈ 10°E → small offset)       */
     globeGroup.rotation.y = -0.18;
 
-    /* ── Drag-to-rotate ──────────────────────────── */
-    var isDragging = false, autoRotate = true;
-    var prevX = 0, prevY = 0, clickX = 0, clickY = 0;
+    /* Drag */
+    var isDragging = false;
+    var prevX = 0, prevY = 0;
     var canvas = renderer.domElement;
     canvas.style.cursor = 'grab';
 
     canvas.addEventListener('pointerdown', function (e) {
-      isDragging = true; autoRotate = false;
-      prevX = clickX = e.clientX; prevY = clickY = e.clientY;
+      isDragging = true;
+      prevX = e.clientX; prevY = e.clientY;
       canvas.style.cursor = 'grabbing';
       canvas.setPointerCapture(e.pointerId);
+      tip.style.display = 'none';
     });
     canvas.addEventListener('pointermove', function (e) {
-      if (!isDragging) return;
-      globeGroup.rotation.y += (e.clientX - prevX) * 0.006;
-      globeGroup.rotation.x += (e.clientY - prevY) * 0.004;
-      globeGroup.rotation.x = Math.max(-1.1, Math.min(1.1, globeGroup.rotation.x));
-      prevX = e.clientX; prevY = e.clientY;
-    });
-    canvas.addEventListener('pointerup', function () {
-      isDragging = false; autoRotate = true;
-      canvas.style.cursor = 'grab';
-    });
-
-    /* ── Click → show card ───────────────────────── */
-    var raycaster = new THREE.Raycaster();
-    var mouse     = new THREE.Vector2();
-    canvas.addEventListener('click', function (e) {
-      if (Math.abs(e.clientX - clickX) > 4 || Math.abs(e.clientY - clickY) > 4) return;
+      if (isDragging) {
+        globeGroup.rotation.y += (e.clientX - prevX) * 0.006;
+        globeGroup.rotation.x += (e.clientY - prevY) * 0.004;
+        globeGroup.rotation.x = Math.max(-1.1, Math.min(1.1, globeGroup.rotation.x));
+        prevX = e.clientX; prevY = e.clientY;
+        return;
+      }
+      /* Hover: raycast for pin */
       var rect = canvas.getBoundingClientRect();
       mouse.x =  (e.clientX - rect.left) / rect.width  * 2 - 1;
       mouse.y = -((e.clientY - rect.top)  / rect.height) * 2 + 1;
       raycaster.setFromCamera(mouse, camera);
       var hits = raycaster.intersectObjects(pinMeshes);
-      if (hits.length) showCard(hits[0].object.userData.event);
+      if (hits.length) {
+        showTip(hits[0].object.userData.event, e.clientX - rect.left, e.clientY - rect.top);
+        canvas.style.cursor = 'pointer';
+      } else {
+        tip.style.display = 'none';
+        canvas.style.cursor = 'grab';
+      }
     });
+    canvas.addEventListener('pointerup', function () {
+      isDragging = false;
+      canvas.style.cursor = 'grab';
+    });
+    canvas.addEventListener('mouseleave', function () { tip.style.display = 'none'; });
 
-    /* ── Animation loop ──────────────────────────── */
+    /* Scroll to zoom */
+    canvas.addEventListener('wheel', function (e) {
+      camera.position.z = Math.max(1.4, Math.min(5.0, camera.position.z + e.deltaY * 0.004));
+      e.preventDefault();
+    }, { passive: false });
+
+    /* Hover tooltip */
+    var raycaster = new THREE.Raycaster();
+    raycaster.params.Points = { threshold: 0.05 };
+    var mouse = new THREE.Vector2();
+
+    var tip = document.createElement('div');
+    tip.className = 'globe-tip';
+    wrapEl.appendChild(tip);
+
+    function showTip(ev, cx, cy) {
+      var isSelf = ev.presenter === 'Matin Shams';
+      tip.innerHTML =
+        '<div class="globe-tip-name"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.name + '</a></div>' +
+        '<div class="globe-tip-venue">' + ev.city + '</div>' +
+        '<div class="globe-tip-meta">' +
+          '<span>' + ev.date + '</span>' +
+          '<span class="globe-tip-presenter">' +
+            '<img class="globe-avatar" src="' + ev.img + '" alt="" onerror="this.style.display=\'none\'">' +
+            '<span class="' + (isSelf ? 'globe-tip-self' : '') + '">' + ev.presenter + '</span>' +
+          '</span>' +
+          (ev.status === 'upcoming' ? ' <span class="globe-upcoming-badge">Upcoming</span>' : '') +
+        '</div>';
+      tip.style.display = 'block';
+      /* Keep tooltip inside canvas bounds */
+      var tipW = 210, tipH = 80;
+      var x = cx + 14;
+      var y = cy - tipH - 8;
+      if (x + tipW > W) x = cx - tipW - 10;
+      if (y < 0) y = cy + 14;
+      tip.style.left = x + 'px';
+      tip.style.top  = y + 'px';
+    }
+
+    /* Animation loop — no auto-rotate */
     var rafId;
     (function animate() {
       rafId = requestAnimationFrame(animate);
-      if (autoRotate && !isDragging) globeGroup.rotation.y += 0.0025;
       renderer.render(scene, camera);
     }());
 
     globeInst = { stop: function () { cancelAnimationFrame(rafId); } };
   }
 
-  /* ── Detail card ─────────────────────────────── */
-  function showCard(ev) {
-    var isSelf = ev.presenter === 'Matin Shams';
-    cardEl.innerHTML =
-      '<div class="globe-card-name"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.name + '</a></div>' +
-      '<div class="globe-card-venue">' + ev.city + '</div>' +
-      '<div class="globe-card-meta">' +
-        '<span>' + ev.date + '</span>' +
-        '<span class="globe-presenter">' +
-          '<img class="globe-avatar" src="' + ev.img + '" alt="" onerror="this.style.display=\'none\'">' +
-          '<span class="' + (isSelf ? 'globe-self' : '') + '">' + ev.presenter + '</span>' +
-        '</span>' +
-        (ev.status === 'upcoming' ? '<span class="globe-upcoming-badge">Upcoming</span>' : '') +
-      '</div>';
-    cardEl.className     = 'globe-card-inner show';
-    hintEl.style.display = 'none';
-  }
-
-  /* ── Open / close handlers ───────────────────── */
   function closeGlobe() {
     overlayEl.classList.remove('open');
     document.body.style.overflow = '';
-    cardEl.className     = 'globe-card-inner';
-    hintEl.style.display = '';
   }
 
   if (openBtn) {
