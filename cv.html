@@ -151,67 +151,20 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    /* Dissertation paper card (shown only in ?full mode) */
-    .cv-pdf-card {
+    /* Dissertation read link (shown only in ?full mode) */
+    .cv-thesis-read {
       display: none;
-      margin-top: 1rem;
-    }
-    .cv-paper {
-      background: #fff;
-      border: 1px solid #deded9;
-      border-radius: 3px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05);
-      padding: 1.25rem 1.4rem 1rem;
-      position: relative;
-    }
-    .cv-paper::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--link);
-      border-radius: 3px 3px 0 0;
-      opacity: 0.55;
-    }
-    .cv-paper-kicker {
-      font-size: 0.6rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.55rem;
-    }
-    .cv-paper-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.45;
-      margin-bottom: 0.8rem;
-    }
-    .cv-paper-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-      padding-top: 0.65rem;
-    }
-    .cv-paper-meta {
-      font-size: 0.66rem;
-      color: var(--muted);
-    }
-    .cv-paper-read {
+      margin-top: 0.45rem;
       font-size: 0.68rem;
       font-weight: 500;
       color: var(--link);
       text-decoration: none;
-      display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      opacity: 0.8;
+      opacity: 0.75;
       transition: opacity 0.15s;
     }
-    .cv-paper-read:hover { opacity: 1; text-decoration: none; }
+    .cv-thesis-read:hover { opacity: 1; text-decoration: none; }
     .cv-supervisors {
       font-size: 0.76rem;
       color: var(--muted);
@@ -553,24 +506,14 @@
             and
             <a href="https://borisandrews.github.io/" target="_blank" rel="noopener">Boris Andrews</a>
           </div>
-        </div>
-
-        <div class="cv-pdf-card" id="cv-dissertation-pdf">
-          <div class="cv-paper">
-            <div class="cv-paper-kicker">MSc Dissertation &middot; University of Oxford &middot; 2025</div>
-            <div class="cv-paper-title">Energy and enstrophy preserving discretisations of the incompressible Navier&ndash;Stokes equations</div>
-            <div class="cv-paper-footer">
-              <span class="cv-paper-meta">Matin Shams &nbsp;&middot;&nbsp; 70 pp. &nbsp;&middot;&nbsp; PDF</span>
-              <a class="cv-paper-read" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
-                Read
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                  <polyline points="15 3 21 3 21 9"/>
-                  <line x1="10" y1="14" x2="21" y2="3"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+          <a class="cv-thesis-read" id="cv-dissertation-pdf" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
+            Read PDF
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
         </div>
 
         <details class="expandable">
@@ -979,7 +922,7 @@
           el.style.display = '';
         });
         var pdfCard = document.getElementById('cv-dissertation-pdf');
-        if (pdfCard) pdfCard.style.display = 'block';
+        if (pdfCard) pdfCard.style.display = 'inline-flex';
       }
     }());
   </script>
