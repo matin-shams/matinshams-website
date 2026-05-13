@@ -166,6 +166,9 @@
     }
     .cv-thesis-read:hover { opacity: 1; text-decoration: none; }
     .cv-supervisors {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-size: 0.76rem;
       color: var(--muted);
       margin-top: 0.35rem;
@@ -501,19 +504,19 @@
           <div class="cv-thesis-label">Dissertation</div>
           <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
           <div class="cv-supervisors">
-            Supervised by
+            <span>Supervised by
             <a href="https://pefarrell.org/" target="_blank" rel="noopener">Patrick Farrell</a>
             and
-            <a href="https://borisandrews.github.io/" target="_blank" rel="noopener">Boris Andrews</a>
+            <a href="https://borisandrews.github.io/" target="_blank" rel="noopener">Boris Andrews</a></span>
+            <a class="cv-thesis-read" id="cv-dissertation-pdf" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
+              Read PDF
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
           </div>
-          <a class="cv-thesis-read" id="cv-dissertation-pdf" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
-            Read PDF
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15 3 21 3 21 9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
-          </a>
         </div>
 
         <details class="expandable">
