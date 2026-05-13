@@ -175,6 +175,18 @@
     }
 
     /* ── Expandable (shared) ─────────────────────── */
+    .sem-section {
+      position: relative;
+      margin-top: 0.7rem;
+    }
+    .sem-section > .globe-chip {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .sem-section > details.expandable {
+      margin-top: 0;
+    }
     details.expandable {
       margin-top: 0.7rem;
     }
@@ -519,13 +531,9 @@
           </div>
         </div>
 
+        <div class="sem-section">
         <details class="expandable">
-          <summary>Seminars and Conferences
-            <button class="globe-chip" id="globe-chip" type="button" aria-haspopup="dialog">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              View on globe
-            </button>
-          </summary>
+          <summary>Seminars and Conferences</summary>
           <ul class="sem-list">
             <li class="sem-item">
               <span class="sem-date">Aug 2025</span>
@@ -571,6 +579,11 @@
             </li>
           </ul>
         </details>
+        <button class="globe-chip" id="globe-chip" type="button" aria-haspopup="dialog">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          View on globe
+        </button>
+        </div>
 
       </div>
     </div>
