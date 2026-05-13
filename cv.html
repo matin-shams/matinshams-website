@@ -726,23 +726,23 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.149/build/three.min.js"></script>
   <script>
 (function () {
-  ‘use strict’;
+  'use strict';
 
   var EVENTS = [
-    { name: ‘ECCOMAS / MFET 2025’,                      url: ‘https://mfet2025.de/’,                                       city: ‘Aachen, Germany’,           date: ‘August 2025’,           presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 50.7753, lng:  6.0839 },
-    { name: ‘ACOMEN 2025’,                               url: ‘https://cage.ugent.be/acomen2025/’,                          city: ‘Ghent University, Belgium’, date: ‘September 2025’,        presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.0543, lng:  3.7174 },
-    { name: "Firedrake’25",                              url: ‘https://www.firedrakeproject.org/firedrake_25.html’,         city: ‘University of Leeds’,       date: ‘September 2025’,        presenter: ‘Matin Shams’,   img: ‘assets/logos/matin.png’, status: ‘past’,     lat: 53.8008, lng: -1.5491 },
-    { name: ‘Numerical Analysis Group Internal Seminar’, url: ‘https://www.maths.ox.ac.uk/node/74237’,                     city: ‘University of Oxford’,      date: ‘October 2025’,          presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘past’,     lat: 51.7520, lng: -1.2577 },
-    { name: ‘ESI Programme on Differential Complexes’,  url: ‘https://www.esi.ac.at/’,                                     city: ‘University of Vienna’,      date: ‘May 2026’,              presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 48.2082, lng: 16.3738 },
-    { name: ‘SciCADE 2026’,                             url: ‘https://scicade.org/’,                                        city: ‘Edinburgh, United Kingdom’, date: ‘29 June – 3 July 2026’, presenter: ‘Boris Andrews’, img: ‘assets/logos/boris.png’, status: ‘upcoming’, lat: 55.9533, lng: -3.1883 }
+    { name: 'ECCOMAS / MFET 2025',                      url: 'https://mfet2025.de/',                                       city: 'Aachen, Germany',           date: 'August 2025',           presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'past',     lat: 50.7753, lng:  6.0839 },
+    { name: 'ACOMEN 2025',                               url: 'https://cage.ugent.be/acomen2025/',                          city: 'Ghent University, Belgium', date: 'September 2025',        presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'past',     lat: 51.0543, lng:  3.7174 },
+    { name: "Firedrake'25",                              url: 'https://www.firedrakeproject.org/firedrake_25.html',         city: 'University of Leeds',       date: 'September 2025',        presenter: 'Matin Shams',   img: 'assets/logos/matin.png', status: 'past',     lat: 53.8008, lng: -1.5491 },
+    { name: 'Numerical Analysis Group Internal Seminar', url: 'https://www.maths.ox.ac.uk/node/74237',                     city: 'University of Oxford',      date: 'October 2025',          presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'past',     lat: 51.7520, lng: -1.2577 },
+    { name: 'ESI Programme on Differential Complexes',  url: 'https://www.esi.ac.at/',                                     city: 'University of Vienna',      date: 'May 2026',              presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'upcoming', lat: 48.2082, lng: 16.3738 },
+    { name: 'SciCADE 2026',                             url: 'https://scicade.org/',                                        city: 'Edinburgh, United Kingdom', date: '29 June – 3 July 2026', presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'upcoming', lat: 55.9533, lng: -3.1883 }
   ];
 
-  var overlayEl = document.getElementById(‘globe-overlay’);
-  var openBtn   = document.getElementById(‘globe-chip’);
-  var closeBtn  = document.getElementById(‘globe-close’);
-  var wrapEl    = document.getElementById(‘globe-wrap’);
-  var cardEl    = document.getElementById(‘globe-card’);
-  var hintEl    = document.getElementById(‘globe-hint’);
+  var overlayEl = document.getElementById('globe-overlay');
+  var openBtn   = document.getElementById('globe-chip');
+  var closeBtn  = document.getElementById('globe-close');
+  var wrapEl    = document.getElementById('globe-wrap');
+  var cardEl    = document.getElementById('globe-card');
+  var hintEl    = document.getElementById('globe-hint');
   var globeInst = null;
 
   /* ── Lat/lng → 3-D position on unit sphere ────── */
@@ -759,7 +759,7 @@
   /* ── Build Three.js globe ─────────────────────── */
   function initGlobe() {
     if (globeInst) return;
-    if (typeof THREE === ‘undefined’) { console.warn(‘Three.js not loaded’); return; }
+    if (typeof THREE === 'undefined') { console.warn('Three.js not loaded'); return; }
 
     var W = wrapEl.clientWidth  || 520;
     var H = wrapEl.clientHeight || 360;
@@ -790,7 +790,7 @@
     var earth    = new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), earthMat);
     globeGroup.add(earth);
     new THREE.TextureLoader().load(
-      ‘https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg’,
+      'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg',
       function (t) { earthMat.map = t; earthMat.needsUpdate = true; }
     );
 
@@ -803,7 +803,7 @@
     /* Pins */
     var pinMeshes = [];
     EVENTS.forEach(function (ev) {
-      var isPast = ev.status === ‘past’;
+      var isPast = ev.status === 'past';
       var group  = new THREE.Group();
 
       /* Head */
@@ -844,30 +844,30 @@
     var isDragging = false, autoRotate = true;
     var prevX = 0, prevY = 0, clickX = 0, clickY = 0;
     var canvas = renderer.domElement;
-    canvas.style.cursor = ‘grab’;
+    canvas.style.cursor = 'grab';
 
-    canvas.addEventListener(‘pointerdown’, function (e) {
+    canvas.addEventListener('pointerdown', function (e) {
       isDragging = true; autoRotate = false;
       prevX = clickX = e.clientX; prevY = clickY = e.clientY;
-      canvas.style.cursor = ‘grabbing’;
+      canvas.style.cursor = 'grabbing';
       canvas.setPointerCapture(e.pointerId);
     });
-    canvas.addEventListener(‘pointermove’, function (e) {
+    canvas.addEventListener('pointermove', function (e) {
       if (!isDragging) return;
       globeGroup.rotation.y += (e.clientX - prevX) * 0.006;
       globeGroup.rotation.x += (e.clientY - prevY) * 0.004;
       globeGroup.rotation.x = Math.max(-1.1, Math.min(1.1, globeGroup.rotation.x));
       prevX = e.clientX; prevY = e.clientY;
     });
-    canvas.addEventListener(‘pointerup’, function () {
+    canvas.addEventListener('pointerup', function () {
       isDragging = false; autoRotate = true;
-      canvas.style.cursor = ‘grab’;
+      canvas.style.cursor = 'grab';
     });
 
     /* ── Click → show card ───────────────────────── */
     var raycaster = new THREE.Raycaster();
     var mouse     = new THREE.Vector2();
-    canvas.addEventListener(‘click’, function (e) {
+    canvas.addEventListener('click', function (e) {
       if (Math.abs(e.clientX - clickX) > 4 || Math.abs(e.clientY - clickY) > 4) return;
       var rect = canvas.getBoundingClientRect();
       mouse.x =  (e.clientX - rect.left) / rect.width  * 2 - 1;
@@ -890,42 +890,42 @@
 
   /* ── Detail card ─────────────────────────────── */
   function showCard(ev) {
-    var isSelf = ev.presenter === ‘Matin Shams’;
+    var isSelf = ev.presenter === 'Matin Shams';
     cardEl.innerHTML =
-      ‘<div class="globe-card-name"><a href="’ + ev.url + ‘" target="_blank" rel="noopener">’ + ev.name + ‘</a></div>’ +
-      ‘<div class="globe-card-venue">’ + ev.city + ‘</div>’ +
-      ‘<div class="globe-card-meta">’ +
-        ‘<span>’ + ev.date + ‘</span>’ +
-        ‘<span class="globe-presenter">’ +
-          ‘<img class="globe-avatar" src="’ + ev.img + ‘" alt="" onerror="this.style.display=\’none\’">’ +
-          ‘<span class="’ + (isSelf ? ‘globe-self’ : ‘’) + ‘">’ + ev.presenter + ‘</span>’ +
-        ‘</span>’ +
-        (ev.status === ‘upcoming’ ? ‘<span class="globe-upcoming-badge">Upcoming</span>’ : ‘’) +
-      ‘</div>’;
-    cardEl.className     = ‘globe-card-inner show’;
-    hintEl.style.display = ‘none’;
+      '<div class="globe-card-name"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.name + '</a></div>' +
+      '<div class="globe-card-venue">' + ev.city + '</div>' +
+      '<div class="globe-card-meta">' +
+        '<span>' + ev.date + '</span>' +
+        '<span class="globe-presenter">' +
+          '<img class="globe-avatar" src="' + ev.img + '" alt="" onerror="this.style.display=\'none\'">' +
+          '<span class="' + (isSelf ? 'globe-self' : '') + '">' + ev.presenter + '</span>' +
+        '</span>' +
+        (ev.status === 'upcoming' ? '<span class="globe-upcoming-badge">Upcoming</span>' : '') +
+      '</div>';
+    cardEl.className     = 'globe-card-inner show';
+    hintEl.style.display = 'none';
   }
 
   /* ── Open / close handlers ───────────────────── */
   function closeGlobe() {
-    overlayEl.classList.remove(‘open’);
-    document.body.style.overflow = ‘’;
-    cardEl.className     = ‘globe-card-inner’;
-    hintEl.style.display = ‘’;
+    overlayEl.classList.remove('open');
+    document.body.style.overflow = '';
+    cardEl.className     = 'globe-card-inner';
+    hintEl.style.display = '';
   }
 
   if (openBtn) {
-    openBtn.addEventListener(‘click’, function (e) {
+    openBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      overlayEl.classList.add(‘open’);
-      document.body.style.overflow = ‘hidden’;
+      overlayEl.classList.add('open');
+      document.body.style.overflow = 'hidden';
       setTimeout(initGlobe, 80);
     });
   }
 
-  if (closeBtn) closeBtn.addEventListener(‘click’, closeGlobe);
-  if (overlayEl) overlayEl.addEventListener(‘click’, function (e) { if (e.target === overlayEl) closeGlobe(); });
-  document.addEventListener(‘keydown’, function (e) { if (e.key === ‘Escape’) closeGlobe(); });
+  if (closeBtn) closeBtn.addEventListener('click', closeGlobe);
+  if (overlayEl) overlayEl.addEventListener('click', function (e) { if (e.target === overlayEl) closeGlobe(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeGlobe(); });
 
 }());
   </script>
