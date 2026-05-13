@@ -151,76 +151,67 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    /* Dissertation PDF card (shown only in ?full mode) */
+    /* Dissertation paper card (shown only in ?full mode) */
     .cv-pdf-card {
       display: none;
-      margin-top: 0.65rem;
-      border-radius: 8px;
-      border: 1px solid var(--rule);
+      margin-top: 1rem;
+    }
+    .cv-paper {
       background: #fff;
-      overflow: hidden;
+      border: 1px solid #deded9;
+      border-radius: 3px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05);
+      padding: 1.25rem 1.4rem 1rem;
+      position: relative;
     }
-    .cv-pdf-card-inner {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      padding: 0.75rem 1rem;
+    .cv-paper::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--link);
+      border-radius: 3px 3px 0 0;
+      opacity: 0.55;
     }
-    .cv-pdf-icon {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      background: #f4f4f1;
-      border: 1px solid var(--rule);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #c0392b;
-    }
-    .cv-pdf-meta {
-      flex: 1;
-      min-width: 0;
-    }
-    .cv-pdf-meta-label {
-      font-size: 0.59rem;
+    .cv-paper-kicker {
+      font-size: 0.6rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.55rem;
     }
-    .cv-pdf-meta-title {
-      font-size: 0.7rem;
-      color: var(--mid);
-      font-style: italic;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .cv-paper-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 0.8rem;
     }
-    .cv-pdf-btn {
-      flex-shrink: 0;
-      display: inline-flex;
+    .cv-paper-footer {
+      display: flex;
       align-items: center;
-      gap: 0.3rem;
+      justify-content: space-between;
+      border-top: 1px solid var(--rule);
+      padding-top: 0.65rem;
+    }
+    .cv-paper-meta {
+      font-size: 0.66rem;
+      color: var(--muted);
+    }
+    .cv-paper-read {
       font-size: 0.68rem;
-      font-family: 'Inter', sans-serif;
       font-weight: 500;
       color: var(--link);
-      background: none;
-      border: 1px solid var(--link);
-      border-radius: 5px;
-      padding: 0.3rem 0.65rem;
-      cursor: pointer;
       text-decoration: none;
-      opacity: 0.75;
-      transition: opacity 0.15s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0.8;
+      transition: opacity 0.15s;
     }
-    .cv-pdf-btn:hover {
-      opacity: 1;
-      background: rgba(25, 25, 112, 0.05);
-      text-decoration: none;
-    }
+    .cv-paper-read:hover { opacity: 1; text-decoration: none; }
     .cv-supervisors {
       font-size: 0.76rem;
       color: var(--muted);
@@ -565,28 +556,20 @@
         </div>
 
         <div class="cv-pdf-card" id="cv-dissertation-pdf">
-          <div class="cv-pdf-card-inner">
-            <div class="cv-pdf-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
+          <div class="cv-paper">
+            <div class="cv-paper-kicker">MSc Dissertation &middot; University of Oxford &middot; 2025</div>
+            <div class="cv-paper-title">Energy and enstrophy preserving discretisations of the incompressible Navier&ndash;Stokes equations</div>
+            <div class="cv-paper-footer">
+              <span class="cv-paper-meta">Matin Shams &nbsp;&middot;&nbsp; 70 pp. &nbsp;&middot;&nbsp; PDF</span>
+              <a class="cv-paper-read" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
+                Read
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                  <polyline points="15 3 21 3 21 9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
             </div>
-            <div class="cv-pdf-meta">
-              <div class="cv-pdf-meta-label">Full dissertation · PDF · 70 pp.</div>
-              <div class="cv-pdf-meta-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
-            </div>
-            <a class="cv-pdf-btn" href="/assets/dissertation.pdf" target="_blank" rel="noopener" aria-label="Open dissertation PDF">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                <polyline points="15 3 21 3 21 9"/>
-                <line x1="10" y1="14" x2="21" y2="3"/>
-              </svg>
-              Open
-            </a>
           </div>
         </div>
 
