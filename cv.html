@@ -313,7 +313,7 @@
 
     .globe-modal {
       position: relative;
-      width: min(520px, 95vw);
+      width: min(640px, 96vw);
       background: #fff;
       border-radius: 14px;
       border: 1px solid var(--rule);
@@ -344,7 +344,7 @@
     .globe-close:hover { background: var(--bg); color: var(--ink); }
 
     .globe-canvas-wrap {
-      width: 100%; height: 300px;
+      width: 100%; height: 400px;
       cursor: grab; overflow: hidden;
       position: relative;
     }
@@ -412,7 +412,7 @@
       color: #c0392b;
     }
 
-    @media (max-width: 480px) { .globe-canvas-wrap { height: 290px; } }
+    @media (max-width: 480px) { .globe-canvas-wrap { height: 320px; } }
 
     /* ── Course box wrapper ──────────────────────── */
     .course-box {
@@ -744,12 +744,12 @@
     if (globeInst) return;
     if (typeof THREE === 'undefined') { console.warn('Three.js not loaded'); return; }
 
-    var W = wrapEl.clientWidth  || 520;
-    var H = wrapEl.clientHeight || 300;
+    var W = wrapEl.clientWidth  || 600;
+    var H = wrapEl.clientHeight || 400;
 
     var scene    = new THREE.Scene();
     var camera   = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
-    camera.position.z = 2.6;
+    camera.position.z = 3.2;
 
     var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -855,7 +855,7 @@
 
     /* Scroll to zoom */
     canvas.addEventListener('wheel', function (e) {
-      camera.position.z = Math.max(1.4, Math.min(5.0, camera.position.z + e.deltaY * 0.004));
+      camera.position.z = Math.max(1.5, Math.min(6.0, camera.position.z + e.deltaY * 0.004));
       e.preventDefault();
     }, { passive: false });
 
