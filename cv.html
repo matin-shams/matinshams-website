@@ -660,19 +660,15 @@
     .course-module-row:first-child td { padding-top: 0.1rem; }
     .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
     /* 4-column grades table (TU Delft curriculum) */
-    .course-grades-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
-    .course-grades-table td { padding: 0.12rem 0.2rem; vertical-align: top; }
-    .cmt-mod { font-weight: 500; color: var(--mid); vertical-align: top; padding-top: 0.5rem; }
-    .cmt-mod.cmt-f { padding-top: 0.06rem; }
-    .cmt-c1 { color: var(--muted); font-style: italic; font-size: 0.69rem; padding-left: 0.3rem; padding-top: 0.5rem; }
-    .cmt-c1.cmt-f { padding-top: 0.06rem; }
-    .cmt-g1 { color: var(--muted); text-align: right; font-size: 0.69rem; white-space: nowrap; padding-top: 0.5rem; }
-    .cmt-g1.cmt-f { padding-top: 0.06rem; }
-    .cmt-cn { color: var(--muted); font-style: italic; font-size: 0.69rem; padding-left: 0.3rem; }
-    .cmt-gn { color: var(--muted); text-align: right; font-size: 0.69rem; white-space: nowrap; }
-    .cmt-mg { color: var(--mid); font-weight: 600; text-align: right; white-space: nowrap; vertical-align: middle; padding-left: 0.8rem; }
-    .cmt-s { font-weight: 500; color: var(--mid); padding-top: 0.5rem; }
-    .cmt-s.cmt-f { padding-top: 0.06rem; }
+    .course-grades-table { border-collapse: collapse; font-size: 0.76rem; width: 100%; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .course-grades-table td { padding: 0.12rem 0.3rem; vertical-align: top; }
+    .cmt-divider td { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.3rem; }
+    .course-grades-table .cmt-mg { padding-top: 0.1rem; padding-bottom: 0.1rem; }
+    .cmt-mod { font-weight: 500; color: var(--mid); vertical-align: top; width: 28%; border-right: 1px solid rgba(0,0,0,0.1); }
+    .cmt-c1, .cmt-cn { color: var(--muted); padding-left: 0.4rem; border-right: 1px solid rgba(0,0,0,0.1); }
+    .cmt-g1, .cmt-gn { color: var(--muted); text-align: right; white-space: nowrap; }
+    .cmt-mg { color: var(--mid); font-weight: 600; text-align: right; white-space: nowrap; vertical-align: middle; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 0.8rem; }
+    .cmt-s { font-weight: 500; color: var(--mid); }
     /* 3-column unit table (Oxford MMSC curriculum) */
     .course-unit-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
     .course-unit-table td, .course-unit-table th { padding: 0.13rem 0.25rem; vertical-align: top; }
@@ -681,9 +677,8 @@
     .cut-name { color: var(--mid); }
     .cut-count { text-align: right; white-space: nowrap; color: var(--muted); font-size: 0.7rem; }
     /* GreenYellow program link icon */
-    .cv-prog-link { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid greenyellow; color: greenyellow; transition: background 0.15s, color 0.15s; vertical-align: middle; margin-left: 0.3rem; flex-shrink: 0; }
+    .cv-prog-link { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: greenyellow; color: #333; vertical-align: middle; margin-left: 0.3rem; flex-shrink: 0; }
     .cv-prog-link svg { width: 9px; height: 9px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-    .cv-prog-link:hover { background: greenyellow; color: #333; }
 
     /* Desc */
     .cv-desc {
@@ -964,21 +959,21 @@
             <div class="course-box">
               <table class="course-grades-table">
                 <tr>
-                  <td rowspan="2" class="cmt-mod cmt-f">Introduction to Aerospace Engineering</td>
-                  <td class="cmt-c1 cmt-f">Introduction to AE 1</td>
-                  <td class="cmt-g1 cmt-f">8.7</td>
+                  <td rowspan="2" class="cmt-mod">Introduction to Aerospace Engineering</td>
+                  <td class="cmt-c1">Introduction to AE 1</td>
+                  <td class="cmt-g1">8.7</td>
                   <td rowspan="2" class="cmt-mg">9.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Introduction to AE 2</td><td class="cmt-gn">9.7</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Engineering Mechanics</td>
                   <td class="cmt-c1">Statics</td>
                   <td class="cmt-g1">8.8</td>
                   <td rowspan="2" class="cmt-mg">8.5</td>
                 </tr>
                 <tr><td class="cmt-cn">Dynamics</td><td class="cmt-gn">7.9</td></tr>
-                <tr><td colspan="3" class="cmt-s">Calculus I</td><td class="cmt-mg">9.0</td></tr>
-                <tr>
+                <tr class="cmt-divider"><td colspan="3" class="cmt-s">Calculus I</td><td class="cmt-mg">9.0</td></tr>
+                <tr class="cmt-divider">
                   <td rowspan="3" class="cmt-mod">Exploring Aerospace Engineering and Design</td>
                   <td class="cmt-c1">Exploring AE and Design</td>
                   <td class="cmt-g1">8.3</td>
@@ -986,31 +981,31 @@
                 </tr>
                 <tr><td class="cmt-cn">Engineering Drawing</td><td class="cmt-gn">7.5</td></tr>
                 <tr><td class="cmt-cn">Milestone Test</td><td class="cmt-gn">V</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace Materials and Structures</td>
                   <td class="cmt-c1">Aerospace Materials</td>
                   <td class="cmt-g1">7.0</td>
                   <td rowspan="2" class="cmt-mg">8.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Mechanics of Materials</td><td class="cmt-gn">8.8</td></tr>
-                <tr><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td></tr>
-                <tr>
+                <tr class="cmt-divider"><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td></tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Physics</td>
                   <td class="cmt-c1">Thermodynamics</td>
                   <td class="cmt-g1">7.6</td>
                   <td rowspan="2" class="cmt-mg">8.5</td>
                 </tr>
                 <tr><td class="cmt-cn">Electromagnetism</td><td class="cmt-gn">9.0</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace Design and Construction</td>
                   <td class="cmt-c1">Design and Construction</td>
                   <td class="cmt-g1">6.5</td>
                   <td rowspan="2" class="cmt-mg">7.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.1</td></tr>
-                <tr><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
-                <tr><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
-                <tr>
+                <tr class="cmt-divider"><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
+                <tr class="cmt-divider"><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
+                <tr class="cmt-divider">
                   <td rowspan="3" class="cmt-mod">Aerodynamics Sub- and Supersonic</td>
                   <td class="cmt-c1">Aerodynamics I</td>
                   <td class="cmt-g1">9.0</td>
@@ -1018,63 +1013,63 @@
                 </tr>
                 <tr><td class="cmt-cn">Aerodynamics II</td><td class="cmt-gn">9.4</td></tr>
                 <tr><td class="cmt-cn">Low Speed Wind Tunnel Test</td><td class="cmt-gn">8.5</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Differential Equations, Probability Theory, and Statistics</td>
                   <td class="cmt-c1">Differential Equations</td>
                   <td class="cmt-g1">9.5</td>
                   <td rowspan="2" class="cmt-mg">10.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Probability and Statistics</td><td class="cmt-gn">10.0</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Structural and Vibrational Analysis and Design</td>
                   <td class="cmt-c1">Structural Analysis and Design</td>
                   <td class="cmt-g1">7.3</td>
                   <td rowspan="2" class="cmt-mg">7.5</td>
                 </tr>
                 <tr><td class="cmt-cn">Vibrations</td><td class="cmt-gn">8.4</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace System Design</td>
                   <td class="cmt-c1">Systems Design</td>
                   <td class="cmt-g1">7.8</td>
                   <td rowspan="2" class="cmt-mg">8.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.3</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Flight and Orbital Mechanics and Propulsion</td>
                   <td class="cmt-c1">Flight and Orbital Mechanics</td>
                   <td class="cmt-g1">6.6</td>
                   <td rowspan="2" class="cmt-mg">7.5</td>
                 </tr>
                 <tr><td class="cmt-cn">Propulsion and Power</td><td class="cmt-gn">8.1</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Applied Numerical Analysis and Computational Modelling</td>
                   <td class="cmt-c1">Applied Numerical Analysis</td>
                   <td class="cmt-g1">9.5</td>
                   <td rowspan="2" class="cmt-mg">9.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Computational Modelling</td><td class="cmt-gn">8.9</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace Signals, Systems and Control</td>
                   <td class="cmt-c1">Control Theory</td>
                   <td class="cmt-g1">10.0</td>
                   <td rowspan="2" class="cmt-mg">9.5</td>
                 </tr>
                 <tr><td class="cmt-cn">Signal Analysis and Telecommunication</td><td class="cmt-gn">8.4</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Test, Analysis and Simulation</td>
                   <td class="cmt-c1">Test, Analysis and Simulation</td>
                   <td class="cmt-g1">7.7</td>
                   <td rowspan="2" class="cmt-mg">8.0</td>
                 </tr>
                 <tr><td class="cmt-cn">AI for Aerospace Engineering</td><td class="cmt-gn">8.5</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace Systems Engineering, Design and Production</td>
                   <td class="cmt-c1">Systems Engineering and Aerospace Design</td>
                   <td class="cmt-g1">7.8</td>
                   <td rowspan="2" class="cmt-mg">7.0</td>
                 </tr>
                 <tr><td class="cmt-cn">Production of Aerospace Systems</td><td class="cmt-gn">6.5</td></tr>
-                <tr>
+                <tr class="cmt-divider">
                   <td rowspan="2" class="cmt-mod">Aerospace Flight Dynamics, SVV including Flight Test</td>
                   <td class="cmt-c1">Flight Dynamics incl. Simulation &amp; Flight Test</td>
                   <td class="cmt-g1">9.1</td>
