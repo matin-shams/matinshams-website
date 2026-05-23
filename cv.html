@@ -358,6 +358,43 @@
       line-height: 1.5;
     }
 
+    /* ── Skills ─────────────────────────────────── */
+    .skill-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 5.5rem 1fr;
+      gap: 0 0.9rem;
+      align-items: start;
+    }
+    .skill-cat {
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 0.22rem;
+      white-space: nowrap;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; }
+    .skill-tags + .skill-tags { margin-top: 0.28rem; }
+    .skill-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      background: #f0f0ed;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      color: var(--mid);
+      line-height: 1.4;
+    }
+    .skill-tag.fam {
+      background: #f5f5f3;
+      color: #b0b0a8;
+      font-style: italic;
+    }
+    .skill-fam-label {
+      font-size: 0.66rem;
+      color: var(--muted);
+      font-style: italic;
+      padding-top: 0.22rem;
+    }
+
     /* ── Seminars list ───────────────────────────── */
     .sem-list { list-style: none; margin-top: 0.6rem; position: relative; padding-left: 0.85rem; }
     .sem-list::before {
@@ -614,6 +651,7 @@
       <button class="cv-sidebar-link active" data-section="education">Education</button>
       <button class="cv-sidebar-link" data-section="experience" style="display:none">Experience</button>
       <button class="cv-sidebar-link" data-section="awards" style="display:none">Awards</button>
+      <button class="cv-sidebar-link" data-section="skills">Skills</button>
     </nav>
   </aside>
 
@@ -871,6 +909,70 @@
         <div class="award-body">
           <div class="award-title">Iranian Mathematics Olympiad</div>
           <div class="award-desc">Placed among the top 10.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Skills ───────────────────────────────── -->
+  <section id="skills" class="cv-section">
+    <div class="skill-list">
+
+      <div class="skill-row">
+        <div class="skill-cat">Programming</div>
+        <div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Fortran</span>
+            <span class="skill-tag">R Basics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">Sci. codes</div>
+        <div>
+          <div class="skill-tags">
+            <span class="skill-tag">Firedrake</span>
+            <span class="skill-tag">Athena++</span>
+            <span class="skill-tag">Tristan-MP</span>
+            <span class="skill-fam-label">familiar:</span>
+            <span class="skill-tag fam">BHAC</span>
+            <span class="skill-tag fam">H-AMR</span>
+          </div>
+          <div style="font-size:0.66rem; color:var(--muted); font-style:italic; margin-top:0.2rem;">acquired through research experience</div>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">Analysis</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ParaView</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Maple</span>
+          <span class="skill-tag">Mathematica</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">Presentation</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LaTeX</span>
+          <span class="skill-tag">Overleaf</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Office</span>
+          <span class="skill-tag">GitLab</span>
+          <span class="skill-tag">GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">English</span>
+          <span class="skill-tag">Persian</span>
+          <span class="skill-tag">German</span>
         </div>
       </div>
 
