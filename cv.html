@@ -360,23 +360,29 @@
     }
 
     /* ── Skills ─────────────────────────────────── */
-    .skill-list { display: flex; flex-direction: column; }
-    .skill-group {
-      padding: 0.65rem 0;
-      border-top: 1px solid var(--rule);
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
     }
-    .skill-group:last-child { border-bottom: 1px solid var(--rule); }
+    .skill-card {
+      padding: 0.55rem 0.7rem 0.65rem;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-top-width: 3px;
+      border-radius: 0 0 4px 4px;
+    }
+    .skill-card.full { grid-column: 1 / -1; }
     .skill-cat {
-      font-size: 0.66rem;
-      font-weight: 500;
+      font-size: 0.61rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
     }
-    .skill-body { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
+    .skill-body { font-size: 0.76rem; color: var(--mid); line-height: 1.6; }
     .skill-fam { color: #c0bfb6; }
-    .skill-note { font-size: 0.68rem; font-style: italic; color: var(--muted); }
+    .skill-note { font-size: 0.66rem; font-style: italic; color: var(--muted); }
 
     /* ── Bridge program ──────────────────────────── */
     .cv-bridge {
@@ -410,10 +416,11 @@
     .proj-list { display: flex; flex-direction: column; gap: 1.5rem; }
     .proj-title {
       font-size: 0.85rem;
-      color: var(--mid);
+      color: var(--link);
       font-weight: 400;
       line-height: 1.4;
-      font-style: italic;
+      padding-left: 0.65rem;
+      border-left: 2px solid var(--link);
     }
     .proj-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
     .proj-desc {
@@ -977,30 +984,30 @@
 
   <!-- ── Skills ───────────────────────────────── -->
   <section id="skills" class="cv-section">
-    <div class="skill-list">
+    <div class="skill-grid">
 
-      <div class="skill-group">
-        <div class="skill-cat">Programming</div>
+      <div class="skill-card" style="border-top-color:#191970;">
+        <div class="skill-cat" style="color:#191970;">Programming</div>
         <div class="skill-body">Python · Fortran · R Basics</div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-cat">Scientific codes</div>
-        <div class="skill-body">Firedrake · Athena++ · Tristan-MP <span class="skill-fam">· BHAC · H-AMR</span> <span class="skill-note">(familiar, via research)</span></div>
+      <div class="skill-card" style="border-top-color:#6b3fa0;">
+        <div class="skill-cat" style="color:#6b3fa0;">Scientific codes</div>
+        <div class="skill-body">Firedrake · Athena++ · Tristan-MP <span class="skill-fam">· BHAC · H-AMR</span> <span class="skill-note">(familiar)</span></div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-cat">Analysis</div>
+      <div class="skill-card" style="border-top-color:#0a7a8a;">
+        <div class="skill-cat" style="color:#0a7a8a;">Analysis</div>
         <div class="skill-body">ParaView · MATLAB · Maple · Mathematica</div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-cat">Presentation</div>
+      <div class="skill-card" style="border-top-color:#b05010;">
+        <div class="skill-cat" style="color:#b05010;">Presentation</div>
         <div class="skill-body">LaTeX · Overleaf · WordPress · Office · GitLab · GitHub</div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-cat">Languages</div>
+      <div class="skill-card full" style="border-top-color:#2a7a4a;">
+        <div class="skill-cat" style="color:#2a7a4a;">Languages</div>
         <div class="skill-body">English · Persian · German</div>
       </div>
 
