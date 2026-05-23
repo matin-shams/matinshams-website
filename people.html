@@ -133,10 +133,9 @@
     }
 
     .ppl-name-row {
-      display: flex;
+      position: relative;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
     }
 
     .ppl-name {
@@ -154,6 +153,10 @@
     }
 
     .ppl-name-link {
+      position: absolute;
+      left: calc(100% + 0.3rem);
+      top: 50%;
+      transform: translateY(-50%);
       display: inline-flex;
       align-items: center;
       justify-content: center;
