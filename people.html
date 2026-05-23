@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>People — Matin Shams</title>
+  <script>if (window.location.search.indexOf('full') === -1 && sessionStorage.getItem('cvFull') !== '1') window.location.replace('index.html');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -95,12 +96,12 @@
       align-items: center;
       gap: 1rem;
       cursor: default;
-      padding: 3rem 0.25rem 2.5rem;
+      padding: 3rem 0 2.5rem;
     }
 
     /* ── Circle photo ────────────────────────────── */
     .ppl-photo-wrap {
-      width: 62%;
+      width: 58%;
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: hidden;
@@ -316,7 +317,7 @@
       <!-- 4: Bart -->
       <div class="ppl-cell">
         <div class="ppl-photo-wrap">
-          <img class="ppl-photo" src="assets/logos/bart2.png" alt="Bart Ripperda" style="transform: scale(0.82);" />
+          <img class="ppl-photo" src="assets/logos/bart3.png" alt="Bart Ripperda" />
         </div>
         <div class="ppl-info">
           <div class="ppl-name">Bart Ripperda</div>
