@@ -775,7 +775,7 @@
           <div class="cv-thesis-label">Dissertation <span class="cv-thesis-grade">Grade: 80%</span></div>
           <div class="cv-thesis-title-row">
             <div class="cv-thesis-title">Regenerative Wind Farming</div>
-            <a class="cv-thesis-read" style="display:none" href="https://filelist.tudelft.nl/LR/Actueel/Agenda/2024/06_RegenerativeWindFarming_JurySummary_1_.pdf" target="_blank" rel="noopener">
+            <a class="cv-thesis-read" id="cv-bsc-abstract" style="display:none" href="https://filelist.tudelft.nl/LR/Actueel/Agenda/2024/06_RegenerativeWindFarming_JurySummary_1_.pdf" target="_blank" rel="noopener">
               Read Abstract
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -1104,6 +1104,8 @@
         });
         var pdfCard = document.getElementById('cv-dissertation-pdf');
         if (pdfCard) pdfCard.style.display = 'inline-flex';
+        var bscAbstract = document.getElementById('cv-bsc-abstract');
+        if (bscAbstract) bscAbstract.style.display = 'inline-flex';
       }
     }());
   </script>
