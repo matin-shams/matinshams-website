@@ -245,7 +245,7 @@
     .cv-thesis-desc-wrap {
       overflow: hidden;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
     }
     .cv-thesis-desc-wrap p { margin: 0; text-align: justify; }
@@ -254,6 +254,7 @@
       display: block;
       overflow: visible;
     }
+    .cv-desc-label { color: #cc00aa; font-weight: 600; }
     .cv-thesis-desc-toggle {
       margin-top: 0.2rem;
       display: block;
@@ -645,7 +646,7 @@
           <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
           <div class="cv-thesis-desc">
             <div class="cv-thesis-desc-wrap">
-              <p>The typical energy estimate for the incompressible Navier–Stokes equations provides a bound for the gradient of the velocity; energy-stable numerical methods that preserve this estimate preserve this bound. However, the bound scales with the Reynolds number (Re) causing numerical solutions to become unstable (i.e. exhibit spurious oscillations) for large Re.</p>
+              <p><span class="cv-desc-label">Abstract:</span> The typical energy estimate for the incompressible Navier–Stokes equations provides a bound for the gradient of the velocity; energy-stable numerical methods that preserve this estimate preserve this bound. However, the bound scales with the Reynolds number (Re) causing numerical solutions to become unstable (i.e. exhibit spurious oscillations) for large Re.</p>
               <p>We propose a mixed finite-element discretisation for the Navier–Stokes equations, making use of a discrete Stokes complex, that exactly preserves the evolution of both energy and enstrophy (the H¹ norm of the velocity). In two dimensions, this includes the strict dissipation of enstrophy, implying a Re-robust bound on the velocity gradient that naturally stabilises the scheme for under-resolved flows. In three dimensions, while the preserved enstrophy evolution equation is not a dissipation inequality (the convective term does not in general vanish), we observe numerically that preserving the behaviour of the enstrophy still has a stabilising effect on the numerical solution.</p>
             </div>
             <button class="cv-thesis-desc-toggle" onclick="var w=this.previousElementSibling;w.classList.toggle('expanded');this.textContent=w.classList.contains('expanded')?'read less':'read more …'">read more …</button>
@@ -786,7 +787,7 @@
           </div>
           <div class="cv-thesis-desc">
             <div class="cv-thesis-desc-wrap">
-              <p>The project aimed to design a 30 MW offshore horizontal multi rotor system wind turbine capable of re-energizing the atmospheric boundary layer using active flow control, resulting in an increased energy density above 10 MW/km². Additionally, it seeks to reduce the environmental impact by 40% and decrease energy production costs 45%, ultimately achieving a better overall LCA performance.</p>
+              <p><span class="cv-desc-label">Abstract:</span> The project aimed to design a 30 MW offshore horizontal multi rotor system wind turbine capable of re-energizing the atmospheric boundary layer using active flow control, resulting in an increased energy density above 10 MW/km². Additionally, it seeks to reduce the environmental impact by 40% and decrease energy production costs 45%, ultimately achieving a better overall LCA performance.</p>
             </div>
             <button class="cv-thesis-desc-toggle" onclick="var w=this.previousElementSibling;w.classList.toggle('expanded');this.textContent=w.classList.contains('expanded')?'read less':'read more …'">read more …</button>
           </div>
