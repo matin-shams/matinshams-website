@@ -208,14 +208,17 @@
       font-size: 0.72rem;
       color: var(--mid);
       font-style: italic;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    }
+    .cv-thesis-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.15rem;
     }
     /* Dissertation read link (shown only in ?full mode) */
     .cv-thesis-read {
       display: none;
-      margin-top: 0.45rem;
       font-size: 0.68rem;
       font-weight: 500;
       color: var(--link);
@@ -224,8 +227,41 @@
       gap: 0.25rem;
       opacity: 0.75;
       transition: opacity 0.15s;
+      flex-shrink: 0;
     }
     .cv-thesis-read:hover { opacity: 1; text-decoration: none; }
+    .cv-thesis-desc {
+      margin-top: 0.45rem;
+      margin-bottom: 0.3rem;
+      padding: 0.55rem 0.75rem;
+      background: #eaf1fb;
+      border-left: 2px solid #7aaee0;
+      border-radius: 0 3px 3px 0;
+      font-size: 0.76rem;
+      color: #1e3a6e;
+      line-height: 1.6;
+    }
+    .cv-thesis-desc-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    .cv-thesis-desc-text.expanded {
+      display: block;
+      overflow: visible;
+    }
+    .cv-thesis-desc-toggle {
+      margin-top: 0.3rem;
+      display: block;
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.72rem;
+      color: #5a8ecf;
+      cursor: pointer;
+    }
+    .cv-thesis-desc-toggle:hover { text-decoration: underline; }
     .cv-thesis-status {
       display: inline-block;
       margin-top: 0.6rem;
@@ -591,6 +627,10 @@
         <div class="cv-thesis">
           <div class="cv-thesis-label">Dissertation</div>
           <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
+          <div class="cv-thesis-desc">
+            <div class="cv-thesis-desc-text">The typical energy estimate for the incompressible Navier–Stokes equations provides a bound for the gradient of the velocity; energy-stable numerical methods that preserve this estimate preserve this bound. However, the bound scales with the Reynolds number (Re) causing numerical solutions to become unstable (i.e. exhibit spurious oscillations) for large Re. We propose a mixed finite-element discretisation for the Navier–Stokes equations, making use of a discrete Stokes complex, that exactly preserves the evolution of both energy and enstrophy (the H¹ norm of the velocity). In two dimensions, this includes the strict dissipation of enstrophy, implying a Re-robust bound on the velocity gradient that naturally stabilises the scheme for under-resolved flows. In three dimensions, while the preserved enstrophy evolution equation is not a dissipation inequality (the convective term does not in general vanish), we observe numerically that preserving the behaviour of the enstrophy still has a stabilising effect on the numerical solution.</div>
+            <button class="cv-thesis-desc-toggle" onclick="var t=this.previousElementSibling;t.classList.toggle('expanded');this.textContent=t.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+          </div>
           <div class="cv-supervisors">
             <span>Supervised by
             <a href="https://pefarrell.org/" target="_blank" rel="noopener">Patrick Farrell</a>
@@ -649,7 +689,7 @@
             <li class="sem-item">
               <span class="sem-date">May 2026</span>
               <div>
-                <div class="sem-name"><a href="https://www.esi.ac.at/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a>, University of Vienna</div>
+                <div class="sem-name"><a href="https://www.esi.ac.at/events/t3204/" target="_blank" rel="noopener">ESI Programme on Differential Complexes</a>, University of Vienna</div>
                 <div class="sem-by">Presented by Boris Andrews<span class="sem-upcoming">Upcoming</span></div>
               </div>
             </li>
@@ -714,13 +754,10 @@
 
         <div class="cv-thesis">
           <div class="cv-thesis-label">Dissertation</div>
-          <div class="cv-thesis-title">Regenerative Wind Farming</div>
-          <div class="cv-thesis-status">Designed a 30 MW offshore horizontal multi-rotor wind turbine capable of re-energising the atmospheric boundary layer via active flow control — achieving energy density above 10 MW/km², a 40% reduction in environmental impact, a 45% decrease in energy production costs, and improved overall LCA performance.</div>
-          <div class="cv-supervisors">
-            <span>Supervised by
-            <a href="https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos" target="_blank" rel="noopener">Carlos Simão Ferreira</a></span>
-            <a class="cv-thesis-read" href="https://filelist.tudelft.nl/LR/Actueel/Agenda/2024/06_RegenerativeWindFarming_JurySummary_1_.pdf" target="_blank" rel="noopener">
-              Read PDF
+          <div class="cv-thesis-title-row">
+            <div class="cv-thesis-title">Regenerative Wind Farming</div>
+            <a class="cv-thesis-read" style="display:none" href="https://filelist.tudelft.nl/LR/Actueel/Agenda/2024/06_RegenerativeWindFarming_JurySummary_1_.pdf" target="_blank" rel="noopener">
+              Read Summary
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                 <polyline points="15 3 21 3 21 9"/>
@@ -728,6 +765,17 @@
               </svg>
             </a>
           </div>
+          <div class="cv-thesis-desc">
+            <div class="cv-thesis-desc-text">The project aimed to design a 30 MW offshore horizontal multi rotor system wind turbine capable of re-energizing the atmospheric boundary layer using active flow control, resulting in an increased energy density above 10 MW/km². Additionally, it seeks to reduce the environmental impact by 40% and decrease energy production costs 45%, ultimately achieving a better overall LCA performance.</div>
+            <button class="cv-thesis-desc-toggle" onclick="var t=this.previousElementSibling;t.classList.toggle('expanded');this.textContent=t.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+          </div>
+          <div class="cv-supervisors">
+            <span>Supervised by
+            <a href="https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos" target="_blank" rel="noopener">Carlos Simão Ferreira</a>
+            and
+            <a href="https://www.tudelft.nl/staff/u.fechner.1/" target="_blank" rel="noopener">Uwe Fechner</a></span>
+          </div>
+          <div class="cv-thesis-status">Grade: 80</div>
         </div>
 
         <details class="expandable">
@@ -823,7 +871,7 @@
     { name: 'ACOMEN 2025',                               url: 'https://cage.ugent.be/acomen2025/',                          city: 'Ghent University, Belgium', date: 'September 2025',        presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'past',     lat: 51.0543, lng:  3.7174 },
     { name: "Firedrake'25",                              url: 'https://www.firedrakeproject.org/firedrake_25.html',         city: 'University of Leeds',       date: 'September 2025',        presenter: 'Matin Shams',   img: 'assets/logos/matin.png', status: 'past',     lat: 53.8008, lng: -1.5491 },
     { name: 'Numerical Analysis Group Internal Seminar', url: 'https://www.maths.ox.ac.uk/node/74237',                     city: 'University of Oxford',      date: 'October 2025',          presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'past',     lat: 51.7520, lng: -1.2577 },
-    { name: 'ESI Programme on Differential Complexes',  url: 'https://www.esi.ac.at/',                                     city: 'University of Vienna',      date: 'May 2026',              presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'upcoming', lat: 48.2082, lng: 16.3738 },
+    { name: 'ESI Programme on Differential Complexes',  url: 'https://www.esi.ac.at/events/t3204/',                                     city: 'University of Vienna',      date: 'May 2026',              presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'upcoming', lat: 48.2082, lng: 16.3738 },
     { name: 'SciCADE 2026',                             url: 'https://scicade.org/',                                        city: 'Edinburgh, United Kingdom', date: '29 June – 3 July 2026', presenter: 'Boris Andrews', img: 'assets/logos/boris.png', status: 'upcoming', lat: 55.9533, lng: -3.1883 }
   ];
 
