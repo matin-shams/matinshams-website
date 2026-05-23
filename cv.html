@@ -359,17 +359,23 @@
     }
 
     /* ── Skills ─────────────────────────────────── */
-    .skill-list { display: flex; flex-direction: column; gap: 0.85rem; }
-    .skill-row {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr;
-      gap: 0 0.9rem;
-      align-items: baseline;
+    .skill-list { display: flex; flex-direction: column; }
+    .skill-group {
+      padding: 0.65rem 0;
+      border-top: 1px solid var(--rule);
     }
-    .skill-cat { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
-    .skill-body { font-size: 0.8rem; color: var(--mid); line-height: 1.55; }
+    .skill-group:last-child { border-bottom: 1px solid var(--rule); }
+    .skill-cat {
+      font-size: 0.66rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .skill-body { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
     .skill-fam { color: #c0bfb6; }
-    .skill-note { font-size: 0.66rem; font-style: italic; color: var(--muted); }
+    .skill-note { font-size: 0.68rem; font-style: italic; color: var(--muted); }
 
     /* ── Bridge program ──────────────────────────── */
     .cv-bridge {
@@ -966,27 +972,27 @@
   <section id="skills" class="cv-section">
     <div class="skill-list">
 
-      <div class="skill-row">
+      <div class="skill-group">
         <div class="skill-cat">Programming</div>
         <div class="skill-body">Python · Fortran · R Basics</div>
       </div>
 
-      <div class="skill-row">
-        <div class="skill-cat">Sci. codes</div>
+      <div class="skill-group">
+        <div class="skill-cat">Scientific codes</div>
         <div class="skill-body">Firedrake · Athena++ · Tristan-MP <span class="skill-fam">· BHAC · H-AMR</span> <span class="skill-note">(familiar, via research)</span></div>
       </div>
 
-      <div class="skill-row">
+      <div class="skill-group">
         <div class="skill-cat">Analysis</div>
         <div class="skill-body">ParaView · MATLAB · Maple · Mathematica</div>
       </div>
 
-      <div class="skill-row">
+      <div class="skill-group">
         <div class="skill-cat">Presentation</div>
         <div class="skill-body">LaTeX · Overleaf · WordPress · Office · GitLab · GitHub</div>
       </div>
 
-      <div class="skill-row">
+      <div class="skill-group">
         <div class="skill-cat">Languages</div>
         <div class="skill-body">English · Persian · German</div>
       </div>
