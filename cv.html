@@ -659,6 +659,31 @@
     .course-module-row td { font-weight: 500; color: var(--mid); padding-top: 0.42rem; }
     .course-module-row:first-child td { padding-top: 0.1rem; }
     .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
+    /* 4-column grades table (TU Delft curriculum) */
+    .course-grades-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
+    .course-grades-table td { padding: 0.12rem 0.2rem; vertical-align: top; }
+    .cmt-mod { font-weight: 500; color: var(--mid); vertical-align: top; padding-top: 0.5rem; }
+    .cmt-mod.cmt-f { padding-top: 0.06rem; }
+    .cmt-c1 { color: var(--muted); font-style: italic; font-size: 0.69rem; padding-left: 0.3rem; padding-top: 0.5rem; }
+    .cmt-c1.cmt-f { padding-top: 0.06rem; }
+    .cmt-g1 { color: var(--muted); text-align: right; font-size: 0.69rem; white-space: nowrap; padding-top: 0.5rem; }
+    .cmt-g1.cmt-f { padding-top: 0.06rem; }
+    .cmt-cn { color: var(--muted); font-style: italic; font-size: 0.69rem; padding-left: 0.3rem; }
+    .cmt-gn { color: var(--muted); text-align: right; font-size: 0.69rem; white-space: nowrap; }
+    .cmt-mg { color: var(--mid); font-weight: 600; text-align: right; white-space: nowrap; vertical-align: middle; padding-left: 0.8rem; }
+    .cmt-s { font-weight: 500; color: var(--mid); padding-top: 0.5rem; }
+    .cmt-s.cmt-f { padding-top: 0.06rem; }
+    /* 3-column unit table (Oxford MMSC curriculum) */
+    .course-unit-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
+    .course-unit-table td, .course-unit-table th { padding: 0.13rem 0.25rem; vertical-align: top; }
+    .course-unit-table thead th { font-weight: 500; color: var(--muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(100,100,100,0.15); padding-bottom: 0.25rem; }
+    .cut-label { white-space: nowrap; font-weight: 700; color: var(--mid); font-size: 0.68rem; width: 2.4rem; }
+    .cut-name { color: var(--mid); }
+    .cut-count { text-align: right; white-space: nowrap; color: var(--muted); font-size: 0.7rem; }
+    /* GreenYellow program link icon */
+    .cv-prog-link { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid greenyellow; color: greenyellow; transition: background 0.15s, color 0.15s; vertical-align: middle; margin-left: 0.3rem; flex-shrink: 0; }
+    .cv-prog-link svg { width: 9px; height: 9px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .cv-prog-link:hover { background: greenyellow; color: #333; }
 
     /* Desc */
     .cv-desc {
@@ -802,33 +827,32 @@
           </ul>
         </details>
 
-        <div class="cv-bridge" style="border-left-color: #8b63c4;">
+        <div class="cv-bridge" style="border-left-color: greenyellow;">
           <div class="cv-bridge-label">Curriculum</div>
-          <div class="cv-bridge-desc">Eight units across core numerical methods, modelling, and scientific computing; full details at the <a href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mmsc" target="_blank" rel="noopener">MMSC course page</a>.</div>
+          <div class="cv-bridge-desc">Four core units, two special topics, two case studies, and a practical<a class="cv-prog-link" href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mmsc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
           <details class="expandable" style="margin-top: 0.5rem;">
-            <summary>Modules</summary>
+            <summary>Units</summary>
             <div class="course-box">
-              <table class="course-mods-table">
-                <tr class="course-module-row"><td>Mathematical Methods I</td></tr>
-                <tr class="course-sub-row"><td>ODEs and PDEs · Calculus of Variations · Asymptotic Methods</td></tr>
-                <tr class="course-module-row"><td>Mathematical Methods II</td></tr>
-                <tr class="course-sub-row"><td>Further PDEs · Integral Equations · Transform Methods</td></tr>
-                <tr class="course-module-row"><td>Numerical Linear Algebra and Solution of PDEs</td></tr>
-                <tr class="course-sub-row"><td>Numerical Linear Algebra · Numerical Solution of PDEs</td></tr>
-                <tr class="course-module-row"><td>Further Numerical Methods and Optimisation</td></tr>
-                <tr class="course-sub-row"><td>Further Numerical Linear Algebra · Continuous Optimisation</td></tr>
-                <tr class="course-module-row"><td>Special Topics</td></tr>
-                <tr class="course-sub-row"><td>Mathematical Modelling topic · Scientific Computing topic</td></tr>
-                <tr class="course-module-row"><td>Case Studies in Mathematical Modelling</td></tr>
-                <tr class="course-sub-row"><td>Group project · Oral presentation · Individual report</td></tr>
-                <tr class="course-module-row"><td>Case Studies in Scientific Computing</td></tr>
-                <tr class="course-sub-row"><td>Group project · Individual report</td></tr>
-                <tr class="course-module-row"><td>Practical Numerical Analysis</td></tr>
-                <tr class="course-sub-row"><td>MATLAB-based computational labs (Michaelmas term)</td></tr>
+              <table class="course-unit-table">
+                <thead>
+                  <tr>
+                    <th class="cut-label">Unit</th>
+                    <th></th>
+                    <th class="cut-count">#</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td class="cut-label">A1</td><td class="cut-name">Mathematical Methods I</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">A2</td><td class="cut-name">Mathematical Methods II</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">B1</td><td class="cut-name">Numerical Linear Algebra and Solution of PDEs</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">B2</td><td class="cut-name">Further Numerical Methods and Optimisation</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">[M]</td><td class="cut-name">Special Topic in Mathematical Modelling</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">[C]</td><td class="cut-name">Special Topic in Scientific Computing</td><td class="cut-count">16</td></tr>
+                  <tr><td class="cut-label">CS</td><td class="cut-name">Case Studies in Mathematical Modelling</td><td class="cut-count">—</td></tr>
+                  <tr><td class="cut-label">CS</td><td class="cut-name">Case Studies in Scientific Computing</td><td class="cut-count">—</td></tr>
+                  <tr><td class="cut-label">PA</td><td class="cut-name">Practical Numerical Analysis</td><td class="cut-count">8</td></tr>
+                </tbody>
               </table>
-              <div class="course-averages">
-                <span class="course-avg-label">Overall: <span>Merit · 69.2%</span></span>
-              </div>
             </div>
           </details>
         </div>
@@ -932,52 +956,134 @@
           </details>
         </div>
 
-        <div class="cv-bridge" style="border-left-color: #8b63c4;">
+        <div class="cv-bridge" style="border-left-color: greenyellow;">
           <div class="cv-bridge-label">Curriculum</div>
-          <div class="cv-bridge-desc">Twenty modules spanning aerodynamics, structures, systems engineering, control theory, applied mathematics, and physics over three years.</div>
+          <div class="cv-bridge-desc">180 ECTS over 36 months — transcript available on request<a class="cv-prog-link" href="https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
           <details class="expandable" style="margin-top: 0.5rem;">
             <summary>Modules</summary>
             <div class="course-box">
-              <table class="course-mods-table">
-                <tr class="course-module-row"><td>Introduction to Aerospace Engineering</td></tr>
-                <tr class="course-sub-row"><td>Introduction to AE 1 · Introduction to AE 2</td></tr>
-                <tr class="course-module-row"><td>Engineering Mechanics</td></tr>
-                <tr class="course-sub-row"><td>Statics · Dynamics</td></tr>
-                <tr class="course-module-row"><td>Calculus I</td></tr>
-                <tr class="course-module-row"><td>Exploring Aerospace Engineering and Design</td></tr>
-                <tr class="course-sub-row"><td>Engineering Drawing · Milestone Test</td></tr>
-                <tr class="course-module-row"><td>Aerospace Materials and Structures</td></tr>
-                <tr class="course-sub-row"><td>Aerospace Materials · Mechanics of Materials</td></tr>
-                <tr class="course-module-row"><td>Calculus II</td></tr>
-                <tr class="course-module-row"><td>Physics</td></tr>
-                <tr class="course-sub-row"><td>Thermodynamics · Electromagnetism</td></tr>
-                <tr class="course-module-row"><td>Aerospace Design and Construction</td></tr>
-                <tr class="course-sub-row"><td>Design &amp; Construction · Systems Engineering Elements</td></tr>
-                <tr class="course-module-row"><td>Programming and Scientific Computing in Python</td></tr>
-                <tr class="course-module-row"><td>Linear Algebra</td></tr>
-                <tr class="course-module-row"><td>Aerodynamics Sub- and Supersonic</td></tr>
-                <tr class="course-sub-row"><td>Aerodynamics I · Aerodynamics II · Low Speed Wind Tunnel Test</td></tr>
-                <tr class="course-module-row"><td>Differential Equations, Probability Theory, and Statistics</td></tr>
-                <tr class="course-sub-row"><td>Differential Equations · Probability and Statistics</td></tr>
-                <tr class="course-module-row"><td>Structural and Vibrational Analysis and Design</td></tr>
-                <tr class="course-sub-row"><td>Structural Analysis and Design · Vibrations</td></tr>
-                <tr class="course-module-row"><td>Aerospace System Design</td></tr>
-                <tr class="course-sub-row"><td>Systems Design · Systems Engineering Elements</td></tr>
-                <tr class="course-module-row"><td>Flight and Orbital Mechanics and Propulsion</td></tr>
-                <tr class="course-sub-row"><td>Flight and Orbital Mechanics · Propulsion and Power</td></tr>
-                <tr class="course-module-row"><td>Applied Numerical Analysis and Computational Modelling</td></tr>
-                <tr class="course-sub-row"><td>Applied Numerical Analysis · Computational Modelling</td></tr>
-                <tr class="course-module-row"><td>Aerospace Signals, Systems and Control</td></tr>
-                <tr class="course-sub-row"><td>Control Theory · Signal Analysis and Telecommunication</td></tr>
-                <tr class="course-module-row"><td>Test, Analysis and Simulation</td></tr>
-                <tr class="course-sub-row"><td>Test, Analysis and Simulation · AI for Aerospace Engineering</td></tr>
-                <tr class="course-module-row"><td>Aerospace Systems Engineering, Design and Production</td></tr>
-                <tr class="course-sub-row"><td>Systems Engineering and Aerospace Design · Production of Aerospace Systems</td></tr>
-                <tr class="course-module-row"><td>Aerospace Flight Dynamics, SVV including Flight Test</td></tr>
-                <tr class="course-sub-row"><td>Flight Dynamics incl. Simulation · Verification and Validation</td></tr>
+              <table class="course-grades-table">
+                <tr>
+                  <td rowspan="2" class="cmt-mod cmt-f">Introduction to Aerospace Engineering</td>
+                  <td class="cmt-c1 cmt-f">Introduction to AE 1</td>
+                  <td class="cmt-g1 cmt-f">8.7</td>
+                  <td rowspan="2" class="cmt-mg">9.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Introduction to AE 2</td><td class="cmt-gn">9.7</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Engineering Mechanics</td>
+                  <td class="cmt-c1">Statics</td>
+                  <td class="cmt-g1">8.8</td>
+                  <td rowspan="2" class="cmt-mg">8.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Dynamics</td><td class="cmt-gn">7.9</td></tr>
+                <tr><td colspan="3" class="cmt-s">Calculus I</td><td class="cmt-mg">9.0</td></tr>
+                <tr>
+                  <td rowspan="3" class="cmt-mod">Exploring Aerospace Engineering and Design</td>
+                  <td class="cmt-c1">Exploring AE and Design</td>
+                  <td class="cmt-g1">8.3</td>
+                  <td rowspan="3" class="cmt-mg">8.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Engineering Drawing</td><td class="cmt-gn">7.5</td></tr>
+                <tr><td class="cmt-cn">Milestone Test</td><td class="cmt-gn">V</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace Materials and Structures</td>
+                  <td class="cmt-c1">Aerospace Materials</td>
+                  <td class="cmt-g1">7.0</td>
+                  <td rowspan="2" class="cmt-mg">8.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Mechanics of Materials</td><td class="cmt-gn">8.8</td></tr>
+                <tr><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Physics</td>
+                  <td class="cmt-c1">Thermodynamics</td>
+                  <td class="cmt-g1">7.6</td>
+                  <td rowspan="2" class="cmt-mg">8.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Electromagnetism</td><td class="cmt-gn">9.0</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace Design and Construction</td>
+                  <td class="cmt-c1">Design and Construction</td>
+                  <td class="cmt-g1">6.5</td>
+                  <td rowspan="2" class="cmt-mg">7.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.1</td></tr>
+                <tr><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
+                <tr><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
+                <tr>
+                  <td rowspan="3" class="cmt-mod">Aerodynamics Sub- and Supersonic</td>
+                  <td class="cmt-c1">Aerodynamics I</td>
+                  <td class="cmt-g1">9.0</td>
+                  <td rowspan="3" class="cmt-mg">9.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Aerodynamics II</td><td class="cmt-gn">9.4</td></tr>
+                <tr><td class="cmt-cn">Low Speed Wind Tunnel Test</td><td class="cmt-gn">8.5</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Differential Equations, Probability Theory, and Statistics</td>
+                  <td class="cmt-c1">Differential Equations</td>
+                  <td class="cmt-g1">9.5</td>
+                  <td rowspan="2" class="cmt-mg">10.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Probability and Statistics</td><td class="cmt-gn">10.0</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Structural and Vibrational Analysis and Design</td>
+                  <td class="cmt-c1">Structural Analysis and Design</td>
+                  <td class="cmt-g1">7.3</td>
+                  <td rowspan="2" class="cmt-mg">7.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Vibrations</td><td class="cmt-gn">8.4</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace System Design</td>
+                  <td class="cmt-c1">Systems Design</td>
+                  <td class="cmt-g1">7.8</td>
+                  <td rowspan="2" class="cmt-mg">8.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.3</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Flight and Orbital Mechanics and Propulsion</td>
+                  <td class="cmt-c1">Flight and Orbital Mechanics</td>
+                  <td class="cmt-g1">6.6</td>
+                  <td rowspan="2" class="cmt-mg">7.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Propulsion and Power</td><td class="cmt-gn">8.1</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Applied Numerical Analysis and Computational Modelling</td>
+                  <td class="cmt-c1">Applied Numerical Analysis</td>
+                  <td class="cmt-g1">9.5</td>
+                  <td rowspan="2" class="cmt-mg">9.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Computational Modelling</td><td class="cmt-gn">8.9</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace Signals, Systems and Control</td>
+                  <td class="cmt-c1">Control Theory</td>
+                  <td class="cmt-g1">10.0</td>
+                  <td rowspan="2" class="cmt-mg">9.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Signal Analysis and Telecommunication</td><td class="cmt-gn">8.4</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Test, Analysis and Simulation</td>
+                  <td class="cmt-c1">Test, Analysis and Simulation</td>
+                  <td class="cmt-g1">7.7</td>
+                  <td rowspan="2" class="cmt-mg">8.0</td>
+                </tr>
+                <tr><td class="cmt-cn">AI for Aerospace Engineering</td><td class="cmt-gn">8.5</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace Systems Engineering, Design and Production</td>
+                  <td class="cmt-c1">Systems Engineering and Aerospace Design</td>
+                  <td class="cmt-g1">7.8</td>
+                  <td rowspan="2" class="cmt-mg">7.0</td>
+                </tr>
+                <tr><td class="cmt-cn">Production of Aerospace Systems</td><td class="cmt-gn">6.5</td></tr>
+                <tr>
+                  <td rowspan="2" class="cmt-mod">Aerospace Flight Dynamics, SVV including Flight Test</td>
+                  <td class="cmt-c1">Flight Dynamics incl. Simulation &amp; Flight Test</td>
+                  <td class="cmt-g1">9.1</td>
+                  <td rowspan="2" class="cmt-mg">8.5</td>
+                </tr>
+                <tr><td class="cmt-cn">Verification and Validation</td><td class="cmt-gn">7.3</td></tr>
               </table>
               <div class="course-averages">
-                <span class="course-avg-label">GPA: <span>8.34 / 10</span></span>
+                <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
               </div>
             </div>
           </details>
