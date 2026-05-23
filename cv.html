@@ -42,12 +42,17 @@
       padding: 0 1.75rem 3rem;
     }
 
-    /* ── Back link ───────────────────────────────── */
+    /* ── Top nav ─────────────────────────────────── */
+    .cv-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.6rem;
+    }
     .back {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      margin-top: 1.6rem;
       font-size: 0.78rem;
     }
     .back svg {
@@ -489,11 +494,16 @@
 <body>
 <div class="page">
 
-  <!-- Back -->
-  <a class="back" href="index.html">
-    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-    Matin Shams
-  </a>
+  <div class="cv-top-nav">
+    <a class="back" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Matin Shams
+    </a>
+    <a class="back" href="people.html">
+      People
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
 
   <!-- ── Education ─────────────────────────────── -->
   <section>
