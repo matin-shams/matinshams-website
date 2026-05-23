@@ -654,6 +654,11 @@
       color: var(--mid);
       font-weight: 500;
     }
+    .course-mods-table { border-collapse: collapse; font-size: 0.76rem; width: 100%; }
+    .course-mods-table td { padding: 0.15rem 0.1rem; vertical-align: top; border-bottom: none; }
+    .course-module-row td { font-weight: 500; color: var(--mid); padding-top: 0.42rem; }
+    .course-module-row:first-child td { padding-top: 0.1rem; }
+    .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
 
     /* Desc */
     .cv-desc {
@@ -877,40 +882,6 @@
           </div>
         </div>
 
-        <div class="cv-bridge" style="border-left-color: #4a90d9;">
-          <div class="cv-bridge-label">Curriculum</div>
-          <details class="expandable" style="margin-top: 0.3rem;">
-            <summary>Courses</summary>
-            <div class="course-box">
-              <table class="course-table">
-                <tr><td>AE1110</td><td>Introduction to Aerospace Engineering</td></tr>
-                <tr><td>AE1111</td><td>Exploring Aerospace Engineering and Design</td></tr>
-                <tr><td>AE1130</td><td>Engineering Mechanics</td></tr>
-                <tr><td>AE1205</td><td>Programming and Scientific Computing in Python</td></tr>
-                <tr><td>AE1222</td><td>Aerospace Design and Construction</td></tr>
-                <tr><td>AE1240</td><td>Physics</td></tr>
-                <tr><td>AE2111</td><td>Aerospace System Design</td></tr>
-                <tr><td>AE2130</td><td>Aerodynamics Sub- and Supersonic</td></tr>
-                <tr><td>AE2135</td><td>Structural and Vibrational Analysis and Design</td></tr>
-                <tr><td>AE2220</td><td>Applied Numerical Analysis and Computational Modelling</td></tr>
-                <tr><td>AE2224</td><td>Test, Analysis and Simulation</td></tr>
-                <tr><td>AE2230</td><td>Flight and Orbital Mechanics and Propulsion</td></tr>
-                <tr><td>AE2235</td><td>Aerospace Signals, Systems and Control</td></tr>
-                <tr><td>AE1108</td><td>Aerospace Materials and Structures</td></tr>
-                <tr><td>AE3211</td><td>Aerospace Systems Engineering, Design and Production</td></tr>
-                <tr><td>AE3212</td><td>Aerospace Flight Dynamics, SVV including Flight Test</td></tr>
-                <tr><td>WI1421LR</td><td>Calculus I</td></tr>
-                <tr><td>WI1402LR</td><td>Calculus II</td></tr>
-                <tr><td>WI1403LR</td><td>Linear Algebra</td></tr>
-                <tr><td>WI2180LR</td><td>Differential Equations, Probability Theory, and Statistics</td></tr>
-              </table>
-              <div class="course-averages">
-                <span class="course-avg-label">GPA: <span>8.34 / 10</span></span>
-              </div>
-            </div>
-          </details>
-        </div>
-
         <div class="cv-bridge">
           <div class="cv-bridge-label">Bridging Program in Applied Mathematics</div>
           <div class="cv-bridge-desc">The bridging program in Applied Mathematics at TU Delft is designed for engineering graduates, who are to pursue advanced mathematical studies.</div>
@@ -926,6 +897,57 @@
                 <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14583" target="_blank" rel="noopener">AM3580</a></td><td>Differential Geometry</td></tr>
                 <tr><td><a href="https://studiegids.tudelft.nl/courses/study-guide/educations/14584" target="_blank" rel="noopener">AM3590</a></td><td>Topology</td></tr>
               </table>
+            </div>
+          </details>
+        </div>
+
+        <div class="cv-bridge" style="border-left-color: #8b63c4;">
+          <div class="cv-bridge-label">Curriculum</div>
+          <div class="cv-bridge-desc">Twenty modules spanning aerodynamics, structures, systems engineering, control theory, applied mathematics, and physics over three years.</div>
+          <details class="expandable" style="margin-top: 0.5rem;">
+            <summary>Modules</summary>
+            <div class="course-box">
+              <table class="course-mods-table">
+                <tr class="course-module-row"><td>Introduction to Aerospace Engineering</td></tr>
+                <tr class="course-sub-row"><td>Introduction to AE 1 · Introduction to AE 2</td></tr>
+                <tr class="course-module-row"><td>Engineering Mechanics</td></tr>
+                <tr class="course-sub-row"><td>Statics · Dynamics</td></tr>
+                <tr class="course-module-row"><td>Calculus I</td></tr>
+                <tr class="course-module-row"><td>Exploring Aerospace Engineering and Design</td></tr>
+                <tr class="course-sub-row"><td>Engineering Drawing · Milestone Test</td></tr>
+                <tr class="course-module-row"><td>Aerospace Materials and Structures</td></tr>
+                <tr class="course-sub-row"><td>Aerospace Materials · Mechanics of Materials</td></tr>
+                <tr class="course-module-row"><td>Calculus II</td></tr>
+                <tr class="course-module-row"><td>Physics</td></tr>
+                <tr class="course-sub-row"><td>Thermodynamics · Electromagnetism</td></tr>
+                <tr class="course-module-row"><td>Aerospace Design and Construction</td></tr>
+                <tr class="course-sub-row"><td>Design &amp; Construction · Systems Engineering Elements</td></tr>
+                <tr class="course-module-row"><td>Programming and Scientific Computing in Python</td></tr>
+                <tr class="course-module-row"><td>Linear Algebra</td></tr>
+                <tr class="course-module-row"><td>Aerodynamics Sub- and Supersonic</td></tr>
+                <tr class="course-sub-row"><td>Aerodynamics I · Aerodynamics II · Low Speed Wind Tunnel Test</td></tr>
+                <tr class="course-module-row"><td>Differential Equations, Probability Theory, and Statistics</td></tr>
+                <tr class="course-sub-row"><td>Differential Equations · Probability and Statistics</td></tr>
+                <tr class="course-module-row"><td>Structural and Vibrational Analysis and Design</td></tr>
+                <tr class="course-sub-row"><td>Structural Analysis and Design · Vibrations</td></tr>
+                <tr class="course-module-row"><td>Aerospace System Design</td></tr>
+                <tr class="course-sub-row"><td>Systems Design · Systems Engineering Elements</td></tr>
+                <tr class="course-module-row"><td>Flight and Orbital Mechanics and Propulsion</td></tr>
+                <tr class="course-sub-row"><td>Flight and Orbital Mechanics · Propulsion and Power</td></tr>
+                <tr class="course-module-row"><td>Applied Numerical Analysis and Computational Modelling</td></tr>
+                <tr class="course-sub-row"><td>Applied Numerical Analysis · Computational Modelling</td></tr>
+                <tr class="course-module-row"><td>Aerospace Signals, Systems and Control</td></tr>
+                <tr class="course-sub-row"><td>Control Theory · Signal Analysis and Telecommunication</td></tr>
+                <tr class="course-module-row"><td>Test, Analysis and Simulation</td></tr>
+                <tr class="course-sub-row"><td>Test, Analysis and Simulation · AI for Aerospace Engineering</td></tr>
+                <tr class="course-module-row"><td>Aerospace Systems Engineering, Design and Production</td></tr>
+                <tr class="course-sub-row"><td>Systems Engineering and Aerospace Design · Production of Aerospace Systems</td></tr>
+                <tr class="course-module-row"><td>Aerospace Flight Dynamics, SVV including Flight Test</td></tr>
+                <tr class="course-sub-row"><td>Flight Dynamics incl. Simulation · Verification and Validation</td></tr>
+              </table>
+              <div class="course-averages">
+                <span class="course-avg-label">GPA: <span>8.34 / 10</span></span>
+              </div>
             </div>
           </details>
         </div>
