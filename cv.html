@@ -216,7 +216,7 @@
       gap: 0.5rem;
       margin-bottom: 0.15rem;
     }
-    .cv-thesis-title-row .cv-thesis-title { flex: 1; }
+    .cv-thesis-title-row .cv-thesis-title { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     /* Dissertation read link (shown only in ?full mode) */
     .cv-thesis-read {
       display: none;
@@ -718,7 +718,7 @@
         <div class="cv-thesis">
           <div class="cv-thesis-label">Dissertation <span class="cv-thesis-grade">Distinction · Grade: 71%</span></div>
           <div class="cv-thesis-title-row">
-            <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
+            <div class="cv-thesis-title" title="Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
             <a class="cv-thesis-read" id="cv-dissertation-pdf" href="/assets/dissertation.pdf" target="_blank" rel="noopener">
               Read PDF
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
