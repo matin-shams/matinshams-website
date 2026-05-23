@@ -170,16 +170,24 @@
     .ppl-overlay-desc  { font-size: 1.1rem; font-weight: 700; color: #e8650a; line-height: 1.6; }
 
     .ppl-overlay-link {
-      display: inline-block;
-      margin-top: 0.15rem;
-      font-size: 0.6rem;
-      color: #999;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1px;
-      transition: color 0.15s, border-color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.5rem;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid #e8650a;
+      color: #e8650a;
+      transition: background 0.18s, color 0.18s;
     }
 
-    .ppl-overlay-link:hover { color: #1a1a1a; border-color: #1a1a1a; }
+    .ppl-overlay-link svg {
+      width: 12px; height: 12px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .ppl-overlay-link:hover { background: #e8650a; color: #fff; }
 
     /* ── Arrow buttons ───────────────────────────── */
     .carousel-btn {
@@ -281,7 +289,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">MSc dissertation supervisor. Guided the research from first principles to final thesis, with deep expertise in structure-preserving numerical methods and the Firedrake project.</div>
-          <a class="ppl-overlay-link" href="https://pefarrell.org/" target="_blank" rel="noopener">pefarrell.org ↗</a>
+          <a class="ppl-overlay-link" href="https://pefarrell.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -296,7 +304,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">MSc dissertation supervisor. Brought rigour and clarity to the work on compatible finite element methods, and was a constant source of insight throughout the project.</div>
-          <a class="ppl-overlay-link" href="https://borisandrews.github.io/" target="_blank" rel="noopener">borisandrews.github.io ↗</a>
+          <a class="ppl-overlay-link" href="https://borisandrews.github.io/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -311,6 +319,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Faculty advisor for the MMSc throughout the year. A pillar of the Oxford numerical analysis community, and generous with his time and mathematical depth.</div>
+          <a class="ppl-overlay-link" href="https://people.maths.ox.ac.uk/suli/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -325,6 +334,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Research supervisor. Opened the door to relativistic plasma physics and shaped how the problem was framed — from the physics down to the numerics.</div>
+          <a class="ppl-overlay-link" href="https://bartripperda.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -339,6 +349,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Research supervisor. Provided detailed guidance on the simulation side and kept the work grounded in the physical reality of what the equations are actually describing.</div>
+          <a class="ppl-overlay-link" href="https://smressle.bitbucket.io/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -353,6 +364,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Undergraduate dissertation supervisor. Guided the final-year research project with both technical precision and an infectious enthusiasm for wind energy.</div>
+          <a class="ppl-overlay-link" href="https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -367,6 +379,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Mimetic spectral element methods and structure-preserving discretisations. Preserving geometric structure in numerical simulation.</div>
+          <a class="ppl-overlay-link" href="https://www.tudelft.nl/en/staff/m.i.gerritsma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -381,6 +394,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">College tutor and advisor at St Hugh's, Oxford, throughout the MMSc year. Made the college feel like a home base amid all the coursework.</div>
+          <a class="ppl-overlay-link" href="https://www.cs.ox.ac.uk/people/alessandro.abate/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
@@ -395,6 +409,7 @@
         </div>
         <div class="ppl-overlay">
           <div class="ppl-overlay-desc">Undergraduate research project supervisor in second year. A generous mentor who made space for curiosity and set the tone for how to approach an open-ended problem.</div>
+          <a class="ppl-overlay-link" href="https://www.tudelft.nl/en/staff/d.m.pool/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
         </div>
       </div>
 
