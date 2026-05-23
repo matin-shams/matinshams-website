@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People — Matin Shams</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #1a1a1a;
+      --mid:   #4a4a4a;
+      --muted: #999;
+      --rule:  #e4e4e0;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      background: #fff;
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.75rem 5rem;
+    }
+
+    /* ── Top nav ─────────────────────────────────── */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.6rem;
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .back:hover { color: var(--ink); }
+    .back svg {
+      width: 13px; height: 13px;
+      stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Page title ──────────────────────────────── */
+    .page-title {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── Group label ─────────────────────────────── */
+    .ppl-group { margin-top: 2.5rem; }
+
+    .ppl-group-label {
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0;
+      padding-bottom: 0.5rem;
+    }
+
+    /* ── Gallery grid ────────────────────────────── */
+    .ppl-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--rule);
+      border-left: 1px solid var(--rule);
+    }
+
+    /* ── Cell ────────────────────────────────────── */
+    .ppl-cell {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 3rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      cursor: default;
+    }
+
+    /* ── Photo + overlay ─────────────────────────── */
+    .ppl-photo-wrap {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .ppl-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: filter 0.38s ease, transform 0.38s ease;
+    }
+
+    .ppl-cell:hover .ppl-photo {
+      filter: blur(7px);
+      transform: scale(1.08);
+    }
+
+    .ppl-overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 0.9rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.32s ease;
+    }
+    .ppl-cell:hover .ppl-overlay { opacity: 1; }
+
+    .ppl-overlay-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 0.18rem;
+    }
+    .ppl-overlay-role {
+      font-size: 0.58rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+    .ppl-overlay-desc {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+    .ppl-overlay-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.56rem;
+      color: rgba(255,255,255,0.88);
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+    .ppl-overlay-link:hover { border-color: #fff; }
+
+    /* ── Name strip below photo ──────────────────── */
+    .ppl-info { text-align: center; }
+
+    .ppl-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .ppl-role {
+      font-size: 0.67rem;
+      color: var(--muted);
+      margin-top: 0.12rem;
+    }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 500px) {
+      .ppl-photo-wrap { width: 120px; height: 120px; }
+      .ppl-cell { padding: 2rem 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top-nav">
+    <a class="back" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Matin Shams
+    </a>
+    <a class="back" href="cv.html">
+      CV
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+
+  <p class="page-title">People</p>
+
+  <!-- ── MSc Dissertation ───────────────────────── -->
+  <div class="ppl-group">
+    <p class="ppl-group-label">MSc Dissertation &nbsp;·&nbsp; Oxford 2024–25</p>
+    <div class="ppl-grid">
+
+      <div class="ppl-cell">
+        <div class="ppl-photo-wrap">
+          <img class="ppl-photo" src="assets/logos/patrick.png" alt="Patrick Farrell" />
+          <div class="ppl-overlay" style="background: rgba(30, 45, 155, 0.83);">
+            <div class="ppl-overlay-name">Patrick Farrell</div>
+            <div class="ppl-overlay-role">PhD Supervisor</div>
+            <div class="ppl-overlay-desc">Numerical methods for PDEs, finite element methods &amp; mathematical optimisation. Mathematical Institute, Oxford.</div>
+            <a class="ppl-overlay-link" href="https://pefarrell.org/" target="_blank" rel="noopener">pefarrell.org ↗</a>
+          </div>
+        </div>
+        <div class="ppl-info">
+          <div class="ppl-name">Patrick Farrell</div>
+          <div class="ppl-role">Associate Professor, Oxford</div>
+        </div>
+      </div>
+
+      <div class="ppl-cell">
+        <div class="ppl-photo-wrap">
+          <img class="ppl-photo" src="assets/logos/boris.png" alt="Boris Andrews" />
+          <div class="ppl-overlay" style="background: rgba(30, 45, 155, 0.83);">
+            <div class="ppl-overlay-name">Boris Andrews</div>
+            <div class="ppl-overlay-role">PhD Supervisor</div>
+            <div class="ppl-overlay-desc">Structure-preserving FEM &amp; high-performance scientific computing. Firedrake project, Oxford.</div>
+            <a class="ppl-overlay-link" href="https://borisandrews.github.io/" target="_blank" rel="noopener">borisandrews.github.io ↗</a>
+          </div>
+        </div>
+        <div class="ppl-info">
+          <div class="ppl-name">Boris Andrews</div>
+          <div class="ppl-role">Postdoctoral Researcher, Oxford</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- add more groups below, each with its own ppl-group + ppl-grid -->
+
+</div>
+</body>
+</html>
