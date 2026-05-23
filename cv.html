@@ -231,35 +231,52 @@
     }
     .cv-thesis-read:hover { opacity: 1; text-decoration: none; }
     .cv-thesis-desc {
+      display: block;
       margin-top: 0.45rem;
       margin-bottom: 0.3rem;
-      padding: 0.55rem 0.75rem;
-      background: #eaf1fb;
-      border-left: 2px solid #7aaee0;
-      border-radius: 0 3px 3px 0;
-      font-size: 0.76rem;
-      color: #1e3a6e;
+      padding: 0.28rem 0.6rem;
+      background: #eef8f2;
+      border: 1px solid #72c493;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      color: #1a5c35;
       line-height: 1.6;
     }
-    .cv-thesis-desc-text {
+    .cv-thesis-desc-wrap {
+      position: relative;
+      max-height: calc(1.6em * 3);
       overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
     }
-    .cv-thesis-desc-text.expanded {
-      display: block;
-      overflow: visible;
+    .cv-thesis-desc-wrap p { margin: 0; }
+    .cv-thesis-desc-wrap p + p { margin-top: 0.5em; }
+    .cv-thesis-desc-wrap.expanded { max-height: none; }
+    .cv-thesis-desc-wrap:not(.expanded)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 55%;
+      height: 1.6em;
+      background: linear-gradient(to right, transparent, #eef8f2);
+      pointer-events: none;
     }
     .cv-thesis-desc-toggle {
-      margin-top: 0.3rem;
-      display: block;
-      background: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #eef8f2;
       border: none;
-      padding: 0;
-      font-size: 0.72rem;
-      color: #5a8ecf;
+      padding: 0 0 0 0.2rem;
+      font-size: inherit;
+      color: inherit;
       cursor: pointer;
+      line-height: 1.6;
+    }
+    .cv-thesis-desc-wrap.expanded .cv-thesis-desc-toggle {
+      position: static;
+      display: block;
+      margin-top: 0.2rem;
+      padding: 0;
     }
     .cv-thesis-desc-toggle:hover { text-decoration: underline; }
     .cv-thesis-status {
@@ -628,8 +645,11 @@
           <div class="cv-thesis-label">Dissertation</div>
           <div class="cv-thesis-title">Energy and enstrophy preserving discretisations of the incompressible Navier–Stokes equations</div>
           <div class="cv-thesis-desc">
-            <div class="cv-thesis-desc-text">The typical energy estimate for the incompressible Navier–Stokes equations provides a bound for the gradient of the velocity; energy-stable numerical methods that preserve this estimate preserve this bound. However, the bound scales with the Reynolds number (Re) causing numerical solutions to become unstable (i.e. exhibit spurious oscillations) for large Re. We propose a mixed finite-element discretisation for the Navier–Stokes equations, making use of a discrete Stokes complex, that exactly preserves the evolution of both energy and enstrophy (the H¹ norm of the velocity). In two dimensions, this includes the strict dissipation of enstrophy, implying a Re-robust bound on the velocity gradient that naturally stabilises the scheme for under-resolved flows. In three dimensions, while the preserved enstrophy evolution equation is not a dissipation inequality (the convective term does not in general vanish), we observe numerically that preserving the behaviour of the enstrophy still has a stabilising effect on the numerical solution.</div>
-            <button class="cv-thesis-desc-toggle" onclick="var t=this.previousElementSibling;t.classList.toggle('expanded');this.textContent=t.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+            <div class="cv-thesis-desc-wrap">
+              <p>The typical energy estimate for the incompressible Navier–Stokes equations provides a bound for the gradient of the velocity; energy-stable numerical methods that preserve this estimate preserve this bound. However, the bound scales with the Reynolds number (Re) causing numerical solutions to become unstable (i.e. exhibit spurious oscillations) for large Re.</p>
+              <p>We propose a mixed finite-element discretisation for the Navier–Stokes equations, making use of a discrete Stokes complex, that exactly preserves the evolution of both energy and enstrophy (the H¹ norm of the velocity). In two dimensions, this includes the strict dissipation of enstrophy, implying a Re-robust bound on the velocity gradient that naturally stabilises the scheme for under-resolved flows. In three dimensions, while the preserved enstrophy evolution equation is not a dissipation inequality (the convective term does not in general vanish), we observe numerically that preserving the behaviour of the enstrophy still has a stabilising effect on the numerical solution.</p>
+              <button class="cv-thesis-desc-toggle" onclick="var w=this.closest('.cv-thesis-desc-wrap');w.classList.toggle('expanded');this.textContent=w.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+            </div>
           </div>
           <div class="cv-supervisors">
             <span>Supervised by
@@ -766,8 +786,10 @@
             </a>
           </div>
           <div class="cv-thesis-desc">
-            <div class="cv-thesis-desc-text">The project aimed to design a 30 MW offshore horizontal multi rotor system wind turbine capable of re-energizing the atmospheric boundary layer using active flow control, resulting in an increased energy density above 10 MW/km². Additionally, it seeks to reduce the environmental impact by 40% and decrease energy production costs 45%, ultimately achieving a better overall LCA performance.</div>
-            <button class="cv-thesis-desc-toggle" onclick="var t=this.previousElementSibling;t.classList.toggle('expanded');this.textContent=t.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+            <div class="cv-thesis-desc-wrap">
+              <p>The project aimed to design a 30 MW offshore horizontal multi rotor system wind turbine capable of re-energizing the atmospheric boundary layer using active flow control, resulting in an increased energy density above 10 MW/km². Additionally, it seeks to reduce the environmental impact by 40% and decrease energy production costs 45%, ultimately achieving a better overall LCA performance.</p>
+              <button class="cv-thesis-desc-toggle" onclick="var w=this.closest('.cv-thesis-desc-wrap');w.classList.toggle('expanded');this.textContent=w.classList.contains('expanded')?'read less':'read more …'">read more …</button>
+            </div>
           </div>
           <div class="cv-supervisors">
             <span>Supervised by
