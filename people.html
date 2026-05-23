@@ -188,8 +188,8 @@
       justify-content: center;
       width: 28px; height: 28px;
       border-radius: 50%;
-      border: 1.5px solid #e8650a;
-      color: #e8650a;
+      border: 1.5px solid #cc00aa;
+      color: #cc00aa;
       transition: background 0.15s, color 0.15s;
     }
 
@@ -199,7 +199,7 @@
       stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
     }
 
-    .ppl-choice-link:hover { background: #e8650a; color: #fff; }
+    .ppl-choice-link:hover { background: #cc00aa; color: #fff; }
 
     .ppl-choice-more {
       background: none;
@@ -207,14 +207,14 @@
       font-family: inherit;
       font-size: 0.8rem;
       font-weight: 400;
-      color: #999;
+      color: #191970;
       cursor: pointer;
       letter-spacing: 0.02em;
       padding: 0;
       transition: color 0.15s;
     }
 
-    .ppl-choice-more:hover { color: #1a1a1a; }
+    .ppl-choice-more:hover { color: #000080; }
 
     /* ── Detail state (after clicking "our work") ── */
     .ppl-overlay-detail {
@@ -226,7 +226,7 @@
     .ppl-overlay-desc {
       font-size: 1rem;
       font-weight: 700;
-      color: #e8650a;
+      color: #191970;
       line-height: 1.6;
       text-align: left;
       text-wrap: balance;
@@ -555,20 +555,20 @@
   goTo(0);
 
   /* ── Overlay two-state toggle ─────────────────── */
-  track.addEventListener('click', function (e) {
+  track.addEventListener('mousedown', function (e) {
     var btn = e.target.closest('.ppl-choice-more');
     if (btn) {
+      e.preventDefault();
       btn.closest('.ppl-overlay').classList.add('show-detail');
     }
   });
 
-  /* Reset overlay state when mouse leaves a cell */
-  track.addEventListener('mouseleave', function (e) {
-    var cell = e.target.closest('.ppl-cell');
-    if (cell) {
+  /* Reset when mouse leaves each cell */
+  cells.forEach(function (cell) {
+    cell.addEventListener('mouseleave', function () {
       cell.querySelector('.ppl-overlay').classList.remove('show-detail');
-    }
-  }, true);
+    });
+  });
 
 }());
 </script>
