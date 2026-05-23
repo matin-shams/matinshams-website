@@ -360,27 +360,20 @@
     }
 
     /* ── Skills ─────────────────────────────────── */
-    .skill-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.65rem;
-    }
-    .skill-card {
-      padding: 0.55rem 0.7rem 0.65rem;
-      background: var(--bg);
-      border: 1px solid var(--rule);
-      border-top-width: 3px;
-      border-radius: 0 0 4px 4px;
-    }
-    .skill-card.full { grid-column: 1 / -1; }
-    .skill-cat {
+    .skill-rows { display: flex; flex-direction: column; gap: 0.55rem; }
+    .skill-row { display: flex; align-items: baseline; gap: 0.7rem; }
+    .skill-badge {
+      display: inline-block;
+      padding: 0.12rem 0.55rem;
+      border-radius: 20px;
       font-size: 0.61rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.35rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .skill-body { font-size: 0.76rem; color: var(--mid); line-height: 1.6; }
+    .skill-body { font-size: 0.78rem; color: var(--mid); line-height: 1.5; }
     .skill-fam { color: #c0bfb6; }
     .skill-note { font-size: 0.66rem; font-style: italic; color: var(--muted); }
 
@@ -420,7 +413,7 @@
       font-weight: 400;
       line-height: 1.4;
       padding-left: 0.65rem;
-      border-left: 2px solid var(--link);
+      border-left: 2px solid #e8c200;
     }
     .proj-meta { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
     .proj-desc {
@@ -984,31 +977,31 @@
 
   <!-- ── Skills ───────────────────────────────── -->
   <section id="skills" class="cv-section">
-    <div class="skill-grid">
+    <div class="skill-rows">
 
-      <div class="skill-card" style="border-top-color:#191970;">
-        <div class="skill-cat" style="color:#191970;">Programming</div>
-        <div class="skill-body">Python · Fortran · R Basics</div>
+      <div class="skill-row">
+        <span class="skill-badge" style="background:#eceef8; color:#191970;">Programming</span>
+        <span class="skill-body">Python · Fortran · R Basics</span>
       </div>
 
-      <div class="skill-card" style="border-top-color:#6b3fa0;">
-        <div class="skill-cat" style="color:#6b3fa0;">Scientific codes</div>
-        <div class="skill-body">Firedrake · Athena++ · Tristan-MP <span class="skill-fam">· BHAC · H-AMR</span> <span class="skill-note">(familiar)</span></div>
+      <div class="skill-row">
+        <span class="skill-badge" style="background:#f0eaf8; color:#6b3fa0;">Sci. codes</span>
+        <span class="skill-body">Firedrake · Athena++ · Tristan-MP <span class="skill-fam">· BHAC · H-AMR</span> <span class="skill-note">(familiar)</span></span>
       </div>
 
-      <div class="skill-card" style="border-top-color:#0a7a8a;">
-        <div class="skill-cat" style="color:#0a7a8a;">Analysis</div>
-        <div class="skill-body">ParaView · MATLAB · Maple · Mathematica</div>
+      <div class="skill-row">
+        <span class="skill-badge" style="background:#e6f5f6; color:#0a7a8a;">Analysis</span>
+        <span class="skill-body">ParaView · MATLAB · Maple · Mathematica</span>
       </div>
 
-      <div class="skill-card" style="border-top-color:#b05010;">
-        <div class="skill-cat" style="color:#b05010;">Presentation</div>
-        <div class="skill-body">LaTeX · Overleaf · WordPress · Office · GitLab · GitHub</div>
+      <div class="skill-row">
+        <span class="skill-badge" style="background:#fdf0e6; color:#b05010;">Presentation</span>
+        <span class="skill-body">LaTeX · Overleaf · WordPress · Office · GitLab · GitHub</span>
       </div>
 
-      <div class="skill-card full" style="border-top-color:#2a7a4a;">
-        <div class="skill-cat" style="color:#2a7a4a;">Languages</div>
-        <div class="skill-body">English · Persian · German</div>
+      <div class="skill-row">
+        <span class="skill-badge" style="background:#e8f5ee; color:#2a7a4a;">Languages</span>
+        <span class="skill-body">English · Persian · German</span>
       </div>
 
     </div>
