@@ -663,13 +663,15 @@
     .course-module-row:first-child td { padding-top: 0.1rem; }
     .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
     /* 4-column grades table (TU Delft curriculum) */
-    .course-grades-table { border-collapse: collapse; table-layout: fixed; font-size: 0.7rem; width: 100%; }
+    .course-grades-table { border-collapse: collapse; font-size: 0.7rem; width: 100%; }
     .course-grades-table thead th { font-size: 0.65rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 0.2rem 0.3rem 0.28rem; text-align: left; vertical-align: bottom; }
     .course-grades-table thead th:nth-child(3) { text-align: center; }
     .course-grades-table td { padding: 0.12rem 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
     .cmt-divider td { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.3rem; }
     .cmt-mod { color: var(--mid); vertical-align: middle; border-right: 1px solid rgba(0,0,0,0.1); }
-    .cmt-c1, .cmt-cn { color: var(--muted); padding-left: 0.4rem; border-right: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
+    .cmt-c1, .cmt-cn { color: midnightblue; padding-left: 0.4rem; border-right: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
+    .cmt-c1 a, .cmt-cn a { color: midnightblue; text-decoration: none; }
+    .cmt-c1 a:hover, .cmt-cn a:hover { text-decoration: underline; }
     .cmt-g1, .cmt-gn { color: var(--muted); text-align: center; vertical-align: middle; white-space: nowrap; }
     .cmt-mg { color: var(--mid); text-align: center; white-space: nowrap; vertical-align: middle; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 0.5rem; padding-right: 0.5rem; }
     .cmt-s { color: var(--mid); vertical-align: middle; }
@@ -681,14 +683,9 @@
     .cut-name { color: var(--mid); }
     .cut-count { text-align: right; white-space: nowrap; color: var(--muted); font-size: 0.7rem; }
     /* Year-grouped curriculum layout */
-    .cgt-outer { display: flex; gap: 1rem; align-items: flex-start; margin-top: 0.5rem; }
-    .cgt-tables-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-    .cgt-year-section { background: rgba(173,255,47,0.05); border-radius: 0 4px 4px 0; padding: 0.45rem 0.6rem; }
-    .cgt-year-block { display: flex; gap: 0.4rem; align-items: flex-start; }
-    .cgt-year-tag { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); opacity: 0.45; align-self: center; flex-shrink: 0; user-select: none; }
-    .cgt-table-wrap { flex: 1; min-width: 0; }
-    .cgt-year-sep { position: relative; height: 1.6rem; }
-    .cgt-year-sep::before { content: ''; position: absolute; left: -2rem; right: -2rem; top: 0; bottom: 0; background: var(--bg); z-index: 5; }
+    .cgt-cols-layout { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.5rem; }
+    .cgt-col-year { flex: 1; min-width: 0; background: #eceef8; border-left: 2px solid rgba(25,25,112,0.22); border-radius: 0 4px 4px 0; padding: 0.4rem 0.55rem; }
+    .cgt-year-tag { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(25,25,112,0.5); margin-bottom: 0.3rem; user-select: none; }
     .course-grades-table tbody tr:last-child td { border-bottom: none; }
     /* Minor Abroad special cell */
     .cmt-minor-abroad { font-style: normal; font-weight: 500; color: var(--mid); padding: 0.55rem 0.3rem; text-align: center; font-size: 0.76rem; }
@@ -977,14 +974,11 @@
           <div class="cv-bridge-desc">180 ECTS completed over 36 months (transcript available upon request).<a class="cv-prog-link" href="https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
           <details class="expandable" style="margin-top: 0.5rem;">
             <summary>Modules</summary>
-            <div class="cgt-outer">
-              <div class="cgt-tables-col">
+            <div class="cgt-cols-layout">
 
-                <!-- Year 1 -->
-                <div class="cgt-year-section">
-                  <div class="cgt-year-block">
-                    <div class="cgt-year-tag">Year 1</div>
-                    <div class="cgt-table-wrap">
+              <!-- Year 1 -->
+              <div class="cgt-col-year">
+                <div class="cgt-year-tag">Year 1</div>
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <thead><tr><th>Module</th><th>Course</th><th colspan="2">Grades</th></tr></thead>
@@ -1044,17 +1038,11 @@
                           <tr class="cmt-divider"><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
                         </tbody>
                       </table>
-                    </div>
-                  </div>
-                </div>
+              </div>
 
-                <div class="cgt-year-sep"></div>
-
-                <!-- Year 2 -->
-                <div class="cgt-year-section">
-                  <div class="cgt-year-block">
-                    <div class="cgt-year-tag">Year 2</div>
-                    <div class="cgt-table-wrap">
+              <!-- Year 2 -->
+              <div class="cgt-col-year">
+                <div class="cgt-year-tag">Year 2</div>
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <tbody>
@@ -1117,17 +1105,11 @@
                           <tr><td class="cmt-cn">Signal Analysis and Telecommunication</td><td class="cmt-gn">8.4</td></tr>
                         </tbody>
                       </table>
-                    </div>
-                  </div>
-                </div>
+              </div>
 
-                <div class="cgt-year-sep"></div>
-
-                <!-- Year 3 -->
-                <div class="cgt-year-section">
-                  <div class="cgt-year-block">
-                    <div class="cgt-year-tag">Year 3</div>
-                    <div class="cgt-table-wrap">
+              <!-- Year 3 -->
+              <div class="cgt-col-year">
+                <div class="cgt-year-tag">Year 3</div>
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <tbody>
@@ -1148,16 +1130,12 @@
                           <tr><td class="cmt-cn">Verification and Validation</td><td class="cmt-gn">7.3</td></tr>
                         </tbody>
                       </table>
-                    </div>
-                  </div>
-                </div>
+              </div>
 
-                <div class="course-averages" style="margin-top:0.7rem; padding-top:0.35rem; border-top:1px solid rgba(0,0,0,0.08);">
-                  <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
-                </div>
-              </div><!-- .cgt-tables-col -->
-
-            </div><!-- .cgt-outer -->
+            </div><!-- .cgt-cols-layout -->
+            <div class="course-averages" style="margin-top:0.7rem; padding-top:0.35rem; border-top:1px solid rgba(0,0,0,0.08);">
+              <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
+            </div>
           </details>
           </details>
         </div>
