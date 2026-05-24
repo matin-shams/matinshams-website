@@ -683,14 +683,14 @@
     .cut-name { color: var(--mid); }
     .cut-group-start td { border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.35rem; }
     /* Year-grouped curriculum layout — full-viewport-width breakout */
+    .tud-mc-hidden { display: none !important; }
     .cgt-cols-layout {
-      display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.5rem;
+      display: flex; gap: 1.5rem; align-items: flex-start; margin-top: 0.5rem;
       box-sizing: border-box;
       width: 100vw;
       /* push left past: centering margin + cv-layout padding + sidebar + gap + logo + entry-gap */
       margin-left: calc(-1 * (max(0px, (100vw - 980px) / 2) + 1.75rem + 130px + 2.5rem + 72px + 1rem));
-      /* re-apply symmetric outer padding so content aligns with page edges */
-      padding: 0.3rem calc(max(0px, (100vw - 980px) / 2) + 1.75rem);
+      padding: 0.5rem 1.5rem;
     }
     .cgt-col-year { flex: 1; min-width: 0; background: #eceef8; border-left: 2px solid rgba(25,25,112,0.22); border-radius: 0 4px 4px 0; padding: 0.4rem 0.55rem; }
     .cgt-year-tag { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(25,25,112,0.5); margin-bottom: 0.3rem; user-select: none; }
@@ -1005,9 +1005,13 @@
           <details class="expandable cv-bridge-outer">
           <summary class="cv-bridge-label">Curriculum</summary>
           <div class="cv-bridge-desc">180 ECTS completed over 36 months (transcript available upon request).<a class="cv-prog-link" href="https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
-          <details class="expandable" style="margin-top: 0.5rem;">
+          <details class="expandable" id="tud-modules-toggle" style="margin-top: 0.5rem;">
             <summary>Modules</summary>
-            <div class="cgt-cols-layout">
+          </details>
+          </details>
+        </div>
+        <div id="tud-modules-content" class="tud-mc-hidden">
+          <div class="cgt-cols-layout">
 
               <!-- Year 1 -->
               <div class="cgt-col-year">
@@ -1169,8 +1173,6 @@
             <div class="course-averages" style="margin-top:0.7rem; padding-top:0.35rem; border-top:1px solid rgba(0,0,0,0.08);">
               <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
             </div>
-          </details>
-          </details>
         </div>
 
       </div>
@@ -1541,6 +1543,21 @@
           btn.classList.add('active');
         });
       });
+    }());
+  </script>
+  <script>
+    /* ── TU Delft Modules content toggle ──────────────── */
+    (function () {
+      var toggle  = document.getElementById('tud-modules-toggle');
+      var content = document.getElementById('tud-modules-content');
+      if (!toggle || !content) return;
+      var outer = toggle.closest('details.cv-bridge-outer');
+      function sync() {
+        var show = toggle.open && (!outer || outer.open);
+        content.classList.toggle('tud-mc-hidden', !show);
+      }
+      toggle.addEventListener('toggle', sync);
+      if (outer) outer.addEventListener('toggle', sync);
     }());
   </script>
 </body>
