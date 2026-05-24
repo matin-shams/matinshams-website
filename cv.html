@@ -663,7 +663,7 @@
     .course-module-row:first-child td { padding-top: 0.1rem; }
     .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
     /* 4-column grades table (TU Delft curriculum) */
-    .course-grades-table { border-collapse: collapse; table-layout: fixed; font-size: 0.76rem; width: 100%; }
+    .course-grades-table { border-collapse: collapse; table-layout: fixed; font-size: 0.7rem; width: 100%; }
     .course-grades-table thead th { font-size: 0.65rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 0.2rem 0.3rem 0.28rem; text-align: left; vertical-align: bottom; }
     .course-grades-table thead th:nth-child(3) { text-align: center; }
     .course-grades-table td { padding: 0.12rem 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
@@ -689,8 +689,7 @@
     .cgt-table-wrap { flex: 1; min-width: 0; }
     .cgt-year-sep { position: relative; height: 1.6rem; }
     .cgt-year-sep::before { content: ''; position: absolute; left: -2rem; right: -2rem; top: 0; bottom: 0; background: var(--bg); z-index: 5; }
-    /* Quarter bracket column */
-    .cmt-ql { background: var(--bg); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.76rem; color: var(--muted); text-align: center; vertical-align: middle; white-space: nowrap; border-left: 1px solid rgba(0,0,0,0.1); padding: 0.2rem 0.2rem; user-select: none; }
+    .course-grades-table tbody tr:last-child td { border-bottom: none; }
     /* Minor Abroad special cell */
     .cmt-minor-abroad { font-style: normal; font-weight: 500; color: var(--mid); padding: 0.55rem 0.3rem; text-align: center; font-size: 0.76rem; }
     /* GreenYellow program link icon */
@@ -987,15 +986,14 @@
                     <div class="cgt-year-tag">Year 1</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
-                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"><col style="width:2rem"></colgroup>
-                        <thead><tr><th>Module</th><th>Course</th><th colspan="2">Grades</th><th></th></tr></thead>
+                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
+                        <thead><tr><th>Module</th><th>Course</th><th colspan="2">Grades</th></tr></thead>
                         <tbody>
                           <tr>
                             <td rowspan="2" class="cmt-mod">Introduction to Aerospace Engineering</td>
                             <td class="cmt-c1">Introduction to AE 1</td>
                             <td class="cmt-g1">8.7</td>
                             <td rowspan="2" class="cmt-mg">9.0</td>
-                            <td rowspan="8" class="cmt-ql">Q1</td>
                           </tr>
                           <tr><td class="cmt-cn">Introduction to AE 2</td><td class="cmt-gn">9.7</td></tr>
                           <tr class="cmt-divider">
@@ -1019,10 +1017,9 @@
                             <td class="cmt-c1">Aerospace Materials</td>
                             <td class="cmt-g1">7.0</td>
                             <td rowspan="2" class="cmt-mg">8.0</td>
-                            <td rowspan="2" class="cmt-ql">Q2</td>
                           </tr>
                           <tr><td class="cmt-cn">Mechanics of Materials</td><td class="cmt-gn">8.8</td></tr>
-                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td><td rowspan="5" class="cmt-ql">Q3</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Physics</td>
                             <td class="cmt-c1">Thermodynamics</td>
@@ -1037,7 +1034,7 @@
                             <td rowspan="2" class="cmt-mg">7.0</td>
                           </tr>
                           <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.1</td></tr>
-                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td><td rowspan="2" class="cmt-ql">Q4</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
                           <tr class="cmt-divider"><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
                         </tbody>
                       </table>
@@ -1053,14 +1050,13 @@
                     <div class="cgt-year-tag">Year 2</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
-                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"><col style="width:2rem"></colgroup>
+                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <tbody>
                           <tr>
                             <td rowspan="3" class="cmt-mod">Aerodynamics Sub- and Supersonic</td>
                             <td class="cmt-c1">Aerodynamics I</td>
                             <td class="cmt-g1">9.0</td>
                             <td rowspan="3" class="cmt-mg">9.0</td>
-                            <td rowspan="7" class="cmt-ql">Q1</td>
                           </tr>
                           <tr><td class="cmt-cn">Aerodynamics II</td><td class="cmt-gn">9.4</td></tr>
                           <tr><td class="cmt-cn">Low Speed Wind Tunnel Test</td><td class="cmt-gn">8.5</td></tr>
@@ -1083,7 +1079,6 @@
                             <td class="cmt-c1">Structural Analysis and Design</td>
                             <td class="cmt-g1">7.3</td>
                             <td rowspan="2" class="cmt-mg">7.5</td>
-                            <td rowspan="2" class="cmt-ql">Q2</td>
                           </tr>
                           <tr><td class="cmt-cn">Vibrations</td><td class="cmt-gn">8.4</td></tr>
                           <tr class="cmt-divider">
@@ -1091,7 +1086,6 @@
                             <td class="cmt-c1">Flight and Orbital Mechanics</td>
                             <td class="cmt-g1">6.6</td>
                             <td rowspan="2" class="cmt-mg">7.5</td>
-                            <td rowspan="6" class="cmt-ql">Q3</td>
                           </tr>
                           <tr><td class="cmt-cn">Propulsion and Power</td><td class="cmt-gn">8.1</td></tr>
                           <tr class="cmt-divider">
@@ -1113,7 +1107,6 @@
                             <td class="cmt-c1">Control Theory</td>
                             <td class="cmt-g1">10.0</td>
                             <td rowspan="2" class="cmt-mg">9.5</td>
-                            <td rowspan="2" class="cmt-ql">Q4</td>
                           </tr>
                           <tr><td class="cmt-cn">Signal Analysis and Telecommunication</td><td class="cmt-gn">8.4</td></tr>
                         </tbody>
@@ -1130,15 +1123,14 @@
                     <div class="cgt-year-tag">Year 3</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
-                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"><col style="width:2rem"></colgroup>
+                        <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <tbody>
-                          <tr><td colspan="4" class="cmt-minor-abroad">Minor Abroad</td><td class="cmt-ql">Q1–Q2</td></tr>
+                          <tr><td colspan="4" class="cmt-minor-abroad">Minor Abroad</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Systems Engineering, Design and Production</td>
                             <td class="cmt-c1">Systems Engineering and Aerospace Design</td>
                             <td class="cmt-g1">7.8</td>
                             <td rowspan="2" class="cmt-mg">7.0</td>
-                            <td rowspan="4" class="cmt-ql">Q3</td>
                           </tr>
                           <tr><td class="cmt-cn">Production of Aerospace Systems</td><td class="cmt-gn">6.5</td></tr>
                           <tr class="cmt-divider">
