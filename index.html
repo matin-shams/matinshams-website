@@ -153,7 +153,7 @@
       <div class="divider"></div>
 
       <div class="right">
-        <a class="nav-btn" href="cv.html">CV</a>
+        <a class="nav-btn" href="cv.html" id="cv-nav-link" style="display:none">CV</a>
         <button class="nav-btn" id="contact-toggle" type="button">Contact</button>
 
         <div class="contact-card" id="contact-card">
@@ -173,6 +173,16 @@
       var open = card.classList.toggle('open');
       toggle.classList.toggle('active', open);
     });
+  </script>
+  <script>
+    (function () {
+      var isFull = window.location.search.indexOf('full') !== -1;
+      if (isFull) sessionStorage.setItem('cvFull', '1');
+      if (isFull || sessionStorage.getItem('cvFull') === '1') {
+        var el = document.getElementById('cv-nav-link');
+        if (el) el.style.display = '';
+      }
+    }());
   </script>
 </body>
 </html>
