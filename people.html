@@ -304,6 +304,60 @@
       border: none;
       cursor: grab;
     }
+    /* ── View toggle buttons ─────────────────── */
+    .ppl-view-toggle { display: flex; gap: 0.35rem; align-items: center; }
+    .ppl-view-btn {
+      width: 30px; height: 30px;
+      border: 1.5px solid #e0ddd8;
+      border-radius: 6px;
+      background: #fff;
+      color: #ccc;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+    .ppl-view-btn svg { fill: currentColor; }
+    .ppl-view-btn.active { color: #444; border-color: #aaa; background: #f4f4f2; }
+    .ppl-view-btn:hover:not(.active) { color: #888; border-color: #ccc; }
+
+    /* ── Grid list view ─────────────────────── */
+    .ppl-list-view {
+      display: none;
+      width: 100%;
+      max-width: 780px;
+      padding: 1rem 2rem 2rem;
+    }
+    .ppl-list-view.visible { display: block; }
+    .ppl-list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem 1rem;
+    }
+    .ppl-grid-cell {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      gap: 0;
+    }
+    .ppl-grid-photo-wrap {
+      width: 72px; height: 72px;
+      border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      border: 1.5px solid rgba(173,213,232,0.75);
+    }
+    .ppl-grid-photo { width: 100%; height: 100%; object-fit: cover; }
+    .ppl-grid-name-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.25rem; margin-top: 0.55rem;
+    }
+    .ppl-grid-name { font-size: 0.8rem; font-weight: 500; color: #1a1a1a; line-height: 1.3; }
+    .ppl-grid-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #bbb; flex-shrink: 0;
+      transition: color 0.15s;
+    }
+    .ppl-grid-link:hover { color: #555; }
+    .ppl-grid-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .ppl-grid-inst { font-size: 0.68rem; color: #bbb; line-height: 1.3; margin-top: 0.15rem; }
   </style>
 </head>
 <body>
@@ -313,6 +367,14 @@
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
     CV
   </a>
+  <div class="ppl-view-toggle">
+    <button class="ppl-view-btn active" id="btn-carousel" title="Carousel">
+      <svg viewBox="0 0 20 14" width="18" height="13"><rect x="0" y="1.5" width="5.5" height="11" rx="1"/><rect x="7.25" y="0" width="5.5" height="14" rx="1"/><rect x="14.5" y="1.5" width="5.5" height="11" rx="1"/></svg>
+    </button>
+    <button class="ppl-view-btn" id="btn-list" title="List">
+      <svg viewBox="0 0 16 14" width="14" height="13"><rect x="0" y="0" width="2.5" height="14" rx="1"/><rect x="4.5" y="0" width="2.5" height="14" rx="1"/><rect x="9" y="0" width="2.5" height="14" rx="1"/><rect x="13.5" y="0" width="2.5" height="14" rx="1"/></svg>
+    </button>
+  </div>
   <a class="ppl-nav-link" href="index.html">
     <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
     Home
@@ -510,8 +572,95 @@
   <button class="carousel-btn carousel-next" id="next-btn">&#8250;</button>
 </div>
 
-<div class="scrubber-wrap">
+<div class="scrubber-wrap" id="scrubber-wrap">
   <input type="range" id="scrubber" min="0" max="6" step="1" value="0" />
+</div>
+
+<div class="ppl-list-view" id="ppl-list-view">
+  <div class="ppl-list-grid">
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/patrick.png" alt="Patrick Farrell" style="object-position:center 30%;" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Patrick Farrell</span>
+        <a class="ppl-grid-link" href="https://pefarrell.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Oxford</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/boris.png" alt="Boris Andrews" style="transform:scale(1.25);" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Boris Andrews</span>
+        <a class="ppl-grid-link" href="https://borisandrews.github.io/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Oxford</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/endre.png" alt="Endre Süli" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Endre Süli</span>
+        <a class="ppl-grid-link" href="https://people.maths.ox.ac.uk/suli/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Oxford</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/bart3.png" alt="Bart Ripperda" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Bart Ripperda</span>
+        <a class="ppl-grid-link" href="https://bartripperda.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Toronto</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/sean.png" alt="Sean Ressler" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Sean Ressler</span>
+        <a class="ppl-grid-link" href="https://smressle.bitbucket.io/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Toronto</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/carlos.png" alt="Carlos Simão Ferreira" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Carlos Simão Ferreira</span>
+        <a class="ppl-grid-link" href="https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">Delft University of Technology</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/gerrrrr.png" alt="Marc Gerritsma" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Marc Gerritsma</span>
+        <a class="ppl-grid-link" href="https://www.tudelft.nl/en/staff/m.i.gerritsma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">Delft University of Technology</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/abate.png" alt="Alessandro Abate" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Alessandro Abate</span>
+        <a class="ppl-grid-link" href="https://www.cs.ox.ac.uk/people/alessandro.abate/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">University of Oxford</div>
+    </div>
+
+    <div class="ppl-grid-cell">
+      <div class="ppl-grid-photo-wrap"><img class="ppl-grid-photo" src="assets/logos/daan.png" alt="Daan Pool" /></div>
+      <div class="ppl-grid-name-row">
+        <span class="ppl-grid-name">Daan Pool</span>
+        <a class="ppl-grid-link" href="https://www.tudelft.nl/en/staff/d.m.pool/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+      <div class="ppl-grid-inst">Delft University of Technology</div>
+    </div>
+
+  </div>
 </div>
 </div>
 
@@ -572,6 +721,29 @@
     cell.addEventListener('mouseleave', function () {
       cell.querySelector('.ppl-overlay').classList.remove('show-detail');
     });
+  });
+
+  /* ── View toggle ──────────────────────────── */
+  var btnCarousel  = document.getElementById('btn-carousel');
+  var btnList      = document.getElementById('btn-list');
+  var carouselEl   = document.getElementById('carousel');
+  var scrubberWrap = document.getElementById('scrubber-wrap');
+  var listView     = document.getElementById('ppl-list-view');
+
+  btnCarousel.addEventListener('click', function () {
+    btnCarousel.classList.add('active');
+    btnList.classList.remove('active');
+    carouselEl.style.display = '';
+    scrubberWrap.style.display = '';
+    listView.classList.remove('visible');
+  });
+
+  btnList.addEventListener('click', function () {
+    btnList.classList.add('active');
+    btnCarousel.classList.remove('active');
+    carouselEl.style.display = 'none';
+    scrubberWrap.style.display = 'none';
+    listView.classList.add('visible');
   });
 
 }());
