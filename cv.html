@@ -680,10 +680,13 @@
     .course-unit-table td, .course-unit-table th { padding: 0.13rem 0.25rem; vertical-align: middle; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.07); }
     .course-unit-table thead th { font-weight: 500; color: var(--muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(100,100,100,0.15); padding-bottom: 0.25rem; }
     .course-unit-table tbody tr:last-child td { border-bottom: none; }
-    .cut-label { white-space: nowrap; font-weight: 700; color: var(--mid); font-size: 0.68rem; width: 2.4rem; vertical-align: middle; text-align: center; border-right: 1px solid rgba(0,0,0,0.1); }
+    .cut-label { white-space: nowrap; font-weight: 400; color: var(--mid); font-size: 0.68rem; width: 2.4rem; vertical-align: middle; text-align: center; border-right: 1px solid rgba(0,0,0,0.1); }
     .cut-name { color: var(--mid); text-align: left; padding-left: 0.4rem; }
-    .cut-grade { color: var(--muted); font-size: 0.68rem; white-space: nowrap; border-left: 1px solid rgba(0,0,0,0.1); vertical-align: middle; text-align: center; padding: 0.13rem 0.5rem; }
+    .cut-grade { font-size: 0.68rem; white-space: nowrap; border-left: 1px solid rgba(0,0,0,0.1); vertical-align: middle; text-align: center; padding: 0.13rem 0.5rem; }
     .cut-grade-h { text-align: center; border-left: 1px solid rgba(0,0,0,0.1); }
+    .cut-grade-distinction { background: #e6f4ec; color: #1a6635; border-radius: 3px; }
+    .cut-grade-merit { background: #eaf5de; color: #456020; border-radius: 3px; }
+    .cut-grade-pass { background: #f3f5d4; color: #626010; border-radius: 3px; }
     .cut-group-start td { border-top: 1px solid rgba(0,0,0,0.14); padding-top: 0.35rem; }
     /* Year-grouped curriculum layout — full-viewport-width breakout */
     .tud-mc-hidden { display: none !important; }
@@ -862,41 +865,41 @@
                   <tr>
                     <td rowspan="2" class="cut-label">A1</td>
                     <td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6072" target="_blank" rel="noopener">Applied Partial Differential Equations</a></td>
-                    <td rowspan="2" class="cut-grade">Distinction</td>
+                    <td rowspan="2" class="cut-grade cut-grade-distinction">Distinction</td>
                   </tr>
                   <tr><td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6263" target="_blank" rel="noopener">Supplementary Applied Mathematics</a></td></tr>
                   <tr class="cut-group-start">
                     <td rowspan="3" class="cut-label">A2</td>
                     <td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6089" target="_blank" rel="noopener">Nonlinear Dynamics, Bifurcations and Chaos</a></td>
-                    <td rowspan="3" class="cut-grade">Pass</td>
+                    <td rowspan="3" class="cut-grade cut-grade-pass">Pass</td>
                   </tr>
                   <tr><td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6288" target="_blank" rel="noopener">Further Partial Differential Equations</a></td></tr>
                   <tr><td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6289" target="_blank" rel="noopener">Further Mathematical Methods</a></td></tr>
                   <tr class="cut-group-start">
                     <td rowspan="2" class="cut-label">B1</td>
                     <td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6266" target="_blank" rel="noopener">Numerical Solution of Partial Differential Equations</a></td>
-                    <td rowspan="2" class="cut-grade">Pass</td>
+                    <td rowspan="2" class="cut-grade cut-grade-pass">Pass</td>
                   </tr>
                   <tr><td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6267" target="_blank" rel="noopener">Numerical Linear Algebra I</a></td></tr>
                   <tr class="cut-group-start">
                     <td rowspan="2" class="cut-label">B2</td>
                     <td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6267" target="_blank" rel="noopener">Numerical Linear Algebra II</a></td>
-                    <td rowspan="2" class="cut-grade">Merit</td>
+                    <td rowspan="2" class="cut-grade cut-grade-merit">Merit</td>
                   </tr>
                   <tr><td class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6291" target="_blank" rel="noopener">Continuous Optimisation</a></td></tr>
                   <tr class="cut-group-start">
                     <td colspan="2" class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6003" target="_blank" rel="noopener">Finite Element Methods for Partial Differential Equations</a></td>
-                    <td rowspan="2" class="cut-grade">Merit</td>
+                    <td rowspan="2" class="cut-grade cut-grade-merit">Merit</td>
                   </tr>
                   <tr><td colspan="2" class="cut-name"><a href="https://courses.maths.ox.ac.uk/course/view.php?id=6090" target="_blank" rel="noopener">Waves and Compressible Flow</a></td></tr>
                   <tr class="cut-group-start">
                     <td colspan="2" class="cut-name">Case Study: Mathematical Modelling</td>
-                    <td rowspan="2" class="cut-grade">Merit</td>
+                    <td rowspan="2" class="cut-grade cut-grade-merit">Merit</td>
                   </tr>
                   <tr><td colspan="2" class="cut-name">Case Study: Scientific Computing</td></tr>
                   <tr class="cut-group-start">
                     <td colspan="2" class="cut-name"><a href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mmsc/dissertation" target="_blank" rel="noopener">Dissertation</a></td>
-                    <td class="cut-grade">Distinction</td>
+                    <td class="cut-grade cut-grade-distinction">Distinction</td>
                   </tr>
                 </tbody>
               </table>
