@@ -390,6 +390,9 @@
       color: var(--muted);
       margin-bottom: 0.2rem;
     }
+    details.cv-bridge-outer { margin-top: 0; }
+    details.cv-bridge-outer > summary { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0; }
+    details[open].cv-bridge-outer > summary { margin-bottom: 0.2rem; }
     .cv-bridge-title {
       font-size: 0.82rem;
       color: var(--mid);
@@ -678,12 +681,14 @@
     .cut-name { color: var(--mid); }
     .cut-count { text-align: right; white-space: nowrap; color: var(--muted); font-size: 0.7rem; }
     /* Year-grouped curriculum layout */
-    .cgt-outer { display: flex; gap: 1rem; align-items: flex-start; }
+    .cgt-outer { display: flex; gap: 1rem; align-items: flex-start; margin-top: 0.5rem; }
     .cgt-tables-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+    .cgt-year-section { background: rgba(173,255,47,0.05); border-radius: 0 4px 4px 0; padding: 0.45rem 0.6rem; }
     .cgt-year-block { display: flex; gap: 0.4rem; align-items: flex-start; }
     .cgt-year-tag { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); opacity: 0.45; align-self: center; flex-shrink: 0; user-select: none; }
     .cgt-table-wrap { flex: 1; min-width: 0; }
-    .cgt-year-sep { height: 0; border-top: 1px solid rgba(173,255,47,0.35); margin: 0.65rem 0 0.65rem 1.2rem; }
+    .cgt-year-sep { position: relative; height: 1.6rem; }
+    .cgt-year-sep::before { content: ''; position: absolute; left: -2rem; right: -2rem; top: 0; bottom: 0; background: var(--bg); z-index: 5; }
     /* Legend */
     .cgt-legend { position: sticky; top: 18px; flex-shrink: 0; display: flex; flex-direction: column; gap: 0.4rem; padding: 0.45rem 0.55rem; border-left: 1.5px solid rgba(0,0,0,0.07); }
     .cgt-legend-item { display: flex; align-items: center; gap: 0.32rem; font-size: 0.61rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap; }
@@ -692,16 +697,15 @@
     .cgt-q2-dot { background: #40e0d0; }
     .cgt-q3-dot { background: #6495ed; }
     .cgt-q4-dot { background: #da70d6; }
-    /* Quarter row tints (applied via tbody) */
-    .course-grades-table tbody.cgt-q1 td { background: rgba(173,255,47,0.09); }
-    .course-grades-table tbody.cgt-q2 td { background: rgba(64,224,208,0.09); }
-    .course-grades-table tbody.cgt-q3 td { background: rgba(100,149,237,0.09); }
-    .course-grades-table tbody.cgt-q4 td { background: rgba(218,112,214,0.09); }
-    .course-grades-table tbody.cgt-q1q2 td { background: linear-gradient(to bottom, rgba(173,255,47,0.09), rgba(64,224,208,0.09)); }
-    /* Slightly thicker border between quarter groups */
-    .course-grades-table tbody + tbody tr:first-child td { border-top: 1.5px solid rgba(0,0,0,0.13); }
+    /* Quarter tints on individual course cells only (not module name/grade cols) */
+    .q1-cell { background: rgba(173,255,47,0.16) !important; }
+    .q2-cell { background: rgba(64,224,208,0.16) !important; }
+    .q3-cell { background: rgba(100,149,237,0.16) !important; }
+    .q4-cell { background: rgba(218,112,214,0.16) !important; }
+    .q12-cell { background: linear-gradient(to right, rgba(173,255,47,0.16), rgba(64,224,208,0.16)) !important; }
+    .q34-cell { background: linear-gradient(to right, rgba(100,149,237,0.16), rgba(218,112,214,0.16)) !important; }
     /* Minor Abroad special cell */
-    .cmt-minor-abroad { font-style: italic; font-weight: 600; color: var(--mid); padding: 0.45rem 0.3rem; text-align: center; letter-spacing: 0.02em; font-size: 0.75rem; }
+    .cmt-minor-abroad { font-style: normal; font-weight: 500; color: var(--mid); padding: 0.55rem 0.3rem; text-align: center; font-size: 0.76rem; }
     /* GreenYellow program link icon */
     .cv-prog-link { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: greenyellow; color: #333; vertical-align: middle; margin-left: 0.3rem; flex-shrink: 0; }
     .cv-prog-link svg { width: 9px; height: 9px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
@@ -849,7 +853,8 @@
         </details>
 
         <div class="cv-bridge" style="border-left-color: greenyellow;">
-          <div class="cv-bridge-label">Curriculum</div>
+          <details class="expandable cv-bridge-outer">
+          <summary class="cv-bridge-label">Curriculum</summary>
           <div class="cv-bridge-desc">12 units completed over 12 months (transcript available upon request).<a class="cv-prog-link" href="https://www.maths.ox.ac.uk/members/students/postgraduate-courses/msc-mmsc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
           <details class="expandable" style="margin-top: 0.5rem;">
             <summary>Units</summary>
@@ -876,6 +881,7 @@
               </table>
             </div>
           </details>
+          </details>
         </div>
 
       </div>
@@ -895,7 +901,8 @@
         <div class="cv-meta">Vancouver, Canada</div>
 
         <div class="cv-bridge" style="display:none">
-          <div class="cv-bridge-label">Minor Abroad</div>
+          <details class="expandable cv-bridge-outer">
+          <summary class="cv-bridge-label">Minor Abroad</summary>
           <div class="cv-bridge-desc">The minor abroad programme allows a select few TU Delft Aerospace Engineering students, chosen through a highly competitive process with limited places each year, to spend their third-year first semester at a partner university. The minor is a coherent 30 EC programme and an opportunity to build expertise in a subject outside of Aerospace Engineering.</div>
           <details class="expandable" style="margin-top: 0.5rem;">
             <summary>Courses</summary>
@@ -912,6 +919,7 @@
                 <span class="course-avg-label">Overall average: <span>85.7%</span></span>
               </div>
             </div>
+          </details>
           </details>
         </div>
 
@@ -978,202 +986,194 @@
         </div>
 
         <div class="cv-bridge" style="border-left-color: greenyellow;">
-          <div class="cv-bridge-label">Curriculum</div>
+          <details class="expandable cv-bridge-outer">
+          <summary class="cv-bridge-label">Curriculum</summary>
           <div class="cv-bridge-desc">180 ECTS completed over 36 months (transcript available upon request).<a class="cv-prog-link" href="https://www.tudelft.nl/en/onderwijs/opleidingen/bachelors/ae/bsc-aerospace-engineering" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
           <details class="expandable" style="margin-top: 0.5rem;">
             <summary>Modules</summary>
-            <div class="course-box">
-              <div class="cgt-outer">
-                <div class="cgt-tables-col">
+            <div class="cgt-outer">
+              <div class="cgt-tables-col">
 
-                  <!-- Year 1 -->
+                <!-- Year 1 -->
+                <div class="cgt-year-section">
                   <div class="cgt-year-block">
                     <div class="cgt-year-tag">Year 1</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
                         <thead><tr><th>Module</th><th>Course</th><th>Grade</th><th>Grade</th></tr></thead>
-                        <tbody class="cgt-q1">
+                        <tbody>
                           <tr>
                             <td rowspan="2" class="cmt-mod">Introduction to Aerospace Engineering</td>
-                            <td class="cmt-c1">Introduction to AE 1</td>
-                            <td class="cmt-g1">8.7</td>
+                            <td class="cmt-c1 q1-cell">Introduction to AE 1</td>
+                            <td class="cmt-g1 q1-cell">8.7</td>
                             <td rowspan="2" class="cmt-mg">9.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Introduction to AE 2</td><td class="cmt-gn">9.7</td></tr>
+                          <tr><td class="cmt-cn q2-cell">Introduction to AE 2</td><td class="cmt-gn q2-cell">9.7</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Engineering Mechanics</td>
-                            <td class="cmt-c1">Statics</td>
-                            <td class="cmt-g1">8.8</td>
+                            <td class="cmt-c1 q1-cell">Statics</td>
+                            <td class="cmt-g1 q1-cell">8.8</td>
                             <td rowspan="2" class="cmt-mg">8.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Dynamics</td><td class="cmt-gn">7.9</td></tr>
-                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Calculus I</td><td class="cmt-mg">9.0</td></tr>
+                          <tr><td class="cmt-cn q2-cell">Dynamics</td><td class="cmt-gn q2-cell">7.9</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s q1-cell">Calculus I</td><td class="cmt-mg">9.0</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="3" class="cmt-mod">Exploring Aerospace Engineering and Design</td>
-                            <td class="cmt-c1">Exploring AE and Design</td>
-                            <td class="cmt-g1">8.3</td>
+                            <td class="cmt-c1 q1-cell">Exploring AE and Design</td>
+                            <td class="cmt-g1 q1-cell">8.3</td>
                             <td rowspan="3" class="cmt-mg">8.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Engineering Drawing</td><td class="cmt-gn">7.5</td></tr>
-                          <tr><td class="cmt-cn">Milestone Test</td><td class="cmt-gn">V</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q2">
-                          <tr>
+                          <tr><td class="cmt-cn q2-cell">Engineering Drawing</td><td class="cmt-gn q2-cell">7.5</td></tr>
+                          <tr><td class="cmt-cn q1-cell">Milestone Test</td><td class="cmt-gn q1-cell">V</td></tr>
+                          <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Materials and Structures</td>
-                            <td class="cmt-c1">Aerospace Materials</td>
-                            <td class="cmt-g1">7.0</td>
+                            <td class="cmt-c1 q2-cell">Aerospace Materials</td>
+                            <td class="cmt-g1 q2-cell">7.0</td>
                             <td rowspan="2" class="cmt-mg">8.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Mechanics of Materials</td><td class="cmt-gn">8.8</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q3">
-                          <tr><td colspan="3" class="cmt-s">Calculus II</td><td class="cmt-mg">8.5</td></tr>
+                          <tr><td class="cmt-cn q3-cell">Mechanics of Materials</td><td class="cmt-gn q3-cell">8.8</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s q3-cell">Calculus II</td><td class="cmt-mg">8.5</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Physics</td>
-                            <td class="cmt-c1">Thermodynamics</td>
-                            <td class="cmt-g1">7.6</td>
+                            <td class="cmt-c1 q3-cell">Thermodynamics</td>
+                            <td class="cmt-g1 q3-cell">7.6</td>
                             <td rowspan="2" class="cmt-mg">8.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Electromagnetism</td><td class="cmt-gn">9.0</td></tr>
+                          <tr><td class="cmt-cn q4-cell">Electromagnetism</td><td class="cmt-gn q4-cell">9.0</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Design and Construction</td>
-                            <td class="cmt-c1">Design and Construction</td>
-                            <td class="cmt-g1">6.5</td>
+                            <td class="cmt-c1 q34-cell">Design and Construction</td>
+                            <td class="cmt-g1 q34-cell">6.5</td>
                             <td rowspan="2" class="cmt-mg">7.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.1</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q4">
-                          <tr><td colspan="3" class="cmt-s">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
-                          <tr class="cmt-divider"><td colspan="3" class="cmt-s">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
+                          <tr><td class="cmt-cn q4-cell">Systems Engineering Elements</td><td class="cmt-gn q4-cell">8.1</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s q4-cell">Programming and Scientific Computing in Python</td><td class="cmt-mg">7.0</td></tr>
+                          <tr class="cmt-divider"><td colspan="3" class="cmt-s q4-cell">Linear Algebra</td><td class="cmt-mg">9.5</td></tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+                </div>
 
-                  <div class="cgt-year-sep"></div>
+                <div class="cgt-year-sep"></div>
 
-                  <!-- Year 2 -->
+                <!-- Year 2 -->
+                <div class="cgt-year-section">
                   <div class="cgt-year-block">
                     <div class="cgt-year-tag">Year 2</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
-                        <tbody class="cgt-q1">
+                        <tbody>
                           <tr>
                             <td rowspan="3" class="cmt-mod">Aerodynamics Sub- and Supersonic</td>
-                            <td class="cmt-c1">Aerodynamics I</td>
-                            <td class="cmt-g1">9.0</td>
+                            <td class="cmt-c1 q1-cell">Aerodynamics I</td>
+                            <td class="cmt-g1 q1-cell">9.0</td>
                             <td rowspan="3" class="cmt-mg">9.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Aerodynamics II</td><td class="cmt-gn">9.4</td></tr>
-                          <tr><td class="cmt-cn">Low Speed Wind Tunnel Test</td><td class="cmt-gn">8.5</td></tr>
+                          <tr><td class="cmt-cn q2-cell">Aerodynamics II</td><td class="cmt-gn q2-cell">9.4</td></tr>
+                          <tr><td class="cmt-cn q2-cell">Low Speed Wind Tunnel Test</td><td class="cmt-gn q2-cell">8.5</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Differential Equations, Probability Theory, and Statistics</td>
-                            <td class="cmt-c1">Differential Equations</td>
-                            <td class="cmt-g1">9.5</td>
+                            <td class="cmt-c1 q1-cell">Differential Equations</td>
+                            <td class="cmt-g1 q1-cell">9.5</td>
                             <td rowspan="2" class="cmt-mg">10.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Probability and Statistics</td><td class="cmt-gn">10.0</td></tr>
+                          <tr><td class="cmt-cn q2-cell">Probability and Statistics</td><td class="cmt-gn q2-cell">10.0</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace System Design</td>
-                            <td class="cmt-c1">Systems Design</td>
-                            <td class="cmt-g1">7.8</td>
+                            <td class="cmt-c1 q12-cell">Systems Design</td>
+                            <td class="cmt-g1 q12-cell">7.8</td>
                             <td rowspan="2" class="cmt-mg">8.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Systems Engineering Elements</td><td class="cmt-gn">8.3</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q2">
-                          <tr>
+                          <tr><td class="cmt-cn q1-cell">Systems Engineering Elements</td><td class="cmt-gn q1-cell">8.3</td></tr>
+                          <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Structural and Vibrational Analysis and Design</td>
-                            <td class="cmt-c1">Structural Analysis and Design</td>
-                            <td class="cmt-g1">7.3</td>
+                            <td class="cmt-c1 q2-cell">Structural Analysis and Design</td>
+                            <td class="cmt-g1 q2-cell">7.3</td>
                             <td rowspan="2" class="cmt-mg">7.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Vibrations</td><td class="cmt-gn">8.4</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q3">
-                          <tr>
+                          <tr><td class="cmt-cn q2-cell">Vibrations</td><td class="cmt-gn q2-cell">8.4</td></tr>
+                          <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Flight and Orbital Mechanics and Propulsion</td>
-                            <td class="cmt-c1">Flight and Orbital Mechanics</td>
-                            <td class="cmt-g1">6.6</td>
+                            <td class="cmt-c1 q3-cell">Flight and Orbital Mechanics</td>
+                            <td class="cmt-g1 q3-cell">6.6</td>
                             <td rowspan="2" class="cmt-mg">7.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Propulsion and Power</td><td class="cmt-gn">8.1</td></tr>
+                          <tr><td class="cmt-cn q3-cell">Propulsion and Power</td><td class="cmt-gn q3-cell">8.1</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Applied Numerical Analysis and Computational Modelling</td>
-                            <td class="cmt-c1">Applied Numerical Analysis</td>
-                            <td class="cmt-g1">9.5</td>
+                            <td class="cmt-c1 q3-cell">Applied Numerical Analysis</td>
+                            <td class="cmt-g1 q3-cell">9.5</td>
                             <td rowspan="2" class="cmt-mg">9.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Computational Modelling</td><td class="cmt-gn">8.9</td></tr>
+                          <tr><td class="cmt-cn q4-cell">Computational Modelling</td><td class="cmt-gn q4-cell">8.9</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Test, Analysis and Simulation</td>
-                            <td class="cmt-c1">Test, Analysis and Simulation</td>
-                            <td class="cmt-g1">7.7</td>
+                            <td class="cmt-c1 q3-cell">Test, Analysis and Simulation</td>
+                            <td class="cmt-g1 q3-cell">7.7</td>
                             <td rowspan="2" class="cmt-mg">8.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">AI for Aerospace Engineering</td><td class="cmt-gn">8.5</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q4">
-                          <tr>
+                          <tr><td class="cmt-cn q3-cell">AI for Aerospace Engineering</td><td class="cmt-gn q3-cell">8.5</td></tr>
+                          <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Signals, Systems and Control</td>
-                            <td class="cmt-c1">Control Theory</td>
-                            <td class="cmt-g1">10.0</td>
+                            <td class="cmt-c1 q4-cell">Control Theory</td>
+                            <td class="cmt-g1 q4-cell">10.0</td>
                             <td rowspan="2" class="cmt-mg">9.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Signal Analysis and Telecommunication</td><td class="cmt-gn">8.4</td></tr>
+                          <tr><td class="cmt-cn q4-cell">Signal Analysis and Telecommunication</td><td class="cmt-gn q4-cell">8.4</td></tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+                </div>
 
-                  <div class="cgt-year-sep"></div>
+                <div class="cgt-year-sep"></div>
 
-                  <!-- Year 3 -->
+                <!-- Year 3 -->
+                <div class="cgt-year-section">
                   <div class="cgt-year-block">
                     <div class="cgt-year-tag">Year 3</div>
                     <div class="cgt-table-wrap">
                       <table class="course-grades-table">
                         <colgroup><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
-                        <tbody class="cgt-q1q2">
+                        <tbody>
                           <tr><td colspan="4" class="cmt-minor-abroad">Minor Abroad</td></tr>
-                        </tbody>
-                        <tbody class="cgt-q3">
-                          <tr>
+                          <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Systems Engineering, Design and Production</td>
-                            <td class="cmt-c1">Systems Engineering and Aerospace Design</td>
-                            <td class="cmt-g1">7.8</td>
+                            <td class="cmt-c1 q3-cell">Systems Engineering and Aerospace Design</td>
+                            <td class="cmt-g1 q3-cell">7.8</td>
                             <td rowspan="2" class="cmt-mg">7.0</td>
                           </tr>
-                          <tr><td class="cmt-cn">Production of Aerospace Systems</td><td class="cmt-gn">6.5</td></tr>
+                          <tr><td class="cmt-cn q3-cell">Production of Aerospace Systems</td><td class="cmt-gn q3-cell">6.5</td></tr>
                           <tr class="cmt-divider">
                             <td rowspan="2" class="cmt-mod">Aerospace Flight Dynamics, SVV including Flight Test</td>
-                            <td class="cmt-c1">Flight Dynamics incl. Simulation &amp; Flight Test</td>
-                            <td class="cmt-g1">9.1</td>
+                            <td class="cmt-c1 q3-cell">Flight Dynamics incl. Simulation &amp; Flight Test</td>
+                            <td class="cmt-g1 q3-cell">9.1</td>
                             <td rowspan="2" class="cmt-mg">8.5</td>
                           </tr>
-                          <tr><td class="cmt-cn">Verification and Validation</td><td class="cmt-gn">7.3</td></tr>
+                          <tr><td class="cmt-cn q3-cell">Verification and Validation</td><td class="cmt-gn q3-cell">7.3</td></tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
-
-                  <div class="course-averages" style="margin-top:0.7rem;">
-                    <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
-                  </div>
-                </div><!-- .cgt-tables-col -->
-
-                <!-- Sticky quarter legend -->
-                <div class="cgt-legend">
-                  <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q1-dot"></span>Q1</div>
-                  <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q2-dot"></span>Q2</div>
-                  <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q3-dot"></span>Q3</div>
-                  <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q4-dot"></span>Q4</div>
                 </div>
-              </div><!-- .cgt-outer -->
-            </div>
+
+                <div class="course-averages" style="margin-top:0.7rem; padding-top:0.35rem; border-top:1px solid rgba(0,0,0,0.08);">
+                  <span class="course-avg-label">GPA: <span>8.43 / 10</span></span>
+                </div>
+              </div><!-- .cgt-tables-col -->
+
+              <!-- Sticky quarter legend -->
+              <div class="cgt-legend">
+                <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q1-dot"></span>Q1</div>
+                <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q2-dot"></span>Q2</div>
+                <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q3-dot"></span>Q3</div>
+                <div class="cgt-legend-item"><span class="cgt-legend-dot cgt-q4-dot"></span>Q4</div>
+              </div>
+            </div><!-- .cgt-outer -->
+          </details>
           </details>
         </div>
 
