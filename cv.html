@@ -677,13 +677,14 @@
     .cmt-s { color: var(--mid); vertical-align: middle; }
     /* 3-column unit table (Oxford MMSC curriculum) */
     .course-unit-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
-    .course-unit-table td, .course-unit-table th { padding: 0.13rem 0.25rem; vertical-align: middle; text-align: center; }
+    .course-unit-table td, .course-unit-table th { padding: 0.13rem 0.25rem; vertical-align: middle; text-align: left; border-bottom: 1px solid rgba(0,0,0,0.07); }
     .course-unit-table thead th { font-weight: 500; color: var(--muted); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(100,100,100,0.15); padding-bottom: 0.25rem; }
-    .cut-label { white-space: nowrap; font-weight: 700; color: var(--mid); font-size: 0.68rem; width: 2.4rem; vertical-align: middle; text-align: center; }
-    .cut-name { color: var(--mid); text-align: center; }
+    .course-unit-table tbody tr:last-child td { border-bottom: none; }
+    .cut-label { white-space: nowrap; font-weight: 700; color: var(--mid); font-size: 0.68rem; width: 2.4rem; vertical-align: middle; text-align: center; border-right: 1px solid rgba(0,0,0,0.1); }
+    .cut-name { color: var(--mid); text-align: left; padding-left: 0.4rem; }
     .cut-grade { color: var(--muted); font-size: 0.68rem; white-space: nowrap; border-left: 1px solid rgba(0,0,0,0.1); vertical-align: middle; text-align: center; padding: 0.13rem 0.5rem; }
     .cut-grade-h { text-align: center; border-left: 1px solid rgba(0,0,0,0.1); }
-    .cut-group-start td { border-top: 1px solid rgba(0,0,0,0.08); padding-top: 0.35rem; }
+    .cut-group-start td { border-top: 1px solid rgba(0,0,0,0.14); padding-top: 0.35rem; }
     /* Year-grouped curriculum layout — full-viewport-width breakout */
     .tud-mc-hidden { display: none !important; }
     .cgt-cols-layout {
