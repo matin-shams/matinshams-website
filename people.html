@@ -318,6 +318,7 @@
       transition: color 0.15s, border-color 0.15s, background 0.15s;
     }
     .ppl-view-btn svg { fill: currentColor; }
+    #btn-list svg { fill: none; }
     .ppl-view-btn.active { color: #444; border-color: #aaa; background: #f4f4f2; }
     .ppl-view-btn:hover:not(.active) { color: #888; border-color: #ccc; }
 
@@ -352,10 +353,8 @@
     .ppl-grid-name { font-size: 0.8rem; font-weight: 500; color: #1a1a1a; line-height: 1.3; }
     .ppl-grid-link {
       display: inline-flex; align-items: center; justify-content: center;
-      color: #bbb; flex-shrink: 0;
-      transition: color 0.15s;
+      color: #cc00aa; flex-shrink: 0;
     }
-    .ppl-grid-link:hover { color: #555; }
     .ppl-grid-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .ppl-grid-inst { font-size: 0.68rem; color: #bbb; line-height: 1.3; margin-top: 0.15rem; }
   </style>
@@ -371,8 +370,8 @@
     <button class="ppl-view-btn active" id="btn-carousel" title="Carousel">
       <svg viewBox="0 0 20 14" width="18" height="13"><rect x="0" y="1.5" width="5.5" height="11" rx="1"/><rect x="7.25" y="0" width="5.5" height="14" rx="1"/><rect x="14.5" y="1.5" width="5.5" height="11" rx="1"/></svg>
     </button>
-    <button class="ppl-view-btn" id="btn-list" title="List">
-      <svg viewBox="0 0 16 14" width="14" height="13"><rect x="0" y="0" width="2.5" height="14" rx="1"/><rect x="4.5" y="0" width="2.5" height="14" rx="1"/><rect x="9" y="0" width="2.5" height="14" rx="1"/><rect x="13.5" y="0" width="2.5" height="14" rx="1"/></svg>
+    <button class="ppl-view-btn" id="btn-list" title="Grid">
+      <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4.5" y1="0" x2="4.5" y2="14"/><line x1="9.5" y1="0" x2="9.5" y2="14"/><line x1="0" y1="4.5" x2="14" y2="4.5"/><line x1="0" y1="9.5" x2="14" y2="9.5"/></svg>
     </button>
   </div>
   <a class="ppl-nav-link" href="index.html">
