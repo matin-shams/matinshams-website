@@ -321,7 +321,7 @@
 
 <div class="ppl-main">
 <div class="carousel" id="carousel">
-  <button class="carousel-btn carousel-prev" id="prev-btn" disabled>&#8249;</button>
+  <button class="carousel-btn carousel-prev" id="prev-btn">&#8249;</button>
   <div class="carousel-viewport" id="carousel-viewport">
     <div class="carousel-track" id="carousel-track">
 
@@ -537,11 +537,11 @@
   }
 
   function goTo(index) {
-    current = Math.max(0, Math.min(MAX, index));
+    if (index < 0) index = MAX;
+    else if (index > MAX) index = 0;
+    current = index;
     track.style.transform = 'translateX(-' + (current * cellWidth()) + 'px)';
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === MAX;
-    scrubber.value   = current;
+    scrubber.value = current;
   }
 
   prevBtn.addEventListener('click', function () { goTo(current - 1); });
