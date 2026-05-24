@@ -660,15 +660,15 @@
     .course-module-row:first-child td { padding-top: 0.1rem; }
     .course-sub-row td { font-size: 0.70rem; color: var(--muted); padding-left: 0.7rem; font-style: italic; }
     /* 4-column grades table (TU Delft curriculum) */
-    .course-grades-table { border-collapse: collapse; table-layout: fixed; font-size: 0.76rem; width: 100%; border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1); }
-    .course-grades-table thead th { font-size: 0.65rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1.5px solid rgba(0,0,0,0.18); padding: 0.2rem 0.3rem 0.28rem; text-align: left; vertical-align: bottom; }
+    .course-grades-table { border-collapse: collapse; table-layout: fixed; font-size: 0.76rem; width: 100%; }
+    .course-grades-table thead th { font-size: 0.65rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 0.2rem 0.3rem 0.28rem; text-align: left; vertical-align: bottom; }
     .course-grades-table thead th:nth-child(3), .course-grades-table thead th:nth-child(4) { text-align: center; }
-    .course-grades-table td { padding: 0.12rem 0.3rem; vertical-align: top; border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .course-grades-table td { padding: 0.12rem 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
     .cmt-divider td { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 0.3rem; }
     .cmt-mod { font-weight: 500; color: var(--mid); vertical-align: middle; border-right: 1px solid rgba(0,0,0,0.1); }
-    .cmt-c1, .cmt-cn { color: var(--muted); padding-left: 0.4rem; border-right: 1px solid rgba(0,0,0,0.1); }
+    .cmt-c1, .cmt-cn { color: var(--muted); padding-left: 0.4rem; border-right: 1px solid rgba(0,0,0,0.1); vertical-align: top; }
     .cmt-g1, .cmt-gn { color: var(--muted); text-align: center; vertical-align: middle; white-space: nowrap; }
-    .cmt-mg { color: var(--mid); font-weight: 600; text-align: center; white-space: nowrap; vertical-align: middle; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 0.5rem; padding-right: 0.5rem; }
+    .cmt-mg { color: var(--mid); font-weight: 500; text-align: center; white-space: nowrap; vertical-align: middle; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 0.5rem; padding-right: 0.5rem; }
     .cmt-s { font-weight: 500; color: var(--mid); vertical-align: middle; }
     /* 3-column unit table (Oxford MMSC curriculum) */
     .course-unit-table { border-collapse: collapse; font-size: 0.74rem; width: 100%; }
@@ -961,7 +961,7 @@
               <table class="course-grades-table">
                 <colgroup>
                   <col style="width:34%">
-                  <col>
+                  <col style="width:44%">
                   <col style="width:3.2rem">
                   <col style="width:3.2rem">
                 </colgroup>
