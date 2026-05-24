@@ -130,6 +130,22 @@
       opacity: 0.55;
     }
 
+    .copy-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      color: #bbb;
+      margin-left: 0.2rem;
+      transition: color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover { color: #555; }
+    .copy-btn.copied { color: #4caf50; }
+
     /* ── Responsive ── */
     @media (max-width: 580px) {
       .card {
@@ -164,10 +180,15 @@
         <button class="nav-btn" id="contact-toggle" type="button">Contact</button>
 
         <div class="contact-card" id="contact-card">
-          <a class="contact-link" href="mailto:matinshams81@gmail.com">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-            matinshams81@gmail.com
-          </a>
+          <div style="display:flex;align-items:center;gap:0.3rem;">
+            <a class="contact-link" href="mailto:matinshams81@gmail.com">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+              matinshams81@gmail.com
+            </a>
+            <button class="copy-btn" id="copy-email" title="Copy email">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -179,6 +200,14 @@
     toggle.addEventListener('click', function () {
       var open = card.classList.toggle('open');
       toggle.classList.toggle('active', open);
+    });
+
+    var copyBtn = document.getElementById('copy-email');
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText('matinshams81@gmail.com').then(function () {
+        copyBtn.classList.add('copied');
+        setTimeout(function () { copyBtn.classList.remove('copied'); }, 1500);
+      });
     });
   </script>
   <script>
