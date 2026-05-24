@@ -688,7 +688,7 @@
     /* Year-grouped curriculum layout — full-viewport-width breakout */
     .tud-mc-hidden { display: none !important; }
     .cgt-cols-layout {
-      display: flex; gap: 1.5rem; align-items: stretch; margin-top: 0.5rem;
+      display: flex; gap: 1.5rem; align-items: flex-start; margin-top: 0.5rem;
       box-sizing: border-box;
       width: 100vw;
       /* push left past: centering margin + cv-layout padding + sidebar + gap + logo + entry-gap */
@@ -697,7 +697,7 @@
     }
     .cgt-col-year { flex: 1; min-width: 0; background: #eceef8; border-left: 2px solid rgba(25,25,112,0.22); border-radius: 0 4px 4px 0; padding: 0.4rem 0.55rem; }
     .cgt-year-tag { display: none; }
-    .cgt-year-col { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(25,25,112,0.5); width: 1rem; white-space: nowrap; vertical-align: middle; padding: 0 0.15rem; border-right: 1px solid rgba(25,25,112,0.12); user-select: none; }
+    .cgt-year-col { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); width: 1rem; white-space: nowrap; vertical-align: middle; padding: 0 0.15rem; border-right: 1px solid rgba(25,25,112,0.12); border-top: none !important; border-bottom: none !important; user-select: none; }
     .course-grades-table tbody tr:last-child td { border-bottom: none; }
     /* Minor Abroad special cell */
     .cmt-minor-abroad { font-style: normal; font-weight: 500; color: var(--mid); padding: 0.55rem 0.3rem; text-align: center; font-size: 0.76rem; }
@@ -1023,7 +1023,7 @@
                 <div class="cgt-year-tag">Year 1</div>
                       <table class="course-grades-table">
                         <colgroup><col style="width:1rem"><col style="width:34%"><col style="width:44%"><col style="width:3.2rem"><col style="width:3.2rem"></colgroup>
-                        <thead><tr><th></th><th>Module</th><th>Course</th><th colspan="2">Grades</th></tr></thead>
+                        <thead><tr><th style="border-bottom:none;"></th><th>Module</th><th>Course</th><th colspan="2">Grades</th></tr></thead>
                         <tbody>
                           <tr>
                             <td rowspan="18" class="cgt-year-col">Year 1</td>
