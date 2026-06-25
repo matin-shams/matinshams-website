@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- guard disabled temporarily -->
+  <script>if (window.location.search.indexOf('full') === -1 && sessionStorage.getItem('cvFull') !== '1') window.location.replace('index.html');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CV</title>
@@ -1527,7 +1527,7 @@
   </script>
   <script>
     (function () {
-      var isFull = true; /* temporarily open */
+      var isFull = new URLSearchParams(location.search).has('full');
       if (isFull) sessionStorage.setItem('cvFull', '1');
       if (isFull || sessionStorage.getItem('cvFull') === '1') {
         document.querySelectorAll('[style*="display:none"]').forEach(function (el) {
