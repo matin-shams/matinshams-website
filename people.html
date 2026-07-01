@@ -206,6 +206,40 @@
 
     .ppl-choice-link:hover { background: #cc00aa; color: #fff; }
 
+    .ppl-choice-more {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #191970;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      padding: 0;
+      transition: color 0.15s;
+    }
+
+    .ppl-choice-more:hover { color: #000080; }
+
+    /* ── Detail state (after clicking "our work") ── */
+    .ppl-overlay-detail {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .ppl-overlay-desc {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #7b4a1e;
+      line-height: 1.6;
+      text-align: left;
+      text-wrap: balance;
+    }
+
+    /* toggled by JS */
+    .ppl-overlay.show-detail .ppl-overlay-choose { display: none; }
+    .ppl-overlay.show-detail .ppl-overlay-detail { display: flex; }
 
     /* ── Arrow buttons ───────────────────────────── */
     .carousel-btn {
@@ -368,7 +402,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://pefarrell.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">MSc dissertation supervisor. Guided the research from first principles to final thesis, with deep expertise in structure-preserving numerical methods and the Firedrake project.</div>
           </div>
         </div>
       </div>
@@ -385,7 +422,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://borisandrews.github.io/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">MSc dissertation supervisor. Brought rigour and clarity to the work on compatible finite element methods, and was a constant source of insight throughout the project.</div>
           </div>
         </div>
       </div>
@@ -402,7 +442,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://people.maths.ox.ac.uk/suli/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Faculty advisor for the MMSc throughout the year. A pillar of the Oxford numerical analysis community, and generous with his time and mathematical depth.</div>
           </div>
         </div>
       </div>
@@ -419,7 +462,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://bartripperda.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Research supervisor. Opened the door to relativistic plasma physics and shaped how the problem was framed — from the physics down to the numerics.</div>
           </div>
         </div>
       </div>
@@ -436,7 +482,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://smressle.bitbucket.io/index.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Research supervisor. Provided detailed guidance on the simulation side and kept the work grounded in the physical reality of what the equations are actually describing.</div>
           </div>
         </div>
       </div>
@@ -453,7 +502,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Undergraduate dissertation supervisor. Guided the final-year research project with both technical precision and an infectious enthusiasm for wind energy.</div>
           </div>
         </div>
       </div>
@@ -470,7 +522,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://www.tudelft.nl/en/staff/m.i.gerritsma/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Mimetic spectral element methods and structure-preserving discretisations. Preserving geometric structure in numerical simulation.</div>
           </div>
         </div>
       </div>
@@ -487,7 +542,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://www.cs.ox.ac.uk/people/alessandro.abate/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">College tutor and advisor at St Hugh's, Oxford, throughout the MMSc year. Made the college feel like a home base amid all the coursework.</div>
           </div>
         </div>
       </div>
@@ -504,7 +562,10 @@
         <div class="ppl-overlay">
           <div class="ppl-overlay-choose">
             <a class="ppl-choice-link" href="https://www.tudelft.nl/en/staff/d.m.pool/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            <button class="ppl-choice-more">read more ...</button>
           </div>
+          <div class="ppl-overlay-detail">
+            <div class="ppl-overlay-desc">Undergraduate research project supervisor in second year. A generous mentor who made space for curiosity and set the tone for how to approach an open-ended problem.</div>
           </div>
         </div>
       </div>
@@ -648,6 +709,22 @@
 
   setSizes();
   goTo(0);
+
+  /* ── Overlay two-state toggle ─────────────────── */
+  track.addEventListener('mousedown', function (e) {
+    var btn = e.target.closest('.ppl-choice-more');
+    if (btn) {
+      e.preventDefault();
+      btn.closest('.ppl-overlay').classList.add('show-detail');
+    }
+  });
+
+  /* Reset when mouse leaves each cell */
+  cells.forEach(function (cell) {
+    cell.addEventListener('mouseleave', function () {
+      cell.querySelector('.ppl-overlay').classList.remove('show-detail');
+    });
+  });
 
   /* ── View toggle ──────────────────────────── */
   var btnCarousel  = document.getElementById('btn-carousel');
