@@ -790,22 +790,18 @@
       display: block;
     }
 
-    .book-meta {
-      margin-top: 0.9rem;
-    }
-
-    .book-title {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: #1a1a1a;
-    }
-
-    .book-status {
-      font-size: 0.68rem;
+    .book-in-progress {
+      margin-top: 0.6rem;
+      font-size: 0.65rem;
       color: var(--muted);
-      margin-top: 0.2rem;
       font-style: italic;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      text-align: center;
     }
+
+    .book-wrap:hover .book-in-progress { opacity: 1; }
   </style>
 </head>
 <body>
@@ -819,7 +815,7 @@
       <button class="cv-sidebar-link" data-section="projects" style="display:none">Projects</button>
       <button class="cv-sidebar-link" data-section="awards" style="display:none">Awards</button>
       <button class="cv-sidebar-link" data-section="skills">Skills</button>
-      <button class="cv-sidebar-link" data-section="translations">Translations</button>
+      <button class="cv-sidebar-link" data-section="translations">Translation</button>
     </nav>
   </aside>
 
@@ -1393,8 +1389,8 @@
   <section id="translations" class="cv-section">
     <div class="bookshelf">
 
-      <div>
-        <div class="book-wrap">
+      <div class="book-wrap">
+        <a href="https://www.cambridge.org/core/elements/abs/medieval-finitism/DF1200CCF8D885032E251462187EEB8D" target="_blank" rel="noopener" style="text-decoration:none;display:block;">
           <div class="book-flipper">
             <div class="book-face book-spine-face">
               <span class="book-spine-text">Medieval Finitism</span>
@@ -1403,11 +1399,8 @@
               <img src="assets/logos/medieval-finitism.jpg" alt="Medieval Finitism cover" />
             </div>
           </div>
-        </div>
-        <div class="book-meta">
-          <div class="book-title">Medieval Finitism</div>
-          <div class="book-status">Translation in progress</div>
-        </div>
+        </a>
+        <div class="book-in-progress">in progress</div>
       </div>
 
     </div>
