@@ -1,0 +1,162 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Colours ──────────────────────────────────────────
+\definecolor{muted}{gray}{0.45}
+
+% ── Section headings — bold all-caps, rule below ─────
+\titleformat{\section}
+  {\normalfont\normalsize\bfseries}
+  {}{0em}{\MakeUppercase}
+  [\vspace{2pt}\hrule\vspace{5pt}]
+\titlespacing{\section}{0pt}{14pt}{4pt}
+
+% ── Entry with logo on left ───────────────────────────
+\newlength{\logowidth}
+\setlength{\logowidth}{1.05cm}
+\newlength{\entrywidth}
+\setlength{\entrywidth}{\textwidth}
+\addtolength{\entrywidth}{-\logowidth}
+\addtolength{\entrywidth}{-0.4cm}
+
+\newcommand{\cventry}[3][]{%
+  % #1 = logo path (optional), #2 = logo alt (unused), #3 = body
+  \vspace{3pt}%
+  \begin{minipage}[t]{\logowidth}%
+    \vspace{2pt}%
+    \ifx\relax#1\relax\else
+      \includegraphics[width=\logowidth, height=\logowidth, keepaspectratio]{#1}%
+    \fi
+  \end{minipage}%
+  \hspace{0.4cm}%
+  \begin{minipage}[t]{\entrywidth}%
+    #3
+  \end{minipage}%
+  \vspace{4pt}%
+}
+
+\newcommand{\cvdate}[1]{\textcolor{muted}{\small #1}}
+\newcommand{\pipe}{\textcolor{muted}{\,|\,}}
+
+\begin{document}
+
+% ════════════════════════════════════════════════════
+%  HEADER
+% ════════════════════════════════════════════════════
+\begin{center}
+  {\LARGE\textbf{Matin Shams}}\\[0.55em]
+  {\small
+    \faEnvelope[regular]\;
+    \href{mailto:matinshams81@gmail.com}{matinshams81@gmail.com}
+    \quad\textcolor{muted}{|}
+    \quad\faGithub\;
+    \href{https://github.com/matin-shams}{github.com/matin-shams}
+    \quad\textcolor{muted}{|}
+    \quad\faGlobe\;
+    \href{https://matinshams.me/cv.html?full}{matinshams.me}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% ════════════════════════════════════════════════════
+%  EDUCATION
+% ════════════════════════════════════════════════════
+\section*{Education}
+
+\cventry{../assets/logos/oxforduni_logo.jpeg}{Oxford}{%
+  \textbf{\href{https://www.ox.ac.uk}{University of Oxford}}
+  \hfill \cvdate{2024\,--\,2025 \pipe\ Oxford, United Kingdom}\\[1pt]
+  MSc Mathematical Modelling \& Scientific Computing
+  \hfill \textcolor{muted}{\small Merit\,·\,69.2\%}\\[4pt]
+  \textit{Dissertation}\,\pipe\;
+  \textit{Energy and enstrophy preserving discretisations of the incompressible Navier--Stokes equations}
+  \hfill \textcolor{muted}{\small Distinction\,·\,71\%}\\[1pt]
+  {\small Supervised by
+  \href{https://pefarrell.org/}{Patrick Farrell}
+  and
+  \href{https://borisandrews.github.io/}{Boris Andrews}
+  \pipe\ Draft complete, pending submission to \textit{JCP}}%
+}
+
+\cventry{../assets/logos/ubc_logo.jpeg}{UBC}{%
+  \textbf{\href{https://www.ubc.ca}{University of British Columbia}}
+  \hfill \cvdate{2022\,--\,2023 \pipe\ Vancouver, Canada}\\[1pt]
+  Minor in Astrophysics \& Astronomy
+  \hfill \textcolor{muted}{\small 85.7\%}%
+}
+
+\cventry{../assets/logos/delft_logo.jpeg}{TU Delft}{%
+  \textbf{\href{https://www.tudelft.nl}{Delft University of Technology}}
+  \hfill \cvdate{2021\,--\,2024 \pipe\ Delft, Netherlands}\\[1pt]
+  BSc Aerospace Engineering
+  \hfill \textcolor{muted}{\small First Class Honours\,·\,83.4\%}\\[4pt]
+  \textit{Dissertation}\,\pipe\;
+  \textit{Regenerative Wind Farming}
+  \hfill \textcolor{muted}{\small 80\%}\\[1pt]
+  {\small Supervised by
+  \href{https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos}{Carlos Sim\~{a}o Ferreira}
+  and
+  \href{https://www.tudelft.nl/staff/u.fechner.1/}{Uwe Fechner}}\\[4pt]
+  \textit{Bridging Program in Applied Mathematics}\\[1pt]
+  {\small Completed prior to graduate study; covers Real Analysis, PDE, Topology, Differential Geometry, and more.}%
+}
+
+% ════════════════════════════════════════════════════
+%  EXPERIENCE
+% ════════════════════════════════════════════════════
+\section*{Experience}
+
+\cventry{../assets/logos/delft_logo.jpeg}{TU Delft}{%
+  \textbf{\href{https://www.tudelft.nl}{Delft University of Technology}}
+  \hfill \cvdate{Sep 2023\,--\,Jun 2024 \pipe\ Part-time}\\[1pt]
+  Teaching Assistant\\[4pt]
+  {\small Part-time teaching assistant for multiple first-year BSc Aerospace Engineering courses, supporting tutorials, grading, and student problem-solving.}%
+}
+
+% ════════════════════════════════════════════════════
+%  AWARDS
+% ════════════════════════════════════════════════════
+\section*{Awards}
+
+\cvdate{Feb 2023} \pipe\ \textbf{Minor Abroad Scholarship}\\[1pt]
+{\small \pounds12,069 awarded to only three individuals at TU Delft to pursue a minor abroad at UBC.}
+
+\vspace{6pt}
+\cvdate{Feb 2023} \pipe\ \textbf{STIR Fund}\\[1pt]
+{\small \pounds342 awarded to students who took part in an exchange programme outside the EU/EEA/EFTA.}
+
+\vspace{6pt}
+\cvdate{Aug 2018} \pipe\ \textbf{Iranian Mathematics Olympiad}\\[1pt]
+{\small Gold Medal}
+
+% ════════════════════════════════════════════════════
+%  SKILLS
+% ════════════════════════════════════════════════════
+\section*{Skills}
+
+\begin{tabular}{@{}ll}
+  \textsc{Programming}  & Python \,·\, Fortran \,·\, R \\[3pt]
+  \textsc{Sci.\ codes}  & Firedrake \,·\, Athena++ \,·\, Tristan-MP \,·\, BHAC \,·\, H-AMR \\[3pt]
+  \textsc{Analysis}     & ParaView \,·\, MATLAB \,·\, Maple \,·\, Mathematica \\[3pt]
+  \textsc{Presentation} & \LaTeX\ \,·\, Overleaf \,·\, WordPress \,·\, Office \,·\, GitLab \,·\, GitHub \\[3pt]
+  \textsc{Languages}    & English \,·\, Persian \\
+\end{tabular}
+
+\end{document}
