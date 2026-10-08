@@ -1,0 +1,258 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[top=1.4cm, bottom=1.4cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage[hidelinks, breaklinks=true]{hyperref}
+
+\begin{filecontents*}[overwrite]{refs_UPC.bib}
+@article{coppola2019discrete,
+  author  = {Coppola, Gennaro and Capuano, Francesco and de Luca, Luigi},
+  title   = {Discrete Energy-Conservation Properties in the Numerical Simulation
+             of the {Navier--Stokes} Equations},
+  journal = {Applied Mechanics Reviews},
+  volume  = {71},
+  number  = {1},
+  pages   = {010803},
+  year    = {2019},
+  doi     = {10.1115/1.4042820}
+}
+@article{artiano2025performances,
+  author  = {Artiano, Marco and De Michele, Carlo and Capuano, Francesco
+             and Coppola, Gennaro},
+  title   = {On the Performances of Standard and Kinetic Energy Preserving
+             Time-Integration Methods for Incompressible-Flow Simulations},
+  journal = {Flow, Turbulence and Combustion},
+  volume  = {115},
+  pages   = {389--403},
+  year    = {2025},
+  doi     = {10.1007/s10494-024-00586-8}
+}
+@misc{neiva2025unfitted,
+  author      = {Neiva, Eric and Turlier, Herv{\'e}},
+  title       = {Unfitted Finite Element Modelling of Surface-Bulk Viscous Flows
+                 in Animal Cells},
+  year        = {2025},
+  eprint      = {2505.05723},
+  eprinttype  = {arxiv},
+  eprintclass = {cs.CE},
+  doi         = {10.48550/arXiv.2505.05723}
+}
+@misc{andrews2026stronglyenstrophystableintegratorsincompressible,
+      title={Strongly enstrophy-stable integrators for the incompressible Navier-Stokes equations},
+      author={Boris D. Andrews and Matin Shams and Patrick E. Farrell},
+      year={2026},
+      eprint={2609.15520},
+      archivePrefix={arXiv},
+      url={https://arxiv.org/abs/2609.15520},
+      doi={10.48550/arXiv.2609.15520}
+}
+\end{filecontents*}
+
+\usepackage[backend=biber, style=verbose, maxnames=4, doi=true,
+            url=false, isbn=false, eprint=true]{biblatex}
+\addbibresource{refs_UPC.bib}
+\DeclareFieldFormat{doi}{%
+  \mkbibacro{DOI}\addcolon\space
+  \textcolor{magenta}{\href{https://doi.org/#1}{\nolinkurl{#1}}}}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage[most]{tcolorbox}
+
+\pagestyle{empty}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0pt}
+
+% Body-text scale — matches the CV / Publications documents.
+\renewcommand{\normalsize}{\fontsize{12}{13.5}\selectfont}
+\renewcommand{\small}{\fontsize{11}{13}\selectfont}
+
+% ── Colours ──────────────────────────────────────────
+\definecolor{muted}{gray}{0.45}
+\definecolor{linkcol}{HTML}{4C72B0}
+\definecolor{midnight}{HTML}{191970}
+\definecolor{brick}{HTML}{B5574A}
+\definecolor{costBg}{HTML}{F3F5FA}
+
+% ── Section headings — brick bar + small-caps ────────
+\newcommand{\sectitlesize}{\fontsize{16}{16}\selectfont}
+\newcommand{\sectionbar}{\textcolor{brick}{\rule[-0.05em]{1.1cm}{0.12em}}\hspace{0.45em}}
+\titleformat{\section}
+  {\color{brick}\scshape\sectitlesize}
+  {}{0em}
+  {\sectionbar}
+\titlespacing{\section}{0pt}{7pt}{5pt}
+
+% ── Subsection headings — brick, plain case ──────────
+\newcommand{\subsectitle}[1]{\noindent{\color{brick}\fontsize{15}{17}\selectfont #1}\par\vspace{2pt}}
+
+% ── Linked citation (author, year) ───────────────────────────
+\newcommand{\clink}[2]{\textcolor{linkcol}{\href{#1}{#2}}}
+
+% ── Estimated-costs box (dissertation-card style, distinct colour) ──
+\newtcolorbox{costbox}{
+  enhanced, breakable, colback=costBg, colframe=costBg,
+  boxrule=0pt, arc=4pt, left=10pt, right=10pt, top=7pt, bottom=7pt,
+  before skip=4pt, after skip=0pt, width=0.85\linewidth, halign=left
+}
+
+% ── Cost-table type sizes ─────────────────────────────────────
+\newcommand{\costtitlesize}{\fontsize{12}{13}\selectfont}
+\newcommand{\costitemsize}{\fontsize{10}{12}\selectfont}
+\newcommand{\costtitle}[1]{\textcolor{brick}{\costtitlesize #1}}
+\newcommand{\costitem}[1]{\hspace{1em}\costitemsize\textcolor{brick}{$\circ$}\ #1}
+\newcommand{\costamt}[1]{\textcolor{midnight}{\costitemsize #1}}
+\newcommand{\costamtbold}[1]{\textcolor{midnight}{\textbf{\costtitlesize #1}}}
+\newcommand{\budgetnote}[2]{\noindent\footnotesize\textcolor{muted}{\textsuperscript{#1}~#2}\par\vspace{4pt}}
+
+\begin{document}
+\normalsize
+
+% ════════════════════════════════════════════════════
+%  HEADER
+% ════════════════════════════════════════════════════
+\noindent
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+{\huge\color{midnight}\scshape Matin Shams}\ \ \textcolor{brick}{\normalsize Motivation Letter}
+&
+{\Large\textcolor{brick}{\rule[-0.28em]{0.8pt}{1.1em}}\hspace{0.6em}\textcolor{midnight}{%
+    \href{mailto:matinshams81@gmail.com}{\faEnvelope[regular]}
+    \quad
+    \href{https://github.com/matin-shams}{\faGithub}
+    \quad
+    \href{https://matinshams.me/cv.html?full}{\faGlobe}
+  }}
+\end{tabular*}
+
+\vspace{20pt}
+
+I am writing to express my interest in the Research Assistant position on lattice Boltzmann methods for wind energy applications at the University of Oldenburg.
+
+
+% ════════════════════════════════════════════════════
+%  ACADEMIC BACKGROUND
+% ════════════════════════════════════════════════════
+\section*{Education}
+I chose to study aerospace engineering. It took me a few years, and a detour through wind farms and black holes, to find my way back. The following subsections trace that path and the research direction it has led to.
+
+\vspace{10pt}
+\subsectitle{Undergraduate Studies}
+Studying aerospace engineering at TU Delft allowed me to understand the art of simplifying complex
+phenomena to solve engineering challenges, yet I found myself drawn to acquire knowledge in a field
+of science where I could explore the art of precision and delve further into the \textit{why} question.
+My constant curiosity and drive have led me into the cycle of gaining and passing down knowledge
+within the scientific community, where I strive to collaborate and truly make an impact. To move
+closer to the source of the methods I was using, I sought out research at the interface of
+mathematics and engineering. In a project with
+\textcolor{midnight}{\href{https://bartripperda.com/}{Bart Ripperda}} and
+\textcolor{midnight}{\href{https://smressle.bitbucket.io/index.html}{Sean Ressler}}, through
+numerical relativistic fluid simulations of Rayleigh–Taylor instabilities,
+we demonstrated that a dense outer accretion disk penetrates an inner dilute magnetosphere, facilitating gas particle movement to the event horizon.
+This instilled in me a resolute desire to study advanced mathematics and modern physics, which led me to a minor in astrophysics at the University of British Columbia.
+
+\vspace{5pt}
+In the last two years of my undergraduate studies, I worked with \textcolor{midnight}{\href{https://www.tudelft.nl/en/staff/m.i.gerritsma/}{Marc Gerritsma}} on bundle--valued forms in
+mimetic spectral element methods, and it was in this project that I first met analysis, PDEs and numerical methods as subjects in their own right rather than as auxiliary tools.
+The project introduced me to the idea that a discretisation should not only approximate a PDE, but also retain its structural features at the discrete level.
+This was my first serious encounter with the analytic and geometric questions underlying numerical methods.
+Motivated by this, I followed the Applied Mathematics bridging programme at TU Delft in my third
+year, alongside my regular aerospace coursework and my BSc thesis on regenerative wind farming
+(supervised by \textcolor{midnight}{\href{https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos}{Carlos Sim\~{a}o Ferreira}} and
+\textcolor{midnight}{\href{https://www.tudelft.nl/staff/u.fechner.1/}{Uwe Fechner}}), to prepare for
+graduate study in mathematics.
+
+\vspace{10pt}
+\subsectitle{Graduate Studies}
+This path led me to the MSc in Mathematical Modelling and Scientific Computing at the University of
+Oxford. Guided by my academic advisor,
+\textcolor{midnight}{\href{https://people.maths.ox.ac.uk/suli/}{Endre S\"uli}}, I completed a few
+supererogatory courses on functional analysis and functional analytic methods for PDEs. These
+courses granted me the privilege of conducting a dissertation on
+\clink{https://matinshams.me/assets/dissertation.pdf}{energy– and
+enstrophy–preserving discretisations of the incompressible Navier Stokes equations} under the
+supervision of
+\textcolor{midnight}{\href{https://pefarrell.org/}{Patrick Farrell}}.
+Beyond the dissertation, I implemented physics-informed neural networks in PyTorch with
+\textcolor{midnight}{\href{https://www.maths.ox.ac.uk/people/kathryn.gillow}{Kathryn Gillow}}, and
+studied high-dimensional L\'evy flights for novelty search with
+\textcolor{midnight}{\href{https://www.maths.ox.ac.uk/people/peter.grindrod}{Peter Grindrod}}.
+
+\vspace{10pt}
+\subsectitle{2026 (Gap year)}
+Alongside the more abstract work, I have wanted at least part of my mathematics to begin at a
+table, with children and a piece of chalk. That wish followed me home when I left Oxford and
+returned to Iran, where I came across a rural village whose only school survived as a building
+and a list of names, with no teacher left to open the door. For a short time I became the missing
+teacher, opening the door each morning, writing on a borrowed board, and showing a handful of
+children how to line numbers up on a page and make sense of them. Since then, with the help of
+local supporters and investors, we have raised enough in funding and commitments to repair the school and guarantee a proper salary for a permanent teacher. With the school now open, my role has become that of someone they can call on.
+I can only ask to devote years to the mathematics I love if, somewhere at the
+edge of the map, there are children sitting in a classroom with at least the chance to love it too.
+
+\vspace{5pt}
+I then co-founded \textit{trew} with
+\textcolor{midnight}{\href{https://www.linkedin.com/in/pablo-cembell\%C3\%ADn-mazas-22b68a272/}{Pablo Cembellín}},
+whom I met at Oxford, and served as its CTO. The idea was to give firms tamper-evident,
+cryptographically verifiable proof of what their AI systems actually decided, a requirement that
+regulators are increasingly imposing. Advised by
+\textcolor{midnight}{\href{https://www.unibocconi.it/en/faculty/luca-enriques}{Luca Enriques}}, we took the product to a complete MVP. We did not close a funding round, and
+are now seeking an acquirer with the help of
+\textcolor{midnight}{\href{https://www.eversheds-sutherland.com/en/united-states/people/marzouk-ben}{Ben Marzouk}}.
+
+\vspace{5pt}
+I am currently translating
+\clink{https://www.cambridge.org/core/elements/abs/medieval-finitism/DF1200CCF8D885032E251462187EEB8D}{Medieval Finitism}
+by \textcolor{midnight}{\href{https://www.ms-zarepour.com/}{Mohammad Saleh Zarepour}} into Farsi,
+with the help of \textcolor{midnight}{\href{https://www.kaavelajevardi.com/}{Kaveh Lajevardi}}. The
+book examines medieval arguments against actual infinity and traces their role
+in the later mathematical treatment of infinities of different sizes.
+
+\vspace{5pt}
+\section*{Publications \& Preprints}
+My dissertation has since been extended into a paper, currently under review at \textit{Foundations of Computational Mathematics}.\footcite{andrews2026stronglyenstrophystableintegratorsincompressible} In this work, we have proposed and analysed a mixed finite element discretisation for the incompressible
+Navier--Stokes equations that preserves the
+evolution of both energy $\mathcal{K}$ and enstrophy $\mathcal{E}$ at the discrete level.
+In two dimensions, the boundedness of enstrophy yields a Reynolds-robust bound on
+$\|\nabla\mathbf{u}\|$, providing a natural stabilisation mechanism for under-resolved flows.
+Conforming implementations rest on discrete Stokes complexes with
+$\mathbf{H}(\mathrm{grad}\,\mathrm{curl})$-- or $H^2$--conforming vorticity spaces, which are available only in limited polynomial degrees and mesh
+configurations.
+We have therefore introduced two reformulations: a symmetric interior penalty formulation over the
+standard discrete de Rham complex, and an
+$\mathbf{H}(\mathrm{grad}\,\mathrm{curl})$-- or $H^2$--free reparametrisation via auxiliary variables
+using only standard $\mathrm{grad}$--, $\mathrm{curl}$-- and $\mathrm{div}$--conforming spaces. A broad range of boundary conditions can be incorporated.
+Numerical experiments confirm the stabilising effect of enstrophy
+preservation in both 2D and 3D.
+
+\vspace{10pt}
+\subsectitle{Seminars \& Conferences}
+Elements of this work have been presented at a number of international conferences and workshops.
+I presented it in a minisymposium talk at \clink{https://www.firedrakeproject.org/firedrake_25.html}{Firedrake'25} (University of Leeds) and in a poster at \clink{https://sites.google.com/view/siamukie26/home}{SIAM UKIE '26} (University of Leicester).
+\textcolor{midnight}{\href{https://borisandrews.github.io/}{Boris Andrews}} presented it at \clink{https://mfet2025.de/}{ECCOMAS / MFET} (RWTH Aachen University),
+\clink{https://cage.ugent.be/acomen2025/}{ACOMEN} (Ghent University), the \clink{https://www.esi.ac.at/events/t3204/}{ESI Programme on Differential Complexes} (University of Vienna),
+\clink{https://scicade.org/}{SciCADE} (University of Edinburgh), a workshop on finite element tensor calculus (Tsinghua University),
+and the Numerical Analysis Group seminar (University of Oxford).
+
+\vspace{5pt}
+\section*{Why This Project}
+Wind energy is where my path back to mathematics began: my BSc thesis on regenerative wind farming
+was my first sustained encounter with the flows this project targets. My research since has
+centred on discretisations of the Navier--Stokes equations that stay stable for under-resolved,
+high-Reynolds-number flows, precisely the regime of atmospheric turbulence and turbine wakes.
+Lattice Boltzmann methods attack the same problem from the kinetic side, and the question of
+which structure a scheme preserves, and how that governs its stability, carries over directly.
+Together with my experience of large-scale simulation codes such as \texttt{BHAC} and
+\texttt{Athena++}, and of machine-learned turbulence models in \texttt{OpenFOAM}, this project
+would let me return to wind energy with the numerical tools I have built since.
+
+\end{document}
