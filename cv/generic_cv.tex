@@ -1,0 +1,420 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[top=1.4cm, bottom=1.4cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage[hidelinks, breaklinks=true]{hyperref}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Body-text scale — bumps \normalsize / \small only; \Large etc. (the
+% red section titles) are untouched since their sizes are fixed independently.
+\renewcommand{\normalsize}{\fontsize{13}{13}\selectfont}
+\renewcommand{\small}{\fontsize{12.5}{12.5}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{10}{10}\selectfont}
+
+% ── Colours ──────────────────────────────────────────
+\definecolor{muted}{gray}{0.45}
+\definecolor{linkcol}{HTML}{191970}
+\definecolor{brick}{HTML}{B5574A}
+\definecolor{pubcol}{HTML}{4C72B0}
+\definecolor{presentedcol}{HTML}{0F766E}
+\definecolor{golden}{HTML}{C9A227}
+
+% ── Section headings — brick bar + small-caps ────────
+% Tweak the two numbers to resize section titles: {size}{baselineskip}, both in pt.
+\newcommand{\sectitlesize}{\fontsize{18}{19}\selectfont}
+\newcommand{\sectionbar}{\textcolor{brick}{\rule[-0.05em]{1.1cm}{0.22em}}\hspace{0.45em}}
+\titleformat{\section}
+  {\color{brick}\scshape\sectitlesize}
+  {}{0em}
+  {\sectionbar}
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+% ── Entry with logo on left ───────────────────────────
+\newlength{\logowidth}
+\setlength{\logowidth}{1.3cm}
+\newlength{\entrywidth}
+\setlength{\entrywidth}{\textwidth}
+\addtolength{\entrywidth}{-\logowidth}
+\addtolength{\entrywidth}{-0.4cm}
+
+\definecolor{logoBorder}{HTML}{D6D6D3}
+\newlength{\logoinner}
+\setlength{\logoinner}{\logowidth}
+\addtolength{\logoinner}{-2.6pt}
+
+% Logo vertical position: raise/lower every logo by changing \logolift.
+% Larger value = logo sits lower; smaller (or negative) value = logo sits higher.
+\newlength{\logolift}
+\setlength{\logolift}{-9pt}
+
+\newcommand{\cventry}[3]{%
+  % #1 = logo path, #2 = logo alt (unused), #3 = body
+  \vspace{1pt}%
+  \begin{minipage}[t]{\logowidth}%
+    \vspace{\logolift}%
+    {\fboxsep=1pt\fboxrule=0.6pt\fcolorbox{logoBorder}{white}{\includegraphics[width=\logoinner, height=\logoinner, keepaspectratio]{#1}}}%
+  \end{minipage}%
+  \hspace{0.4cm}%
+  \begin{minipage}[t]{\entrywidth}%
+    #3
+  \end{minipage}%
+  \vspace{2.5pt}%
+}
+
+\newcommand{\cvdate}[1]{\textcolor{muted}{\small #1}}
+\newcommand{\pipe}{\,\textcolor{brick}{\rule[-0.2em]{0.8pt}{0.85em}}\,}
+\newcommand{\person}[2]{\textcolor{linkcol}{\href{#1}{#2}}}
+\newcommand{\linkicon}{\scalebox{0.75}{\faIcon{external-link-alt}}}
+
+% ── Dissertation card (website-style) ────────────────────
+\definecolor{dissBg}{HTML}{F7F7F6}
+\definecolor{statusBg}{HTML}{FEFCE8}
+\definecolor{statusBorder}{HTML}{FDE68A}
+\definecolor{statusText}{HTML}{854D0E}
+
+\newcommand{\disstitle}[1]{{\scshape\normalsize\textcolor{brick}{#1}}}
+\newcommand{\dissgrade}[1]{\textcolor{linkcol}{\small #1}}
+
+\newtcolorbox{dissbox}{
+  enhanced, breakable, colback=dissBg, colframe=dissBg,
+  boxrule=0pt, arc=4pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+  before skip=2pt, after skip=0pt
+}
+\newtcolorbox{statusbox}{
+  enhanced, colback=statusBg, colframe=statusBorder,
+  boxrule=0.6pt, arc=3pt, left=6pt, right=6pt, top=0pt, bottom=0pt,
+  before skip=-6pt, after skip=0pt
+}
+
+% ── Referee entry (name-only, no photo) ────────────────────
+\newcommand{\refnamesize}{\fontsize{12.5}{14.5}\selectfont}
+\newcommand{\refbodysize}{\fontsize{11}{13}\selectfont}
+\newcommand{\refentry}[5]{%
+  % #1 = name, #2 = title, #3 = institution, #4 = email, #5 = scholar URL
+  \noindent\makebox[\linewidth]{{\refnamesize\textbf{#1}}\hfill\textcolor{brick}{\rule[-0.2em]{0.8pt}{0.9em}}\hspace{0.4em}\scalebox{0.85}{\textcolor{linkcol}{\href{mailto:#4}{\faEnvelope[regular]}\ \href{#5}{\faIcon{graduation-cap}}}}}\\[1pt]
+  {\refbodysize\textcolor{muted}{#2\\#3}}%
+}
+% ── Referee entry, no confirmed email/scholar link yet ─────
+\newcommand{\refentrybare}[3]{%
+  % #1 = name, #2 = title, #3 = institution
+  \noindent{\refnamesize\textbf{#1}}\\[1pt]
+  {\refbodysize\textcolor{muted}{#2\\#3}}%
+}
+% ── Referee entry, publications link only (no confirmed email) ─────
+\newcommand{\refentrypub}[4]{%
+  % #1 = name, #2 = title, #3 = institution, #4 = publications URL
+  \noindent\makebox[\linewidth]{{\refnamesize\textbf{#1}}\hfill\textcolor{linkcol}{\href{#4}{\faIcon{graduation-cap}}}}\\[1pt]
+  {\refbodysize\textcolor{muted}{#2\\#3}}%
+}
+
+% ── Skill / language row (dissertation-label style) ────────
+\newcommand{\skillrow}[2]{%
+  \disstitle{#1}\textcolor{brick}{:}\ {\small #2}%
+}
+
+% ── Subsection headings — brick, plain case ──────────
+\newcommand{\subsectitle}[1]{{\color{brick}\fontsize{15}{17}\selectfont #1}\par\vspace{2pt}}
+
+% ── Research interest row ───────────────────────────────────
+\newcommand{\interest}[2]{{\color{brick}\fontsize{15}{17}\selectfont #1}, #2}
+
+% ── Date + content entry (publications) ──────────
+\newlength{\datewidth}
+\setlength{\datewidth}{1.3cm}
+\newlength{\pubwidth}
+\setlength{\pubwidth}{\textwidth}
+\addtolength{\pubwidth}{-\datewidth}
+\addtolength{\pubwidth}{-0.4cm}
+
+\newcommand{\pubentry}[3]{%
+  % #1 = Month, #2 = Year, #3 = body
+  \vspace{2pt}%
+  \begin{minipage}[t]{\datewidth}
+    \raggedleft #1\\#2
+  \end{minipage}%
+  \hspace{0.4cm}%
+  \begin{minipage}[t]{\pubwidth}
+    #3
+  \end{minipage}%
+  \vspace{2pt}%
+}
+
+\newcommand{\pubtitle}[1]{\textbf{\textcolor{pubcol}{#1}}}
+\newcommand{\pubnote}[2]{{\small \textcolor{brick}{$\circ$}\ #1\ \textit{#2}}}
+
+\newcommand{\yearentry}[2]{%
+  % #1 = Year, #2 = body
+  \vspace{2pt}%
+  \begin{minipage}[t]{\datewidth}
+    \raggedleft #1
+  \end{minipage}%
+  \hspace{0.4cm}%
+  \begin{minipage}[t]{\pubwidth}
+    #2
+  \end{minipage}%
+  \vspace{2pt}%
+}
+
+% ── Project entry ───────────────────────────────────────────
+\newcommand{\projtitle}[1]{\textbf{#1}}
+\newcommand{\projentry}[4]{%
+  % #1 = year (left column), #2 = title, #3 = meta line (supervisors), #4 = description
+  \vspace{2pt}%
+  \begin{minipage}[t]{\datewidth}
+    \raggedleft #1
+  \end{minipage}%
+  \hspace{0.4cm}%
+  \begin{minipage}[t]{\pubwidth}
+    \projtitle{#2}, with #3\\[2pt]
+    {\small #4}%
+  \end{minipage}%
+  \vspace{2pt}%
+}
+
+\renewcommand{\footnoterule}{\kern-3pt\hrule width\textwidth\kern2.6pt}
+
+\begin{document}
+\normalsize
+
+% ════════════════════════════════════════════════════
+%  HEADER
+% ════════════════════════════════════════════════════
+\noindent
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+{\huge\color{linkcol}\scshape Matin Shams}\footnotemark\ \ \textcolor{brick}{\normalsize CV}
+&
+{\Large\textcolor{brick}{\rule[-0.28em]{0.8pt}{1.1em}}\hspace{0.6em}\textcolor{linkcol}{%
+    \href{mailto:matinshams81@gmail.com}{\faEnvelope[regular]}
+    \quad
+    \href{https://github.com/matin-shams}{\faGithub}
+    \quad
+    \href{https://matinshams.me/cv.html?full}{\faGlobe}
+  }}
+\end{tabular*}
+\footnotetext{\textbf{Referees:}\ %
+\textcolor{linkcol}{\href{https://scholar.google.co.uk/citations?user=fTo6lckAAAAJ&hl=en}{Patrick Farrell,}} \textcolor{muted}{University of Oxford} \textcolor{linkcol}{\href{mailto:patrick.farrell@maths.ox.ac.uk}{\faEnvelope[regular]}\ \href{https://scholar.google.co.uk/citations?user=fTo6lckAAAAJ&hl=en}{\faIcon{graduation-cap}}} \(\cdot\)\ %
+\textcolor{linkcol}{\href{https://scholar.google.com/citations?user=FgY_twgAAAAJ}{Bart Ripperda,}} \textcolor{muted}{University of Toronto} \textcolor{linkcol}{\href{mailto:ripperda@cita.utoronto.ca}{\faEnvelope[regular]}\ \href{https://scholar.google.com/citations?user=FgY_twgAAAAJ}{\faIcon{graduation-cap}}} \(\cdot\)\ %
+\textcolor{linkcol}{\href{https://www.cs.ox.ac.uk/people/publications/type/Kathryn.Gillow.html}{Kathryn Gillow,}} \textcolor{muted}{University of Oxford} \textcolor{linkcol}{\href{mailto:kathryn.gillow@maths.ox.ac.uk}{\faEnvelope[regular]}\ \href{https://www.cs.ox.ac.uk/people/publications/type/Kathryn.Gillow.html}{\faIcon{graduation-cap}}}}
+
+\vspace{3pt}
+
+% ════════════════════════════════════════════════════
+%  EXPERIENCE
+% ════════════════════════════════════════════════════
+\section*{Experience}
+
+\cventry{../assets/logos/delft_logo.jpeg}{TU Delft}{%
+  \textbf{\href{https://www.tudelft.nl}{Delft University of Technology}}\\[2pt]
+  Teaching Assistant\\[1pt]
+  \cvdate{Sep 2023\,--\,Jun 2024 \(\cdot\) Part-time}\\[4pt]
+  {\small Part-time teaching assistant for multiple first-year BSc Aerospace Engineering courses, supporting tutorials, grading, and student problem-solving.}%
+}
+
+% ════════════════════════════════════════════════════
+%  EDUCATION
+% ════════════════════════════════════════════════════
+\section*{Education}
+
+\cventry{../assets/logos/oxforduni_logo.jpeg}{Oxford}{%
+  \textbf{\href{https://www.ox.ac.uk}{University of Oxford}}\quad
+  \textcolor{linkcol}{Merit}\\[2pt]
+  MSc Mathematical Modelling \& Scientific Computing\\[1pt]
+  \cvdate{2024\,--\,2025 \(\cdot\) Oxford, United Kingdom}
+
+  \begin{dissbox}
+  \disstitle{Dissertation}\quad
+  \dissgrade{Distinction \(\cdot\) Grade: 71\%}\\
+  \textit{\textcolor{pubcol}{\href{https://matinshams.me/assets/dissertation.pdf}{Energy and enstrophy preserving discretisations of the incompressible Navier--Stokes equations}}}\ \
+  \textcolor{linkcol}{\href{https://matinshams.me/assets/dissertation.pdf}{\linkicon}}\ \
+  with \person{https://pefarrell.org/}{Patrick Farrell} and \person{https://borisandrews.github.io/}{Boris Andrews}\\[0pt]
+  \begin{statusbox}
+    {\small\textcolor{statusText}{extended into a paper, in review at {FoCM}}}
+  \end{statusbox}
+  \end{dissbox}%
+}
+
+\cventry{../assets/logos/ubc_logo.jpeg}{UBC}{%
+  \textbf{\href{https://www.ubc.ca}{University of British Columbia}}\quad
+  \textcolor{linkcol}{Grade: 85.7\%}\\[2pt]
+  Minor in Astrophysics \& Astronomy\\[1pt]
+  \cvdate{2022\,--\,2023 \(\cdot\) Vancouver, Canada}%
+}
+
+\cventry{../assets/logos/delft_logo.jpeg}{TU Delft}{%
+  \textbf{\href{https://www.tudelft.nl}{Delft University of Technology}}\quad
+  \textcolor{linkcol}{First Class Honours \(\cdot\) Grade: 83.4\%}\\[2pt]
+  BSc Aerospace Engineering\\[1pt]
+  \cvdate{2021\,--\,2024 \(\cdot\) Delft, Netherlands}
+
+  \begin{dissbox}
+  \disstitle{Dissertation}\quad
+  \dissgrade{Grade: 80\%}\\
+  \textit{Regenerative Wind Farming}\\
+  Supervised by
+  \person{https://www.tudelft.nl/en/ae/organisation/dean-faculty-of-aerospace-engineering/inauguration-henri-werij/carlos}{Carlos Sim\~{a}o Ferreira}
+  and
+  \person{https://www.tudelft.nl/staff/u.fechner.1/}{Uwe Fechner}
+  \end{dissbox}
+  \vspace{5pt}
+
+  \textbf{Bridging Program in Applied Mathematics}\\[1pt]
+  \cvdate{2023\,--\,2024 \(\cdot\) Delft, Netherlands}\\[1pt]
+  {\small The bridging program in Applied Mathematics at TU Delft is designed for engineering graduates who are to pursue advanced mathematical studies.\ \ \textcolor{linkcol}{\href{https://www.tudelft.nl/onderwijs/opleidingen/masters/am/msc-applied-mathematics/admission-and-application/applicants-with-a-dutch-bachelor-degree}{\linkicon}}}%
+}
+
+% ════════════════════════════════════════════════════
+%  RESEARCH INTERESTS
+% ════════════════════════════════════════════════════
+\section*{Research Interests}
+
+\interest{Structure-preserving/compatible numerical methods for PDEs \& ODEs}{Conservation \& dissipation structures, Global \& local energy estimates \& conservation laws.}\\[3pt] \interest{Finite element theory}{Finite element exterior calculus (FEEC), Domain decomposition}\\[3pt] \interest{Computational fluid dynamics}{Under-resolved \& high-Reynolds-number flows}
+
+% ════════════════════════════════════════════════════
+%  PUBLICATIONS & PREPRINTS
+% ════════════════════════════════════════════════════
+\section*{Publications \& Preprints}
+
+\subsectitle{Preprints}
+
+\pubentry{Sep}{2026}{%
+  \pubtitle{\href{https://arxiv.org/abs/2609.15520}{Strongly enstrophy--stable integrators for the incompressible Navier--Stokes equations}}, with \person{https://borisandrews.github.io/}{Boris Andrews} and \person{https://pefarrell.org/}{Patrick Farrell}\\[2pt]
+  \pubnote{In review:}{Foundations of Computational Mathematics (FoCM)}%
+}
+
+\vspace{2pt}
+\subsectitle{Other works}
+
+\pubentry{Oct}{2025}{%
+  \pubtitle{\href{https://matinshams.me/assets/dissertation.pdf}{Energy and enstrophy preserving discretisations of the incompressible Navier--Stokes equations}}, \textit{Supervised by} \person{https://pefarrell.org/}{Patrick Farrell}\\[2pt]
+  \pubnote{Note:}{MSc dissertation (Oxford repository)}%
+}
+
+% ════════════════════════════════════════════════════
+%  PROJECTS
+% ════════════════════════════════════════════════════
+\section*{Projects}
+
+\projentry{2023\\/24}%
+{On the relativistic magnetized RT instability: An application to magnetically arrested accretion}%
+{\person{https://bartripperda.com/}{Bart Ripperda} and \person{https://smressle.bitbucket.io/index.html}{Sean Ressler}}%
+{Through numerical relativistic fluid simulations of Rayleigh--Taylor instabilities, we demonstrated that a dense outer accretion disk penetrates the inner, dilute magnetosphere, facilitating gas particle movement to the event horizon.}
+
+\vspace{5pt}
+\projentry{2023\\/24}%
+{Mimetic Spectral Methods with Bundle-Valued Differential Forms}%
+{\person{https://www.tudelft.nl/en/staff/m.i.gerritsma/}{Marc Gerritsma}}%
+{I researched the use of bundle-valued forms in Mimetic spectral element methods to preserve the key underlying properties of a PDE in a discrete setting.}
+
+\vspace{5pt}
+\projentry{2023\\/24}%
+{Multi-fidelity optimization using GEP for OpenFOAM CFD simulations}%
+{\person{https://aerodynamics.lr.tudelft.nl/~rdwight/}{Richard Dwight} and \person{https://www.tudelft.nl/en/staff/r.tian.1/}{Renzhi Tian}}%
+{This project aimed to reduce the simulation time of GEP-generated turbulence models. This work combined symbolic, data-driven machine learning techniques with model selection.}
+
+% ════════════════════════════════════════════════════
+%  SEMINARS & CONFERENCES
+% ════════════════════════════════════════════════════
+\section*{Seminars \& Conferences}
+
+\makeatletter
+\renewcommand{\@makefnmark}{\textsuperscript{\textcolor{brick}{\large\textbf{*}}}}
+\renewcommand{\@makefntext}[1]{\textcolor{brick}{\large\textbf{*}}\ #1}
+\makeatother
+
+\stepcounter{footnote}
+\footnotetext{I did not attend these; Boris Andrews presented our joint work, which began as my dissertation and was later extended into our joint paper (see Publications \& Preprints).}
+\yearentry{2025\footnotemark[\value{footnote}]}{%
+  \href{https://mfet2025.de/}{\pubtitle{ECCOMAS / MFET}}, RWTH Aachen University,
+  \href{https://cage.ugent.be/acomen2025/}{\pubtitle{ACOMEN}}, Ghent University,
+  \href{https://www.maths.ox.ac.uk/node/74237}{\pubtitle{Numerical Analysis Group}}, University of Oxford%
+}
+
+\vspace{2pt}
+\yearentry{2026\footnotemark[\value{footnote}]}{%
+  \href{https://www.esi.ac.at/events/t3204/}{\pubtitle{ESI Programme on Differential Complexes}}, University of Vienna,
+  \href{https://scicade.org/}{\pubtitle{SciCADE}}, University of Edinburgh,
+  \pubtitle{Workshop on Finite Element Tensor Calculus}, Tsinghua University%
+}
+
+\vspace{4pt}
+\subsectitle{Minisymposium Presentations\textsuperscript{\textcolor{golden}{\large\textbf{*}}}}
+
+\bgroup
+\makeatletter
+\renewcommand{\@makefntext}[1]{\textcolor{golden}{\large\textbf{*}}\ #1}
+\makeatother
+\stepcounter{footnote}
+\footnotetext{Presented by me.}
+\egroup
+
+\yearentry{2025}{%
+  \href{https://www.firedrakeproject.org/firedrake_25.html}{\pubtitle{Firedrake}}, University of Leeds%
+}
+
+\vspace{2pt}
+\yearentry{2026}{%
+  \href{https://sites.google.com/view/siamukie26/home}{\pubtitle{SIAM UKIE '26}}, University of Leicester%
+}
+
+% ════════════════════════════════════════════════════
+%  AWARDS
+% ════════════════════════════════════════════════════
+\section*{Awards}
+
+\pubentry{Jun}{2026}{%
+  \pubtitle{\href{https://sites.google.com/view/siamukie26/home}{SIAM UKIE '26}} \textbf{Travel Grant}\\[2pt]
+  {\small Awarded to present a poster (available upon request).}%
+}
+
+\vspace{3pt}
+\pubentry{Sep}{2025}{%
+  \pubtitle{\href{https://www.st-hughs.ox.ac.uk/current-students/finance/financial-grants/the-barbinder-watson-trust-fund/}{Barbinder Watson Trust Fund}}\\[2pt]
+  {\small Travel grant from St Hugh's College, Oxford, to present a talk at Firedrake '25.}%
+}
+
+\vspace{3pt}
+\pubentry{Feb}{2023}{%
+  \textbf{Minor Abroad Scholarship}\\[2pt]
+  {\small \(\sim\)\pounds12\,000 awarded to only three individuals to pursue a minor abroad at UBC.}%
+}
+
+\vspace{3pt}
+\pubentry{Feb}{2023}{%
+  \pubtitle{\href{https://www.tudelft.nl/studenten/mijn-studie-ik/onderwijs/study-abroad/orientation/financial-support/stir-fund}{STIR Fund}}\\[2pt]
+  {\small \texteuro400 to support study or research abroad outside the EU/EEA/EFTA.}%
+}
+
+% ════════════════════════════════════════════════════
+%  TRANSLATIONS
+% ════════════════════════════════════════════════════
+\section*{Translations}
+
+\yearentry{2026}{%
+  \pubtitle{\href{https://www.cambridge.org/core/elements/abs/medieval-finitism/DF1200CCF8D885032E251462187EEB8D}{Medieval Finitism}}\ {\small by \textcolor{linkcol}{\href{https://www.ms-zarepour.com/}{Mohammad Saleh Zarepour}}}\\[2pt]
+  {\small\textcolor{muted}{Co-translator:} \textcolor{linkcol}{\href{https://www.kaavelajevardi.com/}{Kaveh Lajevardi}}}%
+}
+
+
+% ════════════════════════════════════════════════════
+%  LANGUAGES
+% ════════════════════════════════════════════════════
+\section*{Languages}
+
+\skillrow{Spoken}{German (native), Persian (native), English (fluent)}\ \(\cdot\)\ \skillrow{Programming}{Python (Firedrake), Fortran (Tristan-MP, BHAC), C++ (Athena++, H-AMR), R}
+
+\end{document}
